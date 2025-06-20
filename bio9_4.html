@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Reproduction</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background: linear-gradient(to bottom, #003366, #006699, #0099cc);
+        }
+
+        /* Bubble Animation */
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Bubbles Container */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Prevents interaction */
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: bubbleFloat 8s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) { left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { left: 30%; animation-duration: 6s; width: 12px; height: 12px; }
+        .bubble:nth-child(3) { left: 50%; animation-duration: 9s; width: 18px; height: 18px; }
+        .bubble:nth-child(4) { left: 70%; animation-duration: 5s; width: 14px; height: 14px; }
+        .bubble:nth-child(5) { left: 90%; animation-duration: 8s; width: 20px; height: 20px; }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 2px solid white;
+        }
+
+        /* Main Content */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* List Styling */
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bubbles Container -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        Human Reproduction
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Types of Reproduction</h2>
+        <p>Humans reproduce sexually, meaning that two parents (one male and one female) contribute genetic material to produce offspring. This introduces genetic variation and ensures the continuation of the species.</p>
+
+        <h2>Male Reproductive System</h2>
+        <p>The male reproductive system is responsible for producing sperm (male gametes) and delivering them into the female reproductive system for fertilization. Key structures include:</p>
+        <ul>
+            <li><strong>Testes:</strong> The male gonads, where sperm and testosterone are produced.</li>
+            <li><strong>Seminal Vesicles:</strong> Glands that secrete a fluid that nourishes and transports sperm.</li>
+            <li><strong>Vas Deferens:</strong> A duct that transports sperm from the epididymis to the urethra.</li>
+            <li><strong>Urethra:</strong> The tube that carries sperm out of the body during ejaculation.</li>
+            <li><strong>Penis:</strong> The external organ used to deliver sperm into the female reproductive tract.</li>
+        </ul>
+
+        <h2>Female Reproductive System</h2>
+        <p>The female reproductive system is responsible for producing eggs (ova) and providing an environment for fertilization and fetal development. It consists of:</p>
+        <ul>
+            <li><strong>Ovaries:</strong> Where eggs are produced and estrogen and progesterone are secreted.</li>
+            <li><strong>Fallopian Tubes:</strong> Tubes that carry the egg from the ovary to the uterus.</li>
+            <li><strong>Uterus:</strong> The organ where the fertilized egg implants and develops into a fetus.</li>
+            <li><strong>Cervix:</strong> The narrow passage connecting the uterus to the vagina.</li>
+            <li><strong>Vagina:</strong> The passageway for sperm during intercourse and the birth canal during delivery.</li>
+        </ul>
+
+        <h2>Gametes and Fertilization</h2>
+        <p>Gametes are specialized cells involved in reproduction:</p>
+        <ul>
+            <li><strong>Sperm:</strong> The male gametes produced in the testes.</li>
+            <li><strong>Egg (Ovum):</strong> The female gametes produced in the ovaries.</li>
+        </ul>
+        <p>Fertilization occurs when sperm successfully meets and penetrates the egg in the fallopian tube, resulting in the formation of a zygote.</p>
+
+        <h2>The Menstrual Cycle</h2>
+        <p>The menstrual cycle involves hormonal changes that regulate ovulation and prepare the uterus for pregnancy. It has four main phases: Menstrual Phase, Follicular Phase, Ovulation, and Luteal Phase.</p>
+
+        <h2>Pregnancy and Development</h2>
+        <p>If fertilization occurs, the zygote develops into an embryo, and later a fetus. The stages of pregnancy include:</p>
+        <ul>
+            <li><strong>Zygote:</strong> The fertilized egg.</li>
+            <li><strong>Blastocyst:</strong> The stage where the zygote implants into the uterine lining.</li>
+            <li><strong>Embryo:</strong> Development of basic body structures until week 8.</li>
+            <li><strong>Fetus:</strong> The developing human from week 9 to birth.</li>
+        </ul>
+
+        <h2>Childbirth</h2>
+        <p>Childbirth involves three stages: Cervical Dilation, Delivery of the Baby, and Delivery of the Placenta.</p>
+
+        <h2>Contraception</h2>
+        <p>Contraceptive methods include:</p>
+        <ul>
+            <li><strong>Barrier Methods:</strong> Condoms and diaphragms prevent sperm from reaching the egg.</li>
+            <li><strong>Hormonal Methods:</strong> Birth control pills, patches, and IUDs prevent ovulation or implantation.</li>
+            <li><strong>Permanant Methods:</strong> Sterilization prevents reproduction.</li>
+        </ul>
+
+        <h2>Sexually Transmitted Infections (STIs)</h2>
+        <p>STIs can affect the reproductive system. Safe sex practices, including the use of condoms, reduce the risk of STIs.</p>
+
+        <h2>Genetics and Heredity</h2>
+        <p>Human reproduction involves the inheritance of genetic traits, with each person receiving 23 chromosomes from each parent, containing genes that determine physical traits and susceptibility to diseases.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+</body>
+</html>

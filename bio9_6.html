@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecology: Understanding Ecosystems and Interactions</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background: linear-gradient(to bottom, #003366, #006699, #0099cc);
+        }
+
+        /* Bubble Animation */
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Bubbles Container */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Prevents interaction */
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: bubbleFloat 8s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) { left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { left: 30%; animation-duration: 6s; width: 12px; height: 12px; }
+        .bubble:nth-child(3) { left: 50%; animation-duration: 9s; width: 18px; height: 18px; }
+        .bubble:nth-child(4) { left: 70%; animation-duration: 5s; width: 14px; height: 14px; }
+        .bubble:nth-child(5) { left: 90%; animation-duration: 8s; width: 20px; height: 20px; }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 2px solid white;
+        }
+
+        /* Main Content */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* List Styling */
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bubble Effect -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        Ecology: Understanding Ecosystems and Interactions
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Basic Concepts of Ecology</h2>
+        <p>Ecology is the branch of biology that studies the interactions between organisms and their environment. It focuses on understanding how living organisms, such as plants, animals, and microorganisms, interact with each other and with their physical surroundings, including factors like climate, soil, and water. Ecologists examine these relationships at various levels of biological organization, from individual organisms to the entire biosphere.</p>
+
+        <h2>Levels of Ecological Organization</h2>
+        <ul>
+            <li><b>Individual Organism:</b> The study of how individual organisms adapt to their environment and how they survive and reproduce.</li>
+            <li><b>Population:</b> A population consists of individuals of the same species living in a specific area. Population ecology focuses on the size, density, distribution, and dynamics of populations.</li>
+            <li><b>Community:</b> A community is a group of different species interacting in a shared environment. Community ecology looks at the structure and organization of communities.</li>
+            <li><b>Ecosystem:</b> An ecosystem includes the living organisms in a specific area and the abiotic components they interact with, such as water, nutrients, and climate.</li>
+            <li><b>Biome:</b> A biome is a large geographic biotic unit defined by its climate and dominant vegetation type. Examples include deserts, forests, grasslands, and tundras.</li>
+            <li><b>Biosphere:</b> The biosphere refers to the global sum of all ecosystems. It includes the Earth's land, water, and atmosphere, where life exists.</li>
+        </ul>
+
+        <h2>Energy Flow in Ecosystems</h2>
+        <p>Energy flows through ecosystems in one direction, from producers to various levels of consumers. Only about 10% of the energy at one trophic level is passed on to the next, a concept known as the <i>10% rule</i>. The rest is lost as heat due to metabolic processes.</p>
+
+        <h2>Biogeochemical Cycles</h2>
+        <ul>
+            <li><b>Carbon Cycle:</b> The movement of carbon between the atmosphere, organisms, and Earth. It moves through processes like photosynthesis and respiration.</li>
+            <li><b>Nitrogen Cycle:</b> Nitrogen is essential for proteins and nucleic acids. It cycles through the atmosphere, soil, and living organisms.</li>
+            <li><b>Water Cycle:</b> The movement of water through the atmosphere, land, and oceans, involving processes like evaporation, condensation, and precipitation.</li>
+            <li><b>Phosphorus Cycle:</b> Phosphorus is important for DNA, RNA, and ATP. It cycles through soil and water without a gaseous phase.</li>
+        </ul>
+
+        <h2>Population Ecology and Dynamics</h2>
+        <ul>
+            <li><b>Population Growth:</b> Populations can grow exponentially or logistically. Exponential growth happens when resources are abundant, while logistical growth occurs when resources are limited.</li>
+            <li><b>Carrying Capacity:</b> The maximum population size that an environment can support indefinitely, given the available resources.</li>
+            <li><b>Limiting Factors:</b> Factors like food, space, and climate that restrict population growth.</li>
+            <li><b>Invasive Species:</b> Non-native species that disrupt ecosystems by outcompeting native species.</li>
+        </ul>
+
+        <h2>Species Interactions</h2>
+        <ul>
+            <li><b>Competition:</b> Occurs when species or individuals compete for resources.</li>
+            <li><b>Predation:</b> One organism preys on another for food.</li>
+            <li><b>Symbiosis:</b> Close relationships between species, which can be mutualistic, commensal, or parasitic.</li>
+        </ul>
+
+        <h2>Ecological Succession</h2>
+        <ul>
+            <li><b>Primary Succession:</b> Occurs in areas without soil, such as after a volcanic eruption or glacier retreat.</li>
+            <li><b>Secondary Succession:</b> Occurs in areas where soil remains after a disturbance, like a forest fire.</li>
+        </ul>
+
+        <h2>Human Impact on Ecosystems</h2>
+        <ul>
+            <li><b>Deforestation:</b> Clearing of forests leads to habitat loss and disruption of carbon and water cycles.</li>
+            <li><b>Climate Change:</b> Human-induced global warming affects ecosystems, species, and weather patterns.</li>
+            <li><b>Pollution:</b> Air, water, and soil pollution harm wildlife and disrupt ecosystems.</li>
+            <li><b>Biodiversity Loss:</b> Habitat destruction, overhunting, and climate change contribute to biodiversity loss.</li>
+        </ul>
+
+        <h2>Conservation Ecology</h2>
+        <ul>
+            <li><b>Protected Areas:</b> National parks and wildlife reserves help conserve habitats and species.</li>
+            <li><b>Restoration Ecology:</b> The process of restoring degraded ecosystems to a more natural state.</li>
+            <li><b>Sustainable Development:</b> Developing human activities in a way that meets present needs without compromising future generations.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+
+</body>
+</html>

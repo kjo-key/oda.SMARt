@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Health, Nutrition, and Disease</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background: linear-gradient(to bottom, #003366, #006699, #0099cc);
+        }
+
+        /* Bubble Animation */
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Bubbles Container */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Prevents interaction */
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: bubbleFloat 8s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) { left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { left: 30%; animation-duration: 6s; width: 12px; height: 12px; }
+        .bubble:nth-child(3) { left: 50%; animation-duration: 9s; width: 18px; height: 18px; }
+        .bubble:nth-child(4) { left: 70%; animation-duration: 5s; width: 14px; height: 14px; }
+        .bubble:nth-child(5) { left: 90%; animation-duration: 8s; width: 20px; height: 20px; }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 2px solid white;
+        }
+
+        /* Main Content */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* List Styling */
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        Human Health, Nutrition, and Disease
+    </header>
+
+    <div class="container">
+        <h2>Human Health</h2>
+        <p>Human health refers to the overall physical, mental, and social well-being of an individual. It is not merely the absence of disease but the ability of the body and mind to function optimally in daily life. Health is influenced by various factors, including genetics, lifestyle choices, environment, and access to healthcare.</p>
+
+        <h2>Components of Health</h2>
+        <ul>
+            <li><strong>Physical Health:</strong> The state of the body and its systems (e.g., cardiovascular, respiratory, digestive, immune systems).</li>
+            <li><strong>Mental Health:</strong> Psychological well-being, including emotional stability, stress management, and cognitive function.</li>
+            <li><strong>Social Health:</strong> The ability to form positive relationships, engage in social activities, and be part of a supportive community.</li>
+        </ul>
+
+        <h2>Determinants of Health</h2>
+        <ul>
+            <li><strong>Genetics:</strong> Inherited traits from parents that can influence susceptibility to certain diseases and conditions.</li>
+            <li><strong>Lifestyle Choices:</strong> Habits such as diet, physical activity, smoking, alcohol consumption, and sleep patterns.</li>
+            <li><strong>Environment:</strong> The physical and social environment, including air and water quality, living conditions, and social support networks.</li>
+            <li><strong>Healthcare Access:</strong> Availability and quality of medical care, vaccines, preventive services, and health education.</li>
+        </ul>
+
+        <h2>Nutrition</h2>
+        <p>Nutrition is the process by which the body takes in and uses food to maintain health, support growth, and provide energy. Proper nutrition involves a balanced diet containing essential nutrients that the body needs to function optimally.</p>
+
+        <h2>Essential Nutrients</h2>
+        <ul>
+            <li><strong>Carbohydrates:</strong> The body’s primary energy source. Found in foods like grains, fruits, and vegetables.</li>
+            <li><strong>Proteins:</strong> Composed of amino acids, proteins are essential for building and repairing tissues, producing enzymes, and supporting immune function.</li>
+            <li><strong>Fats:</strong> Provide energy and help absorb fat-soluble vitamins. Healthy fats come from sources like olive oil, nuts, seeds, and fatty fish.</li>
+            <li><strong>Vitamins:</strong> Organic compounds necessary for various biochemical processes in the body, such as supporting immune health and regulating metabolism.</li>
+            <li><strong>Minerals:</strong> Inorganic elements that support bodily functions like bone health, nerve transmission, and fluid balance.</li>
+            <li><strong>Water:</strong> Vital for hydration, temperature regulation, and nutrient transport.</li>
+            <li><strong>Fiber:</strong> A type of carbohydrate that aids digestion and supports heart health.</li>
+        </ul>
+
+        <h2>Balanced Diet</h2>
+        <p>A balanced diet includes a variety of foods in the right proportions to provide the body with essential nutrients. It typically includes fruits, vegetables, whole grains, proteins, and healthy fats.</p>
+
+        <h2>Disease</h2>
+        <p>Diseases are abnormalities in the body’s structure or function that disrupt normal operations. They can be caused by infections, genetic disorders, lifestyle choices, or environmental factors. Diseases can be classified as communicable or non-communicable.</p>
+
+        <h2>Communicable Diseases</h2>
+        <ul>
+            <li><strong>Infectious Agents:</strong> Viruses, bacteria, fungi, and parasites cause communicable diseases.</li>
+            <li><strong>Prevention:</strong> Vaccination, hygiene practices, and antimicrobial treatments help prevent the spread of communicable diseases.</li>
+        </ul>
+
+        <h2>Non-Communicable Diseases (NCDs)</h2>
+        <ul>
+            <li><strong>Cardiovascular Diseases:</strong> Heart disease, hypertension, and stroke.</li>
+            <li><strong>Cancer:</strong> Uncontrolled cell growth leading to tumors.</li>
+            <li><strong>Diabetes:</strong> The body is unable to properly regulate blood sugar levels.</li>
+            <li><strong>Respiratory Diseases:</strong> Conditions like asthma and COPD.</li>
+            <li><strong>Mental Health Disorders:</strong> Conditions like depression, anxiety, and schizophrenia.</li>
+        </ul>
+
+        <h2>Preventing Disease and Promoting Health</h2>
+        <ul>
+            <li><strong>Vaccination:</strong> Prevents infectious diseases.</li>
+            <li><strong>Healthy Lifestyle Choices:</strong> Eating a balanced diet, exercising, avoiding tobacco, managing stress, and getting enough sleep.</li>
+            <li><strong>Screening and Early Detection:</strong> Regular health check-ups for early disease detection.</li>
+        </ul>
+
+        <h2>Nutrition and Disease Prevention</h2>
+        <p>Proper nutrition is essential in preventing diseases like heart disease, cancer, and diabetes. A well-balanced diet supports the immune system, helps regulate blood sugar, and maintains overall health.</p>
+    </div>
+
+    <footer>
+        &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+</body>
+</html>

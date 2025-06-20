@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characteristics and Classification of Organisms</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background: linear-gradient(to bottom, #003366, #006699, #0099cc);
+        }
+
+        /* Bubble Animation */
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Bubbles Container */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Prevents interaction */
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: bubbleFloat 8s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) { left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { left: 30%; animation-duration: 6s; width: 12px; height: 12px; }
+        .bubble:nth-child(3) { left: 50%; animation-duration: 9s; width: 18px; height: 18px; }
+        .bubble:nth-child(4) { left: 70%; animation-duration: 5s; width: 14px; height: 14px; }
+        .bubble:nth-child(5) { left: 90%; animation-duration: 8s; width: 20px; height: 20px; }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 2px solid white;
+        }
+
+        /* Main Content */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* List Styling */
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        Characteristics and Classification of Organisms
+    </header>
+
+    <div class="container">
+        <h2>1. Characteristics of Organisms</h2>
+        <p>Organisms, whether plants, animals, fungi, or microorganisms, share certain characteristics that define life. These include:</p>
+        <ul>
+            <li><strong>Cellular Organization:</strong> All living organisms are made up of cells. Cells are the basic units of life. Organisms can be unicellular (one cell) or multicellular (many cells). Cells can be eukaryotic (with a nucleus and organelles, such as in plants and animals) or prokaryotic (without a nucleus, such as in bacteria).</li>
+            <li><strong>Metabolism:</strong> Organisms undergo chemical reactions to break down nutrients and produce energy, which is necessary for their survival, growth, and reproduction.</li>
+            <li><strong>Homeostasis:</strong> Organisms maintain a stable internal environment despite changes in the external environment.</li>
+            <li><strong>Growth and Development:</strong> Organisms grow and develop according to specific instructions coded in their DNA.</li>
+            <li><strong>Reproduction:</strong> Reproduction is the process by which organisms produce offspring. This can be sexual or asexual.</li>
+            <li><strong>Response to Stimuli:</strong> Organisms respond to environmental changes or stimuli.</li>
+            <li><strong>Adaptation:</strong> Organisms adapt to their environments over time through evolutionary changes.</li>
+            <li><strong>Heredity:</strong> Organisms inherit genetic material (DNA or RNA) from their parents, passing traits from one generation to the next.</li>
+        </ul>
+
+        <h2>2. Classification of Organisms (Taxonomy)</h2>
+        <p>Classification involves organizing organisms into groups based on similarities in their characteristics. Taxonomy is the branch of biology that deals with classification. The goal of classification is to reflect the evolutionary relationships between organisms. Organisms are classified into hierarchical categories, starting from the broadest to the most specific level:</p>
+        <ul>
+            <li><strong>Domain:</strong> The highest classification. There are three domains: Bacteria, Archaea, and Eukarya.</li>
+            <li><strong>Kingdom:</strong> Organisms within a domain are further grouped into kingdoms.</li>
+            <li><strong>Phylum:</strong> Organisms within a kingdom are divided into phyla.</li>
+            <li><strong>Class:</strong> Each phylum is further divided into classes.</li>
+            <li><strong>Order:</strong> Each class is divided into orders.</li>
+            <li><strong>Family:</strong> Orders are divided into families.</li>
+            <li><strong>Genus:</strong> Each family is divided into genera.</li>
+            <li><strong>Species:</strong> The most specific classification. A species consists of organisms that can interbreed and produce fertile offspring.</li>
+        </ul>
+
+        <h2>3. Binomial Nomenclature</h2>
+        <p>A system for naming organisms, where each organism is given a two-part Latin name: the first part is the genus (capitalized), and the second part is the species (lowercase). For example, <strong>Homo sapiens</strong> refers to humans, with <strong>Homo</strong> being the genus and <strong>sapiens</strong> being the species.</p>
+
+        <h2>4. Five Kingdoms of Life</h2>
+        <p>Organisms are traditionally classified into five kingdoms:</p>
+        <ul>
+            <li><strong>Monera:</strong> Single-celled prokaryotes, including bacteria and cyanobacteria.</li>
+            <li><strong>Protista:</strong> Single-celled eukaryotes like amoebas and algae.</li>
+            <li><strong>Fungi:</strong> Multicellular or unicellular organisms like mushrooms and yeasts, which absorb nutrients from external sources.</li>
+            <li><strong>Plantae:</strong> Multicellular organisms that are photosynthetic, such as trees and flowers.</li>
+            <li><strong>Animalia:</strong> Multicellular organisms that are heterotrophic (consume organic material), such as mammals, birds, and insects.</li>
+        </ul>
+
+        <h2>5. Phylogenetic Classification</h2>
+        <p>Modern classification focuses on phylogeny, or evolutionary history, using molecular data to group organisms based on common ancestry. This is reflected in <strong>cladistics</strong>, where organisms are grouped into clades that share a common ancestor.</p>
+
+        <h2>6. Evolutionary Relationships</h2>
+        <p>Organisms are classified based on their evolutionary relationships, which are determined by comparing traits and genetic information. Organisms with more similarities in their DNA are more closely related.</p>
+
+        <h2>7. Tools in Classification</h2>
+        <ul>
+            <li><strong>Morphological features:</strong> Structure and form of organisms (e.g., body shape, organ systems).</li>
+            <li><strong>Molecular data:</strong> DNA, RNA, and protein sequences are compared to assess evolutionary relationships.</li>
+            <li><strong>Behavioral traits:</strong> Animal behavior patterns, such as mating rituals, can help in classification.</li>
+            <li><strong>Biogeography:</strong> The study of the geographical distribution of organisms.</li>
+        </ul>
+
+        <h2>8. Challenges in Classification</h2>
+        <ul>
+            <li><strong>Convergent Evolution:</strong> Organisms that are not closely related may develop similar traits due to similar environmental pressures.</li>
+            <li><strong>Horizontal Gene Transfer:</strong> In bacteria, genes can be transferred between species, complicating the understanding of evolutionary relationships.</li>
+        </ul>
+
+        <h2>9. Current Trends in Classification</h2>
+        <p>Modern classification systems focus on molecular data and evolutionary trees (phylogenies), allowing for more accurate and comprehensive classifications.</p>
+    </div>
+
+    <footer>
+        &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+
+</body>
+</html>

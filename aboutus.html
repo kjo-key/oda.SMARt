@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Boxes</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Header Styling */
+        /* Header Styling */
+header {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Adjust header height */
+header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;art;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 200px 20px 150px; /* Increased padding to push content below header */
+    overflow-y: auto;
+}
+        h6 {
+            color: white;
+        }
+
+        /* Container for Boxes */
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Individual Box Styling */
+        .box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Profile Image */
+        .box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid white;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .box-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+       }
+
+        @media (max-width: 400px) {
+            .box-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        body {
+        padding-top: 160px; /* Adjust padding-top for even smaller screens */
+    }
+
+        /* Footer Styling */
+        footer {
+           background: #005bb5;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        footer a {
+            color: black;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Black Header -->
+    <header>
+        <h1>ABOUT US</h1>
+        <p>OROMIA DEVELOPMENT ASSOCIATION special boarding school</p>
+        <p>bishoftu branch</p>
+        <p>ICT club </p>
+        <p>We are a special boarding school students whom highly interested in computer science and technology. We strive to understand technology, share our experiences, and solve school problems through digital solutions. Our first project focuses on tracking student attendance in a digital and effective way.
+</p>
+    </header>
+
+    <!-- Profile Boxes -->
+    <div class="box-container">
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Yoseph Feyisa</h4>
+            <h6>Student from 10D</h6>
+        </div>
+        <div class="box">
+            <img src="female.jpeg" alt="Profile">
+            <h4>Fenet Gemachis</h4>
+            <h6>Student from 10C</h6>
+        </div>
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Nahom Debebe</h4>
+            <h6>Student from 10C</h6>
+        </div>
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Natna’el Taye</h4>
+            <h6>Student from 10E</h6>
+        </div>
+        <div class="box">
+            <img src="female.jpeg" alt="Profile">
+            <h4>Sena Chala</h4>
+            <h6>Student from 10D</h6>
+        </div>
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Tesfaye Tilahun</h4>
+            <h6>Student from 10B</h6>
+        </div>
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Mikiyas Birhanu</h4>
+            <h6>Student from 10C</h6>
+        </div>
+        <div class="box">
+            <img src="male.jpeg" alt="Profile">
+            <h4>Misgana Ayana</h4>
+            <h6>ICT Teacher and club representative teacher</h6>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer>
+        <ul>
+            <li>Ethiopia</li>
+            <li>Oromia, Bishoftu town</li>
+        </ul>
+        <a href="https://policies.google.com/privacy?hl=en-ET&fg=1">Privacy</a>
+        <a href="https://policies.google.com/terms?hl=en-ET&fg=1">Terms</a>
+        <a href="mailto: feyisayoseph@gmail.com">Contact us</a>
+        <a href="https://t.me/itcluboda" target="_blank">Telegram Channel</a>
+        <div class="copyright">© 2025 All Rights Reserved</div>
+    </footer>
+
+</body>
+</html>
