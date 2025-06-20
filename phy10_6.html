@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electromagnetic Waves and Geometrical Optics</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        main {
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #2e3b4e;
+        }
+        p, ul, li {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .formula {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .formula code {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .content-section h3 {
+            font-size: 1.6em;
+            color: #0056b3;
+        }
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .content-section li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .callout {
+            padding: 10px;
+            background-color: #d1ecf1;
+            border-radius: 5px;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Electromagnetic Waves and Geometrical Optics</h1>
+    </header>
+
+    <main>
+
+        <section class="content-section">
+            <h2>Electromagnetic Waves</h2>
+            <p><strong>Electromagnetic waves</strong> are waves of electric and magnetic fields that propagate through space. These waves can travel through a vacuum (such as light from the Sun reaching the Earth) and through various materials. They form part of the electromagnetic spectrum, which includes a wide range of wave types, from low-frequency radio waves to high-frequency gamma rays.</p>
+
+            <div class="callout">
+                <strong>Key Properties:</strong>
+            </div>
+
+            <ul>
+                <li><strong>Electric and Magnetic Fields:</strong> An electromagnetic wave consists of electric (<code>E</code>) and magnetic (<code>B</code>) fields oscillating perpendicular to each other and to the direction of wave propagation.</li>
+                <li><strong>Wave Equation:</strong> The behavior of electromagnetic waves can be described by the wave equation:
+                    <div class="formula">
+                        <code>∂²E/∂x² - (1/c²) ∂²E/∂t² = 0</code>
+                    </div>
+                    where <code>E</code> is the electric field, <code>c</code> is the speed of light in a vacuum, <code>x</code> is position, and <code>t</code> is time.
+                </li>
+                <li><strong>Speed of Light:</strong> The speed of electromagnetic waves in a vacuum is denoted as <code>c</code>, which is approximately:
+                    <div class="formula">
+                        <code>c = 3 × 10⁸ m/s</code>
+                    </div>
+                </li>
+                <li><strong>Frequency and Wavelength:</strong> The relationship between the frequency <code>f</code>, wavelength <code>λ</code>, and the speed of light is given by:
+                    <div class="formula">
+                        <code>c = λf</code>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="callout">
+                <strong>The Electromagnetic Spectrum:</strong>
+            </div>
+
+            <ul>
+                <li><strong>Radio waves:</strong> <code>f = 10⁴ Hz to 10¹² Hz</code></li>
+                <li><strong>Microwaves</strong></li>
+                <li><strong>Infrared (IR)</strong></li>
+                <li><strong>Visible light</strong></li>
+                <li><strong>Ultraviolet (UV)</strong></li>
+                <li><strong>X-rays</strong></li>
+                <li><strong>Gamma rays</strong></li>
+            </ul>
+
+            <p>The energy of a photon in an electromagnetic wave is related to its frequency by:</p>
+            <div class="formula">
+                <code>E = hf</code>
+            </div>
+            <p>where <code>E</code> is the energy, <code>h</code> is Planck's constant (<code>6.626 × 10⁻³⁴ J·s</code>), and <code>f</code> is the frequency.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Geometrical Optics</h2>
+            <p><strong>Geometrical optics</strong> is a branch of optics that describes the propagation of light as rays. It is used to analyze phenomena like reflection, refraction, and image formation in lenses and mirrors.</p>
+
+            <div class="callout">
+                <strong>Key Concepts:</strong>
+            </div>
+
+            <ul>
+                <li><strong>Light as Rays:</strong> In geometrical optics, light is treated as traveling in straight lines called light rays.</li>
+                <li><strong>Reflection:</strong> The bouncing of light off surfaces.
+                    <div class="formula">
+                        <code>θᵢ = θʳ</code>
+                    </div>
+                    where <code>θᵢ</code> is the angle of incidence (the angle between the incident ray and the normal) and <code>θʳ</code> is the angle of reflection (the angle between the reflected ray and the normal).
+                </li>
+                <li><strong>Refraction:</strong> The bending of light as it passes from one medium to another with a different refractive index.
+                    <div class="formula">
+                        <code>n₁ sin(θ₁) = n₂ sin(θ₂)</code>
+                    </div>
+                    where <code>n₁</code> and <code>n₂</code> are the refractive indices of the first and second media, and <code>θ₁</code> and <code>θ₂</code> are the angles of incidence and refraction, respectively.
+                </li>
+                <li><strong>Refractive Index:</strong> The refractive index <code>n</code> is given by:
+                    <div class="formula">
+                        <code>n = c/v</code>
+                    </div>
+                    where <code>c</code> is the speed of light in a vacuum and <code>v</code> is the speed of light in the medium.
+                </li>
+                <li><strong>Total Internal Reflection:</strong> Occurs when light moves from a denser medium to a rarer medium, and the angle of incidence exceeds a critical angle <code>θc</code>. The critical angle is given by:
+                    <div class="formula">
+                        <code>θc = sin⁻¹(n₂/n₁)</code>
+                    </div>
+                    where <code>n₁ > n₂</code>.
+                </li>
+            </ul>
+
+            <div class="callout">
+                <strong>Mirrors and Lenses:</strong>
+            </div>
+
+            <ul>
+                <li><strong>Mirror Equation:</strong> The relationship between the object distance <code>dₒ</code>, the image distance <code>dᵢ</code>, and the focal length <code>f</code> of a spherical mirror is given by:
+                    <div class="formula">
+                        <code>1/f = 1/dₒ + 1/dᵢ</code>
+                    </div>
+                </li>
+                <li><strong>Lens Equation:</strong> For thin lenses, the lens equation is similar:
+                    <div class="formula">
+                        <code>1/f = 1/dₒ + 1/dᵢ</code>
+                    </div>
+                </li>
+                <li><strong>Magnification (for Mirrors and Lenses):</strong> The magnification <code>M</code> is the ratio of the image height <code>hᵢ</code> to the object height <code>hₒ</code>:
+                    <div class="formula">
+                        <code>M = hᵢ / hₒ = dᵢ / dₒ</code>
+                    </div>
+                    - For a <strong>concave mirror</strong> or <strong>converging lens</strong>, the image can be real (inverted) or virtual (upright) depending on the position of the object.
+                    - For a <strong>convex mirror</strong> or <strong>diverging lens</strong>, the image is always virtual, upright, and smaller than the object.
+                </li>
+            </ul>
+
+            <div class="callout">
+                <strong>Important Formulas in Geometrical Optics:</strong>
+            </div>
+
+            <ul>
+                <li><strong>Thin Lens Formula:</strong>
+                    <div class="formula">
+                        <code>1/f = 1/dₒ + 1/dᵢ</code>
+                    </div>
+                </li>
+                <li><strong>Mirror Formula:</strong>
+                    <div class="formula">
+                        <code>1/f = 1/dₒ + 1/dᵢ</code>
+                    </div>
+                </li>
+                <li><strong>Magnification:</strong>
+                    <div class="formula">
+                        <code>M = hᵢ / hₒ = dᵢ / dₒ</code>
+                    </div>
+                </li>
+                <li><strong>Critical Angle (Total Internal Reflection):</strong>
+                    <div class="formula">
+                        <code>θc = sin⁻¹(n₂ / n₁)</code>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

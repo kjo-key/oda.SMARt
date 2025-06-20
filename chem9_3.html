@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure of the Atom</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #003366, #66ccff);
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(145deg, #222, #555);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 20px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 15px #f39c12;
+    }
+    100% {
+        box-shadow: 0px 0px 25px #f1c40f;
+    }
+}
+
+header h1 {
+    font-size: 3.5em;
+    color: #f1c40f;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+section {
+    padding: 40px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    color: #f1c40f;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #f39c12;
+}
+
+p {
+    font-size: 1.2em;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 15px 0;
+    font-size: 1.3em;
+    color: #ecf0f1;
+    border-left: 4px solid #f39c12;
+    padding-left: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
+}
+
+strong {
+    color: #f39c12;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(145deg, #222, #555);
+    color: #bbb;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Button Style */
+.button {
+    background: linear-gradient(145deg, #f39c12, #f1c40f);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(145deg, #f1c40f, #f39c12);
+    transform: scale(1.1);
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Structure of the Atom</h1>
+    </header>
+
+    <section>
+        <h2>1. Basic Structure of the Atom</h2>
+        <p>An atom consists of:</p>
+        <ul>
+            <li><strong>Nucleus:</strong> The dense, central core of the atom, containing protons and neutrons.</li>
+            <li><strong>Electron Cloud:</strong> The region around the nucleus where electrons are likely to be found. Electrons are negatively charged particles that move in orbitals around the nucleus.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Atomic Number and Mass Number</h2>
+        <p><strong>Atomic Number (Z):</strong> The number of protons in an atom's nucleus. It defines the element and is unique to each element.</p>
+        <p><strong>Mass Number (A):</strong> The total number of protons and neutrons in an atom’s nucleus. <br>
+        Formula: <strong>A = Z + N</strong></p>
+        <p>Example: Carbon-12 has 6 protons and 6 neutrons, so its mass number is 12.</p>
+    </section>
+
+    <section>
+        <h2>3. Isotopes</h2>
+        <p>Isotopes are atoms of the same element (same atomic number) but with a different number of neutrons, hence different mass numbers.</p>
+        <p>Example: Carbon has both carbon-12 (6 protons, 6 neutrons) and carbon-14 (6 protons, 8 neutrons).</p>
+    </section>
+
+    <section>
+        <h2>4. Bohr's Model of the Atom</h2>
+        <p>Bohr proposed that electrons orbit the nucleus in fixed paths or shells. Each shell can hold a specific number of electrons, and electrons occupy the lowest available energy level first.</p>
+        <ul>
+            <li><strong>Energy levels (shells)</strong> are denoted as K, L, M, N, etc.</li>
+            <li>The maximum number of electrons in each shell is given by <strong>2n²</strong>, where n is the principal quantum number.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Quantum Mechanical Model</h2>
+        <p>The quantum mechanical model of the atom describes the behavior of electrons in terms of probabilities rather than fixed paths. Electrons are organized in orbitals.</p>
+    </section>
+
+    <section>
+        <h2>6. Key Formulas in Atomic Structure</h2>
+        <ul>
+            <li><strong>Rydberg Formula:</strong> <br> <code>1 / λ = R<sub>H</sub> (1 / n<sub>1</sub><sup>2</sup> - 1 / n<sub>2</sub><sup>2</sup>)</code> <br> Where:
+                <ul>
+                    <li><code>λ</code> = Wavelength of emitted or absorbed radiation</li>
+                    <li><code>R<sub>H</sub></code> = Rydberg constant (1.097 x 10<sup>7</sup> m<sup>-1</sup>)</li>
+                    <li><code>n<sub>1</sub>, n<sub>2</sub></code> = Principal quantum numbers of the two energy levels</li>
+                </ul>
+            </li>
+            <li><strong>Energy of an Electron (Bohr's Model):</strong> <br> <code>E<sub>n</sub> = - 13.6 / n<sup>2</sup> eV</code></li>
+            <li><strong>Photoelectric Effect:</strong> <br> <code>E = hf</code>, where h is Planck’s constant and f is the frequency of the photon.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Important Concepts Related to Atomic Structure</h2>
+        <ul>
+            <li><strong>Atomic Mass:</strong> The mass of an atom is nearly equal to its mass number (protons + neutrons).</li>
+            <li><strong>Ionization Energy:</strong> The energy required to remove an electron from an atom.</li>
+            <li><strong>Electron Affinity:</strong> The energy released when an electron is added to a neutral atom.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>8. Key Atomic Models and Their Contributions</h2>
+        <ul>
+            <li><strong>Dalton's Model:</strong> Atoms are indivisible.</li>
+            <li><strong>Thomson's Model:</strong> The atom is a sphere of positive charge with embedded electrons.</li>
+            <li><strong>Rutherford's Model:</strong> The atom consists of a tiny, dense nucleus surrounded by electrons.</li>
+            <li><strong>Bohr's Model:</strong> Electrons occupy fixed orbits with quantized energy levels.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+    
+</body>
+</html>

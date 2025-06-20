@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Bonding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #003366, #66ccff);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(145deg, #222, #555);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin: 20px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0px 15px #f39c12;
+            }
+
+            100% {
+                box-shadow: 0px 0px 25px #f1c40f;
+            }
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            color: #f1c40f;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        section {
+            padding: 40px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            color: #f1c40f;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #f39c12;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 1.3em;
+            color: #ecf0f1;
+            border-left: 4px solid #f39c12;
+            padding-left: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        strong {
+            color: #f39c12;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(145deg, #222, #555);
+            color: #bbb;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Button Style */
+        .button {
+            background: linear-gradient(145deg, #f39c12, #f1c40f);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(145deg, #f1c40f, #f39c12);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chemical Bonding: Types and Formulas</h1>
+    </header>
+
+    <section>
+        <h2>1. Ionic Bonding</h2>
+        <p>Ionic bonding occurs when atoms transfer electrons to form oppositely charged ions that attract each other.</p>
+        <ul>
+            <li><strong>Electrostatic Attraction:</strong> The force that holds oppositely charged ions together.</li>
+            <li><strong>Formation of Ions:</strong> Metals lose electrons to form cations, while non-metals gain electrons to form anions.</li>
+            <li><strong>Octet Rule:</strong> Atoms tend to gain, lose, or share electrons to achieve a full outer shell (usually 8 electrons).</li>
+        </ul>
+        <p><strong>Example:</strong> Sodium (Na) and Chlorine (Cl) form Sodium Chloride (NaCl) by ionic bonding.</p>
+        <pre><code>
+            Na+ + Cl- → NaCl
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>2. Covalent Bonding</h2>
+        <p>Covalent bonding occurs when atoms share one or more pairs of electrons to achieve a stable electron configuration.</p>
+        <ul>
+            <li><strong>Electron Sharing:</strong> Atoms share electrons to complete their outer shell.</li>
+            <li><strong>Types of Bonds:</strong> Single bond (one pair), double bond (two pairs), and triple bond (three pairs).</li>
+            <li><strong>Polar vs Nonpolar Bonds:</strong> Polar covalent bonds have unequal sharing, while nonpolar bonds share electrons equally.</li>
+        </ul>
+        <p><strong>Example:</strong> In a water molecule (H₂O), oxygen shares electrons with hydrogen to form covalent bonds.</p>
+        <pre><code>
+            H2 + O → H2O
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>3. Metallic Bonding</h2>
+        <p>Metallic bonding occurs when metal atoms share electrons freely in a "sea of electrons."</p>
+        <ul>
+            <li><strong>Electron Sea Model:</strong> Electrons are delocalized and move freely, which gives metals their properties.</li>
+            <li><strong>Properties:</strong> Malleable, ductile, conductive of electricity and heat.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Coordinate Covalent Bonding</h2>
+        <p>Coordinate covalent bonding happens when both electrons in a shared pair come from the same atom.</p>
+        <ul>
+            <li><strong>Electron Donation:</strong> One atom donates both electrons in the bond.</li>
+            <li><strong>Example:</strong> Ammonium ion (NH₄⁺) formation.</li>
+        </ul>
+        <pre><code>
+            NH3 + H+ → NH4+
+        </code></pre>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

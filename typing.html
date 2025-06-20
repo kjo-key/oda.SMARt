@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <style>
+      * {
+           font-family: serif, "Georgia";
+           color: red;
+           font-weight: bold;
+           
+      }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .text-container {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+      white-space: normal; /* Ensures the text will wrap */
+    }
+
+    .text-to-type {
+      display: block; /* Allows the text to break into new lines */
+      line-height: 1.5;
+    }
+
+    .typed-text {
+      color: #4CAF50;
+    }
+
+    textarea {
+    
+      width: 100%;
+      height: 150px;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+      overflow: hidden;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #results {
+      margin-top: 20px;
+    }
+
+    #text-to-type {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .congratulations {
+      font-size: 30px;
+      color: #4CAF50;
+      animation: celebration 2s ease-in-out infinite;
+    }
+
+    @keyframes celebration {
+      0% { transform: scale(1); opacity: 1; }
+      25% { transform: scale(1.2); opacity: 1; }
+      50% { transform: scale(1); opacity: 1; }
+      75% { transform: scale(1.2); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .restart-btn {
+      background-color: #f44336;
+      color: white;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .restart-btn:hover {
+      background-color: #e53935;
+    }
+
+    .restart-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Speed Test</h1>
+    <p id="text-to-type">Click "Start" to begin typing the text below.</p>
+    <div class="text-container">
+      <span id="text-to-type-display" class="text-to-type"></span>
+    </div>
+    <textarea id="user-input" placeholder="Start typing here..." disabled></textarea>
+    <button id="start-btn">Start Test</button>
+    <div class="restart-btn-container">
+      <button id="restart-btn" class="restart-btn">Restart Test</button>
+    </div>
+    <div id="results">
+      <p>Time: <span id="timer">0</span> seconds</p>
+      <p>Words per minute: <span id="wpm">0</span></p>
+      <p>Accuracy: <span id="accuracy">100%</span></p>
+    </div>
+  </div>
+
+  <script>
+    const paragraphs = [
+      "Once upon a time, there was a small village nestled in the valley between two mountains. The people of the village lived simple but happy lives, tending to their farms and living in harmony with nature. One day, a traveler came to the village, and everyone gathered to hear his story. He spoke of distant lands, of great cities with tall buildings, and of adventures that took him to places beyond their imagination. The villagers were captivated by his tales and longed to see the world beyond their own valley.",
+      "A boy named Jack lived in a quiet little town on the edge of a dense forest. He was known for his curiosity and adventurous spirit. One afternoon, as he was walking near the edge of the woods, he heard a strange sound. It was a soft, melodic hum that seemed to come from deep within the forest. Intrigued, Jack decided to follow the sound. As he ventured deeper into the trees, he discovered a hidden grove where a beautiful, glowing flower grew. From that moment on, Jack made it his mission to visit the grove every day.",
+      "In a kingdom far away, there was a princess named Isabella who was renowned for her wisdom and kindness. One day, a great storm swept through the land, flooding the nearby river and threatening the village at its banks. The villagers were afraid and didn't know what to do. Princess Isabella, however, remained calm. She gathered her advisors and quickly devised a plan to divert the river's flow and protect the village. Thanks to her quick thinking, the village was saved, and the people celebrated her bravery and intelligence.",
+      "The sun was setting over the ocean as the pirate ship sailed toward a distant island. Captain Blackbeard, a notorious pirate feared by many, stood at the helm, staring out at the horizon. He had heard rumors of a treasure hidden on this island, a treasure so valuable that it could make any pirate the richest in the world. His crew, eager for adventure and riches, prepared to disembark as soon as they arrived. Little did they know, the island held dangers that would test their courage and resolve in ways they never imagined.",
+      "On the edge of a bustling city, there was a small library tucked away in a quiet alley. The library was home to an old man named Mr. Harrison, who had been its keeper for as long as anyone could remember. Mr. Harrison was a man of few words, but he had a wealth of knowledge stored in his mind. People from all walks of life would come to the library seeking answers to life's big questions. Whether it was advice on love, life, or even solving mysteries, Mr. Harrison always had a story or a book to help them.",
+      "In a small village nestled in the mountains, a group of friends set out on a hiking adventure. They had heard tales of a hidden waterfall deep in the forest, a place where the water sparkled like diamonds and the air smelled of fresh pine. As they ventured further into the forest, they encountered all sorts of wildlife, from colorful birds to playful squirrels. After hours of trekking, they finally reached the waterfall, and the sight took their breath away. It was a moment none of them would ever forget.",
+      "The clock struck midnight, and a loud knock echoed through the old mansion. Emily, the youngest of the family, crept down the hallway to investigate. The house had always been mysterious, and strange things often happened at night. She reached the door, her heart pounding in her chest, and opened it cautiously. To her surprise, she found a small, antique box on the doorstep, with a note attached that simply read: 'Open it, and the adventure will begin.' Without hesitation, Emily picked up the box and brought it inside, not knowing that her life was about to change forever.",
+      "Once upon a time, in a faraway kingdom, there lived a young prince named Leo. He was known for his bravery and kindness, but his kingdom was under threat from a neighboring empire. One day, the king summoned his son and entrusted him with a secret mission: to retrieve a magical sword hidden in the mountains. The sword was said to possess the power to protect the kingdom from any enemy. Prince Leo set off on his journey, facing many challenges along the way. In the end, he succeeded in retrieving the sword and returned to the kingdom as a hero.",
+      "A young girl named Lily lived in a small cottage by the sea. She spent her days exploring the shoreline, collecting seashells, and watching the ships sail by. One day, while walking along the beach, she discovered a small, worn book buried in the sand. The book contained strange symbols and drawings of creatures she had never seen before. Intrigued, Lily began to study the book, and soon she found herself on a journey to uncover its secrets, which would lead her to a hidden world beneath the waves.",
+      "A wise old owl lived in the tallest tree of the forest. He had seen many generations of animals come and go, and his knowledge was unmatched. One evening, a young rabbit approached the owl, seeking guidance. The rabbit was troubled, unsure of how to navigate the challenges of life. The owl listened patiently and then shared his wisdom: 'The secret to life,' he said, 'is not to worry about the future, but to live in the present and embrace each moment with an open heart.' The rabbit left the owl's tree with a newfound sense of peace.",
+      "In the heart of the city, there stood a grand clock tower. Every hour, the clock rang out, its chimes echoing through the streets. People would stop whatever they were doing to listen, as the sound was said to bring good luck. But one day, the clock stopped ringing, and the city fell silent. The mayor called for a meeting to figure out what had happened. After much investigation, they discovered that the clock's inner workings had been damaged. It took the city's best engineers several weeks to repair it, but when it finally rang again, the entire city cheered in relief and joy.",
+      "There was a brave knight named Sir Cedric, who was known far and wide for his valor. He had defeated many dragons and rescued countless princesses. But one day, he faced a challenge like no other. A terrible curse had fallen upon the land, turning the peaceful villagers into stone statues. Sir Cedric set out on a quest to find the witch who had cast the curse and defeat her. After a long and arduous journey, he finally confronted the witch and broke the curse, restoring the villagers to their former selves.",
+      "A small town by the river was known for its beautiful gardens and vibrant flowers. Each year, the town held a grand flower festival, where people from all over would come to admire the blooms and enjoy the festivities. One year, a young girl named Rose entered the festival's flower competition, hoping to win first prize. She had spent weeks tending to her garden, carefully nurturing each plant. On the day of the competition, her flowers were the most beautiful in the town, and she won the prize. But it was the joy of sharing her flowers with others that made her the true winner.",
+      "In a bustling marketplace, a street performer captivated the crowd with his magic tricks. People gathered around as he pulled rabbits out of hats, made coins disappear, and performed feats that seemed impossible. But his greatest trick was yet to come. With a wave of his hand, he made a small, wooden box appear out of thin air. The crowd gasped in amazement as the box opened to reveal a dazzling array of jewels, each one more beautiful than the last. The magician smiled and bowed, leaving the crowd in awe of his talents.",
+      "In a small, secluded village, there was a legend of a hidden treasure buried deep within the forest. Many had searched for it, but none had succeeded. One day, a determined adventurer named Thomas arrived in the village, determined to find the treasure. Armed with a map and a compass, he ventured into the forest. After days of searching, he finally found the treasure hidden in a cave beneath an ancient tree. He returned to the village as a hero, his name remembered for generations to come."
+];
+
+    let startButton = document.getElementById('start-btn');
+    let restartButton = document.getElementById('restart-btn');
+    let userInput = document.getElementById('user-input');
+    let textToType = document.getElementById('text-to-type-display');
+    let timerElement = document.getElementById('timer');
+    let wpmElement = document.getElementById('wpm');
+    let accuracyElement = document.getElementById('accuracy');
+    let timer;
+    let startTime;
+
+    startButton.addEventListener('click', startTest);
+    restartButton.addEventListener('click', restartTest);
+
+    function startTest() {
+      startButton.disabled = true;
+      restartButton.style.display = 'block';
+      userInput.disabled = false;
+      userInput.value = '';
+      userInput.focus();
+
+      let randomParagraph = paragraphs[Math.floor(Math.random() * paragraphs.length)];
+      textToType.textContent = randomParagraph;
+
+      let timeElapsed = 0;
+      let correctChars = 0;
+      let totalChars = randomParagraph.length;
+
+      timerElement.textContent = timeElapsed;
+      wpmElement.textContent = 0;
+      accuracyElement.textContent = "100%";
+
+      startTime = new Date().getTime();
+      timer = setInterval(() => {
+        timeElapsed = Math.floor((new Date().getTime() - startTime) / 1000);
+        timerElement.textContent = timeElapsed;
+
+        if (userInput.value.length > 0) {
+          let userText = userInput.value;
+          let wordsTyped = userText.split(/\s+/).length;
+          let correctWords = 0;
+
+          for (let i = 0; i < wordsTyped; i++) {
+            if (randomParagraph.split(/\s+/)[i] === userText.split(/\s+/)[i]) {
+              correctWords++;
+            }
+          }
+
+          correctChars = correctWords * 5;
+          let accuracy = Math.round((correctChars / userText.length) * 100);
+          accuracyElement.textContent = `${accuracy}%`;
+
+          let wpm = Math.floor((userText.split(/\s+/).length / (timeElapsed / 60)));
+          wpmElement.textContent = wpm;
+        }
+
+        // Move the typed characters to the left
+        let typedText = userInput.value;
+        let remainingText = randomParagraph.slice(typedText.length);
+        let typedSubstring = randomParagraph.slice(0, typedText.length);
+
+        // Display typed text in green and the remaining text in default color
+        textToType.innerHTML = `<span class="typed-text">${typedSubstring}</span>${remainingText}`;
+
+        if (timeElapsed >= 60) {
+          clearInterval(timer);
+          endTest();
+        }
+      }, 1000);
+    }
+
+    function endTest() {
+      userInput.disabled = true;
+      startButton.disabled = false;
+      textToType.innerHTML = '<span class="congratulations">🎉 Congratulations! 🎉</span>';
+      accuracyElement.textContent = `Accuracy: ${accuracyElement.textContent}`;
+      alert(`Congratulations! Your WPM: ${wpmElement.textContent} and Accuracy: ${accuracyElement.textContent}`);
+    }
+
+    function restartTest() {
+      clearInterval(timer);
+      startTest(); // Restart the test
+    }
+  </script>
+</body>
+</html>

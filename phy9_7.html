@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature and Thermometry</title>
+    <style>
+        { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Arial', sans-serif; background-color: #ffffff; color: #333333; line-height: 1.6; margin: 0; }
+
+        header { background: linear-gradient(45deg, #33ccff, #ff66cc); text-align: center; padding: 40px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+
+        header h1 { font-size: 3em; color: #fff; }
+
+        .content { padding: 20px; background-color: #f4f4f4; margin: 0 10%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+
+        h2 { font-size: 2em; color: #33ccff; margin-top: 20px; }
+
+        ul { list-style-type: none; margin: 10px 0; }
+
+        ul li { margin: 10px 0; font-size: 1.1em; }
+
+        ul li strong { color: #ff66cc; }
+
+        footer { background-color: #333; color: #ccc; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); }
+
+        footer p { font-size: 1em; }
+
+        @media (max-width: 768px) { .content { margin: 0 5%; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Temperature and Thermometry</h1>
+    </header>
+    <div class="content">
+        <h2>Temperature</h2>
+        <p>Temperature is a physical quantity that expresses the amount of thermal energy contained in a substance. It determines the direction of heat flow, where heat always flows from a body of higher temperature to one of lower temperature. Temperature is a fundamental concept in thermodynamics, and it is related to the microscopic motion of particles.</p>
+
+        <h2>Thermodynamic Temperature Scales</h2>
+        <p>Temperature is measured using different scales. The three most commonly used temperature scales are:</p>
+        <ul>
+            <li><strong>Celsius (°C):</strong> Based on the freezing and boiling points of water at standard atmospheric pressure. The freezing point is 0°C, and the boiling point is 100°C.
+                <p>Celsius scale: T<sub>C</sub> = T - 273.15</p>
+            </li>
+            <li><strong>Fahrenheit (°F):</strong> Mainly used in the United States. The freezing point is 32°F, and the boiling point is 212°F.
+                <p>Fahrenheit scale: T<sub>F</sub> = (9/5) × T<sub>C</sub> + 32</p>
+            </li>
+            <li><strong>Kelvin (K):</strong> The SI unit for temperature. It starts at absolute zero (0 K), which is the lowest possible temperature.
+                <p>Kelvin scale: T<sub>K</sub> = T<sub>C</sub> + 273.15</p>
+            </li>
+        </ul>
+
+        <h2>Thermometry</h2>
+        <p>Thermometry is the science of measuring temperature. It involves various devices and instruments known as thermometers. There are different types of thermometers, including:</p>
+        <ul>
+            <li><strong>Mercury Thermometer:</strong> Uses mercury, which expands and contracts as the temperature changes.</li>
+            <li><strong>Alcohol Thermometer:</strong> Similar to the mercury thermometer but uses alcohol instead of mercury.</li>
+            <li><strong>Digital Thermometer:</strong> Uses electronic sensors to measure temperature and display it on a digital screen.</li>
+            <li><strong>Thermocouple:</strong> A temperature sensor consisting of two different conductors that produce a voltage related to the temperature difference between them.</li>
+            <li><strong>Resistance Temperature Detector (RTD):</strong> Uses the fact that the resistance of a material changes with temperature to measure temperature.</li>
+        </ul>
+
+        <h2>Important Concepts in Temperature and Thermometry</h2>
+        <ul>
+            <li><strong>Thermal Expansion:</strong> As temperature increases, most materials expand. The change in length, area, or volume of a material due to a change in temperature can be expressed mathematically.
+                <ul>
+                    <li><strong>Linear Expansion:</strong> For solids, the change in length is given by:
+                        <p>ΔL = α L<sub>0</sub> ΔT</p>
+                    </li>
+                    <li><strong>Area Expansion:</strong> The change in area is:
+                        <p>ΔA = 2α A<sub>0</sub> ΔT</p>
+                    </li>
+                    <li><strong>Volume Expansion:</strong> The change in volume is:
+                        <p>ΔV = β V<sub>0</sub> ΔT</p>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Thermal Conductivity:</strong> Describes the ability of a material to conduct heat. It is defined by Fourier's Law:
+                <p>Q = -kA ΔT / d</p>
+            </li>
+            <li><strong>Ideal Gas Law (for Temperature and Pressure Relationship):</strong> The ideal gas law relates pressure, volume, and temperature of an ideal gas:
+                <p>PV = nRT</p>
+            </li>
+            <li><strong>Heat Capacity and Specific Heat:</strong> The heat capacity of a body is the amount of heat required to change its temperature by one degree.
+                <ul>
+                    <li><strong>Formula for heat capacity:</strong>
+                        <p>Q = mcΔT</p>
+                    </li>
+                    <li><strong>Formula for specific heat:</strong>
+                        <p>c = Q / (m ΔT)</p>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Latent Heat:</strong> When a substance changes its phase (from solid to liquid, or liquid to gas), heat is required without a change in temperature. This is known as latent heat.
+                <ul>
+                    <li><strong>Latent heat of fusion (for melting):</strong>
+                        <p>Q = mL<sub>f</sub></p>
+                    </li>
+                    <li><strong>Latent heat of vaporization (for boiling):</strong>
+                        <p>Q = mL<sub>v</sub></p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Summary of Key Formulas</h2>
+        <ul>
+            <li>Celsius to Kelvin: T<sub>K</sub> = T<sub>C</sub> + 273.15</li>
+            <li>Celsius to Fahrenheit: T<sub>F</sub> = (9/5) × T<sub>C</sub> + 32</li>
+            <li>Fahrenheit to Celsius: T<sub>C</sub> = (5/9)(T<sub>F</sub> - 32)</li>
+            <li>Linear Expansion: ΔL = α L<sub>0</sub> ΔT</li>
+            <li>Area Expansion: ΔA = 2α A<sub>0</sub> ΔT</li>
+            <li>Volume Expansion: ΔV = β V<sub>0</sub> ΔT</li>
+            <li>Thermal Conductivity: Q = -kA ΔT / d</li>
+            <li>Ideal Gas Law: PV = nRT</li>
+            <li>Heat Capacity: Q = mcΔT</li>
+            <li>Latent Heat: Q = mL</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

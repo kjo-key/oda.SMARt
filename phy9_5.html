@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Machines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #33ccff, #ff66cc);
+            text-align: center;
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0 10%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #33ccff;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 10px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        ul li strong {
+            color: #ff66cc;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin: 0 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Simple Machines: Deep Dive</h1>
+</header>
+
+<div class="content">
+    <h2>What are Simple Machines?</h2>
+    <p>Simple machines are mechanical devices that make work easier by altering the direction or magnitude of a force. There are six basic types of simple machines:</p>
+    
+    <ul>
+        <li><strong>Lever:</strong> A rigid bar that rotates around a fixed point (fulcrum).</li>
+        <li><strong>Pulley:</strong> A wheel with a groove to hold a rope or cable.</li>
+        <li><strong>Inclined Plane:</strong> A flat surface set at an angle to reduce effort.</li>
+        <li><strong>Wheel and Axle:</strong> A large wheel attached to a smaller axle, where force is applied to the wheel.</li>
+        <li><strong>Screw:</strong> A rotating inclined plane wrapped around a cylinder.</li>
+        <li><strong>Wedge:</strong> A device used to split or lift objects, essentially two inclined planes joined together.</li>
+    </ul>
+
+    <h2>Formulas and Concepts</h2>
+    <p>The mechanical advantage (MA) of each simple machine helps to reduce the effort required to perform a task. Here are the key formulas:</p>
+
+    <h3>1. Lever</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = L<sub>e</sub> / L<sub>l</sub></code> where <code>L<sub>e</sub></code> is the effort arm length and <code>L<sub>l</sub></code> is the load arm length.</li>
+        <li><strong>Work Done:</strong> <code>W = F * d * cos(θ)</code> where F is the force, d is the displacement, and θ is the angle between force and displacement.</li>
+    </ul>
+
+    <h3>2. Pulley</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = Number of Pulleys</code></li>
+        <li><strong>Work Done:</strong> <code>W = F * d</code></li>
+    </ul>
+
+    <h3>3. Inclined Plane</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = L / h</code> where L is the length of the inclined plane and h is the height of the inclined plane.</li>
+        <li><strong>Work Done:</strong> <code>W = F * d</code></li>
+    </ul>
+
+    <h3>4. Wheel and Axle</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = R / r</code> where R is the radius of the wheel and r is the radius of the axle.</li>
+        <li><strong>Work Done:</strong> <code>W = F * d</code></li>
+    </ul>
+
+    <h3>5. Screw</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = 2πr / P</code> where r is the radius of the screw and P is the pitch of the screw.</li>
+        <li><strong>Work Done:</strong> <code>W = F * d</code></li>
+    </ul>
+
+    <h3>6. Wedge</h3>
+    <ul>
+        <li><strong>Mechanical Advantage (MA):</strong> <code>MA = l / h</code> where l is the length of the wedge and h is the height of the wedge.</li>
+        <li><strong>Work Done:</strong> <code>W = F * d</code></li>
+    </ul>
+
+    <h2>Summary of Key Formulas</h2>
+    <table border="1">
+        <tr>
+            <th>Simple Machine</th>
+            <th>Mechanical Advantage Formula</th>
+        </tr>
+        <tr>
+            <td>Lever</td>
+            <td><code>MA = L<sub>e</sub> / L<sub>l</sub></code></td>
+        </tr>
+        <tr>
+            <td>Pulley</td>
+            <td><code>MA = Number of Pulleys</code></td>
+        </tr>
+        <tr>
+            <td>Inclined Plane</td>
+            <td><code>MA = L / h</code></td>
+        </tr>
+        <tr>
+            <td>Wheel and Axle</td>
+            <td><code>MA = R / r</code></td>
+        </tr>
+        <tr>
+            <td>Screw</td>
+            <td><code>MA = 2πr / P</code></td>
+        </tr>
+        <tr>
+            <td>Wedge</td>
+            <td><code>MA = l / h</code></td>
+        </tr>
+    </table>
+</div>
+
+<footer>
+    <p>© 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

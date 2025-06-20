@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elasticity and Static Equilibrium of Rigid Bodies</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        main {
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #2e3b4e;
+        }
+        p, ul, li {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .formula {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .formula code {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .content-section h3 {
+            font-size: 1.6em;
+            color: #0056b3;
+        }
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .content-section li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        .highlight {
+            background-color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .callout {
+            padding: 10px;
+            background-color: #d1ecf1;
+            border-radius: 5px;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Elasticity and Static Equilibrium of Rigid Bodies</h1>
+    </header>
+
+    <main>
+        <h2>I. Elasticity</h2>
+        <p>Elasticity is the property of a material that allows it to return to its original shape after being deformed by an external force.</p>
+
+        <h3>1. Stress and Strain</h3>
+        <h4>(a) Stress (σ)</h4>
+        <p>Stress is the force applied per unit area of a material.</p>
+        <p class="equation">σ = F / A</p>
+
+        <h4>(b) Strain (ε)</h4>
+        <p>Strain is the relative deformation of a material due to applied stress.</p>
+        <p class="equation">ε = ΔL / L₀</p>
+
+        <h3>2. Hooke’s Law</h3>
+        <p>For small deformations, stress is directly proportional to strain.</p>
+        <p class="equation">σ = E ε</p>
+
+        <h3>3. Moduli of Elasticity</h3>
+        <p>1. Young’s Modulus: <span class="equation">E = (σ / ε) = (F L₀) / (A ΔL)</span></p>
+        <p>2. Shear Modulus: <span class="equation">G = (Shear Stress) / (Shear Strain)</span></p>
+        <p>3. Bulk Modulus: <span class="equation">B = - (ΔP / (ΔV / V₀))</span></p>
+
+        <h3>4. Poisson’s Ratio (ν)</h3>
+        <p class="equation">ν = - (ε_lateral / ε_longitudinal)</p>
+
+        <h3>5. Elastic Potential Energy</h3>
+        <p class="equation">U = (1/2) E ε² V</p>
+
+        <h2>II. Static Equilibrium of Rigid Bodies</h2>
+        <h3>1. Conditions for Equilibrium</h3>
+        <p>1. Translational Equilibrium: <span class="equation">∑F = 0</span></p>
+        <p>2. Rotational Equilibrium: <span class="equation">∑τ = 0</span></p>
+
+        <h3>2. Torque (Moment of Force)</h3>
+        <p class="equation">τ = r F sinθ</p>
+
+        <h3>3. Center of Mass and Center of Gravity</h3>
+        <p>Discrete: <span class="equation">x_cm = (∑mᵢxᵢ) / ∑mᵢ</span></p>
+        <p>Continuous: <span class="equation">x_cm = (∫x dm) / ∫dm</span></p>
+
+        <h3>4. Equilibrium of a Rigid Body</h3>
+        <p>Force balance: <span class="equation">∑F_x = 0</span>, <span class="equation">∑F_y = 0</span></p>
+        <p>Torque balance: <span class="equation">∑τ = 0</span></p>
+
+        <h3>5. Types of Equilibrium</h3>
+        <ul>
+            <li>Stable Equilibrium</li>
+            <li>Unstable Equilibrium</li>
+            <li>Neutral Equilibrium</li>
+        </ul>
+
+        <h3>6. Common Applications</h3>
+        <ul>
+            <li>Lever and Fulcrum: <span class="equation">F₁ d₁ = F₂ d₂</span></li>
+            <li>Ladders and Beams</li>
+            <li>Bridges and Structures</li>
+        </ul>
+
+        <h2>Summary of Important Formulas</h2>
+        <table>
+            <tr>
+                <th>Concept</th>
+                <th>Formula</th>
+            </tr>
+            <tr>
+                <td>Stress</td>
+                <td><span class="equation">σ = F / A</span></td>
+            </tr>
+            <tr>
+                <td>Strain</td>
+                <td><span class="equation">ε = ΔL / L₀</span></td>
+            </tr>
+            <tr>
+                <td>Hooke’s Law</td>
+                <td><span class="equation">σ = E ε</span></td>
+            </tr>
+            <tr>
+                <td>Young’s Modulus</td>
+                <td><span class="equation">E = (σ / ε) = (F L₀) / (A ΔL)</span></td>
+            </tr>
+            <tr>
+                <td>Shear Modulus</td>
+                <td><span class="equation">G = (Shear Stress) / (Shear Strain)</span></td>
+            </tr>
+            <tr>
+                <td>Bulk Modulus</td>
+                <td><span class="equation">B = - (ΔP / (ΔV / V₀))</span></td>
+            </tr>
+            <tr>
+                <td>Poisson’s Ratio</td>
+                <td><span class="equation">ν = - (ε_lateral / ε_longitudinal)</span></td>
+            </tr>
+            <tr>
+                <td>Elastic Energy</td>
+                <td><span class="equation">U = (1/2) E ε² V</span></td>
+            </tr>
+            <tr>
+                <td>Torque</td>
+                <td><span class="equation">τ = r F sinθ</span></td>
+            </tr>
+            <tr>
+                <td>Translational Equilibrium</td>
+                <td><span class="equation">∑F = 0</span></td>
+            </tr>
+            <tr>
+                <td>Rotational Equilibrium</td>
+                <td><span class="equation">∑τ = 0</span></td>
+            </tr>
+            <tr>
+                <td>Center of Mass (Discrete)</td>
+                <td><span class="equation">x_cm = (∑mᵢxᵢ) / ∑mᵢ</span></td>
+            </tr>
+            <tr>
+                <td>Center of Mass (Continuous)</td>
+                <td><span class="equation">x_cm = (∫x dm) / ∫dm</span></td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <p>2025 Yoseph Feyisa Wegi | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

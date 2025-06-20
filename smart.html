@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Hub</title>
+    <style>
+        * {
+            font-family: serif, "Georgia";
+            font-weight: bold; 
+        }
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            background: #005bb5;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #004494;
+        }
+        .container {
+            display: none; /* Hide by default */
+            text-align: center;
+            margin: 20px;
+        }
+        .subject {
+            background: white;
+            margin: 10px auto;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+        h2 {
+            background: #0073e6;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .units {
+            display: none;
+            text-align: left;
+            padding: 10px;
+        }
+        .unit {
+            background: white;
+            color: black;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-left: 5px solid #0073e6;
+            font-size: 16px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .unit:hover {
+            border-left: 5px solid #005bb5;
+            background: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            background: #0073e6;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📘 Smart deep Study Hub</h1>
+        <p style="color: black;">ATTENTION: only as additional or extra reference for those students who wants to dig to deep </p>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showGrade('grade9')">Grade 9</a>
+        <a href="#" onclick="showGrade('grade10')">Grade 10</a>
+    </nav>
+
+  <div class="container" id="grade9">
+    <h2>Grade 9 Subjects</h2>
+
+    <div class="subject">
+        <h2 onclick="toggleUnits(this)">🚀 Physics 🚀</h2>
+        <div class="units">
+            <button class="unit" onclick="openUnit('phy9_1.html')" >Unit 1: Physics and Human Society</button>
+            <button class="unit" onclick="openUnit('phy9_2.html')">Unit 2: Physical Quantities</button>
+            <button class="unit" onclick="openUnit('phy9_3.html')">Unit 3: Motion in a Straight Line</button>
+            <button class="unit" onclick="openUnit('phy9_4.html')">Unit 4: Force, Work, Energy and Power</button>
+            <button class="unit" onclick="openUnit('phy9_5.html')">Unit 5: Simple Machines</button>
+            <button class="unit" onclick="openUnit('phy9_6.html')">Unit 6: Mechanical Oscillation and Sound Wave</button>
+            <button class="unit" onclick="openUnit('phy9_7.html')">Unit 7: Temperature and Thermometry</button>
+        </div>
+    </div>
+
+    <div class="subject">
+        <h2 onclick="toggleUnits(this)">📐 Mathematics 📐</h2>
+        <div class="units">
+            <button class="unit" onclick="openUnit('math9_1.html')" >Unit 1: Further on Sets</button>
+            <button class="unit" onclick="openUnit('math9_2.html')" >Unit 2: The Number System</button>
+            <button class="unit" onclick="openUnit('math9_3.html')">Unit 3: Solving Equations</button>
+            <button class="unit" onclick="openUnit('math9_4.html')">Unit 4: Solving Inequalities</button>
+            <button class="unit" onclick="openUnit('math9_5.html')">Unit 5: Introduction to Trigonometry</button>
+            <button class="unit" onclick="openUnit('math9_6.html')">Unit 6: Regular Polygons</button>
+            <button class="unit" onclick="openUnit('math9_7.html')">Unit 7: Congruency and Similarity</button>
+            <button class="unit" onclick="openUnit('math9_8.html')">Unit 8: Vectors in Two Dimensions</button>
+            <button class="unit" onclick="openUnit('math9_9.html')">Unit 9: Statistics and Probability</button>
+        </div>
+    </div>
+
+    <div class="subject">
+        <h2 onclick="toggleUnits(this)">🧪 Chemistry 🧪</h2>
+        <div class="units">
+            <button class="unit" onclick="openUnit('chem9_1.html')">Unit 1: Chemistry and Its Importance</button>
+            <button class="unit" onclick="openUnit('chem9_2.html')">Unit 2: Measurements and Scientific Methods</button>
+            <button class="unit" onclick="openUnit('chem9_3.html')">Unit 3: Structure of the Atom</button>
+            <button class="unit" onclick="openUnit('chem9_4.html')">Unit 4: Periodic Classification of Elements</button>
+            <button class="unit" onclick="openUnit('chem9_5.html')">Unit 5: Chemical Bonding</button>
+        </div>
+    </div>
+
+    <div class="subject">
+        <h2 onclick="toggleUnits(this)">🦠 Biology 🦠</h2>
+        <div class="units">
+            <button class="unit" onclick="openUnit('bio9_1.html')">Unit 1: Introduction to Biology</button>
+            <button class="unit" onclick="openUnit('bio9_2.html')">Unit 2: Characteristics and Classification of Organisms</button>
+            <button class="unit" onclick="openUnit('bio9_3.html')">Unit 3: Cells</button>
+            <button class="unit" onclick="openUnit('bio9_4.html')">Unit 4: Reproduction</button>
+            <button class="unit" onclick="openUnit('bio9_5.html')">Unit 5: Human Health, Nutrition, and Disease</button>
+            <button class="unit" onclick="openUnit('bio9_6.html')">Unit 6: Ecology</button>
+        </div>
+    </div>
+
+    <div class="subject">
+        <h2 onclick="toggleUnits(this)">💻 ICT 💻</h2>
+        <div class="units">
+            <button class="unit" onclick="openUnit('ict_1.html')">Unit 1: Organization of Files</button>
+            <button class="unit" onclick="openUnit('ict_2.html')">Unit 2: Computer Network</button>
+            <button class="unit" onclick="openUnit('ict_3.html')">Unit 3: Application Software</button>
+            <button class="unit" onclick="openUnit('ict_4.html')">Unit 4: Image Processing and Multimedia</button>
+            <button class="unit" onclick="openUnit('ict_5.html')">Unit 5: Information and Computer Security</button>
+            <button class="unit" onclick="openUnit('ict_6.html')">Unit 6: Fundamentals of Programming</button>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container" id="grade10">
+        <h2>Grade 10 Subjects</h2>
+
+        <div class="subject">
+            <h2 onclick="toggleUnits(this)">🚀 Physics 🚀</h2>
+            <div class="units">
+                <button class="unit" onclick="openUnit('phy10_1.html')">Unit 1: Vector Quantities</button>
+                <button class="unit" onclick="openUnit('phy10_2.html')">Unit 2: Uniformly Accelerated Motion</button>
+                <button class="unit" onclick="openUnit('phy10_3.html')">Unit 3: Elasticity and Static Equilibrium of Rigid Body</button>
+                <button class="unit" onclick="openUnit('phy10_4.html')">Unit 4: Static and Current Electricity</button>
+                <button class="unit" onclick="openUnit('phy10_5.html')">Unit 5: Magnetism</button>
+                <button class="unit" onclick="openUnit('phy10_6.html')">Unit 6: Electromagnetic Waves and Geometrical Optics</button>
+            </div>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleUnits(this)">📐 Mathematics 📐</h2>
+            <div class="units">
+                <button class="unit" onclick="openUnit('math10_1.html')">Unit 1: Relations and Functions</button>
+                <button class="unit" onclick="openUnit('math10_2.html')">Unit 2: Polynomial Functions</button>
+                <button class="unit" onclick="openUnit('math10_3.html')">Unit 3: Exponential and Logarithmic Functions</button>
+                <button class="unit" onclick="openUnit('math10_4.html')">Unit 4: Trigonometric Functions</button>
+                <button class="unit" onclick="openUnit('math10_5.html')">Unit 5: Circles</button>
+                <button class="unit" onclick="openUnit('math10_6.html')">Unit 6: Solid Figures</button>
+                <button class="unit" onclick="openUnit('math10_7.html')">Unit 7: Coordinate Geometry</button>
+            </div>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleUnits(this)">🧪 Chemistry 🧪</h2>
+            <div class="units">
+                <button class="unit" onclick="openUnit('chem10_1.html')">Unit 1: Chemical Reactions and Stoichiometry</button>
+                <button class="unit" onclick="openUnit('chem10_2.html')">Unit 2: Solutions</button>
+                <button class="unit" onclick="openUnit('chem10_3.html')">Unit 3: Important Inorganic Compounds</button>
+                <button class="unit" onclick="openUnit('chem10_4.html')">Unit 4: Energy Changes and Electrochemistry</button>
+                <button class="unit" onclick="openUnit('chem10_5.html')">Unit 5: Metals and Nonmetals</button>
+                <button class="unit" onclick="openUnit('chem10_6.html')">Unit 6: Hydrocarbons and Their Natural Sources</button>
+            </div>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleUnits(this)">🦠 Biology 🦠</h2>
+            <div class="units">
+                <button class="unit" onclick="openUnit('bio10_1.html')">Unit 1: Sub-fields of Biology</button>
+                <button class="unit" onclick="openUnit('bio10_2.html')">Unit 2: Plants</button>
+                <button class="unit" onclick="openUnit('bio10_3.html')">Unit 3: Biochemical Molecules</button>
+                <button class="unit" onclick="openUnit('bio10_4.html')">Unit 4: Cell Reproduction</button>
+                <button class="unit" onclick="openUnit('bio10_5.html')">Unit 5: Human Biology</button>
+                <button class="unit" onclick="openUnit('bio10_6.html')">Unit 6: Ecological Interaction</button>
+            </div>
+        </div>
+
+        <div class="subject">
+            <h2 onclick="toggleUnits(this)">💻 ICT 💻</h2>
+            <div class="units">
+                <button class="unit" onclick="openUnit('ict_1.html')">Unit 1: Organization of Files</button>
+                <button class="unit" onclick="openUnit('ict_2.html')">Unit 2: Computer Network</button>
+                <button class="unit" onclick="openUnit('ict_3.html')">Unit 3: Application Software</button>
+                <button class="unit" onclick="openUnit('ict_4.html')">Unit 4: Image Processing and Multimedia</button>
+                <button class="unit" onclick="openUnit('ict_5.html')">Unit 5: Information and Computer Security</button>
+                <button class="unit" onclick="openUnit('ict_6.html')">Unit 6: Fundamentals of Programming</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Smart deep Study Hub | Designed by Yoseph Feyisa Wegi</p>
+    </footer>
+
+    <script>
+        function toggleUnits(element) {
+            let units = element.nextElementSibling;
+            units.style.display = (units.style.display === "block") ? "none" : "block";
+        }
+
+        function showGrade(gradeId) {
+            document.getElementById('grade9').style.display = "none";
+            document.getElementById('grade10').style.display = "none";
+            
+            document.getElementById(gradeId).style.display = "block";
+        }
+
+        // Show Grade 9 by default
+        showGrade('grade9');
+        function openUnit(filename) {
+    window.location.href = filename;
+}
+    </script>
+
+</body>
+</html>

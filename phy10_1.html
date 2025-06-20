@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Quantities - Deep Explanation</title>
+    <style>
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f9; 
+            color: #333; 
+        }
+        header { 
+            background-color: #2e3b4e; 
+            color: #fff; 
+            text-align: center; 
+            padding: 20px 0; 
+        }
+        header h1 { 
+            font-size: 2.5em; 
+        }
+        main { 
+            padding: 20px; 
+        }
+        h2, h3 { 
+            color: #2e3b4e; 
+        }
+        p, ul, li { 
+            line-height: 1.6; 
+            margin-bottom: 15px; 
+        }
+        ul { 
+            padding-left: 20px; 
+        }
+        code { 
+            background-color: #f4f4f4; 
+            padding: 5px; 
+            border-radius: 5px; 
+            font-family: 'Courier New', monospace; 
+        }
+        .formula { 
+            background-color: #e6f7ff; 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-size: 1.2em; 
+            text-align: center; 
+        }
+        .formula code { 
+            font-size: 1.5em; 
+            color: #007bff; 
+        }
+        .content-section { 
+            background-color: #fff; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 20px; 
+        }
+        .content-section h3 { 
+            font-size: 1.6em; 
+            color: #0056b3; 
+        }
+        .content-section ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .content-section li { 
+            margin-bottom: 10px; 
+        }
+        footer { 
+            background-color: #2e3b4e; 
+            color: #fff; 
+            text-align: center; 
+            padding: 10px 0; 
+            font-size: 0.9em; 
+        }
+        .highlight { 
+            background-color: white; 
+            padding: 5px; 
+            border-radius: 3px; 
+        }
+        .callout { 
+            padding: 10px; 
+            background-color: #d1ecf1; 
+            border-radius: 5px; 
+            border: 1px solid #bee5eb; 
+            color: #0c5460; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vector Quantities: A Deep Dive</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>1. What Are Vector Quantities?</h2>
+            <p>Vectors have both <strong>magnitude</strong> and <strong>direction</strong>. They are different from scalar quantities, which only have magnitude.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Examples of Vector Quantities</h2>
+            <ul>
+                <li>Displacement ( <code>Δx</code> )</li>
+                <li>Velocity ( <code>v = Δx / Δt</code> )</li>
+                <li>Acceleration ( <code>a = Δv / Δt</code> )</li>
+                <li>Force ( <code>F = ma</code> )</li>
+                <li>Momentum ( <code>p = mv</code> )</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Representation of a Vector</h2>
+            <pre>
+A = Ax î + Ay ĵ + Az k̂
+            </pre>
+            <p>Alternative notation:</p>
+            <pre>
+A = (Ax, Ay, Az)
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Magnitude and Direction</h2>
+            <p><strong>Magnitude (Length of a Vector):</strong></p>
+            <pre>
+|A| = √(Ax² + Ay²)   (for 2D)
+|A| = √(Ax² + Ay² + Az²)   (for 3D)
+            </pre>
+            <p><strong>Direction (Angle θ):</strong></p>
+            <pre>
+θ = tan⁻¹(Ay / Ax)
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Vector Operations</h2>
+
+            <h3>1. Vector Addition</h3>
+            <p><strong>Graphical Method (Head-to-Tail Rule)</strong></p>
+            <p><strong>Component Method:</strong></p>
+            <pre>
+R = A + B = (Ax + Bx, Ay + By)
+            </pre>
+
+            <h3>2. Vector Subtraction</h3>
+            <pre>
+A - B = (Ax - Bx, Ay - By)
+            </pre>
+
+            <h3>3. Scalar (Dot) Product</h3>
+            <p>Produces a scalar value:</p>
+            <pre>
+A · B = |A| |B| cosθ
+            </pre>
+
+            <h3>4. Vector (Cross) Product</h3>
+            <p>Produces a new vector:</p>
+            <pre>
+A × B = |A| |B| sinθ n̂
+            </pre>
+
+            <h3>5. Projection of a Vector</h3>
+            <pre>
+Proj_A B = (A · B) / |A|
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>6. Unit Vector</h2>
+            <pre>
+Â = A / |A|
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>7. Applications of Vectors in Physics</h2>
+            <ul>
+                <li>Newton’s Laws: <code>F = ma</code></li>
+                <li>Work Done: <code>W = F · d = Fd cosθ</code></li>
+                <li>Torque: <code>τ = r × F</code></li>
+                <li>Electric Fields: <code>E = F / q</code></li>
+                <li>Magnetic Force: <code>F = q (v × B)</code></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>8. Vector Decomposition</h2>
+            <p><strong>Any vector can be broken into perpendicular components.</strong></p>
+            <pre>
+Ax = A cosθ
+Ay = A sinθ
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>9. Vectors in Different Coordinate Systems</h2>
+            <h3>Cartesian Coordinates</h3>
+            <pre>
+A = (Ax, Ay, Az)
+            </pre>
+            <h3>Polar Coordinates</h3>
+            <pre>
+A = (r, θ)
+Ax = r cosθ
+Ay = r sinθ
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>10. Summary</h2>
+            <ul>
+                <li>Vectors have <strong>magnitude</strong> and <strong>direction</strong>.</li>
+                <li>Vector operations include <strong>addition, subtraction, dot product, and cross product</strong>.</li>
+                <li><strong>Unit vectors</strong> help in standardizing directions.</li>
+                <li>Vectors are fundamental in <strong>mechanics, electromagnetism, and AI simulations</strong>.</li>
+            </ul>
+        </div>
+
+        <p><strong>Would you like interactive elements, like a vector calculator?</strong></p>
+    </main>
+
+    <footer>
+        2025 Yoseph Feyisa Wegi | All Rights Reserved
+    </footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circles - Deep Dive</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d7f;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 5px solid #004d7f;
+            margin-top: 10px;
+        }
+
+        .important {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .code-example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .math-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 2px solid #004d7f;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d7f;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d7f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Deep Dive into Circles
+    </header>
+
+    <section>
+        <h1>Introduction to Circles</h1>
+        <p>A <strong>circle</strong> is a simple closed shape in Euclidean geometry, defined by the set of all points in a plane that are at a fixed distance (radius) from a given point (the center). The center is the midpoint of the circle, and the radius is the distance from the center to any point on the circle.</p>
+
+        <div class="example">
+            <p><strong>Key Properties of a Circle:</strong></p>
+            <ul>
+                <li><strong>Center (O)</strong>: The point inside the circle equidistant from all points on the circumference.</li>
+                <li><strong>Radius (r)</strong>: The distance from the center to any point on the circle.</li>
+                <li><strong>Diameter (d)</strong>: The longest chord of the circle, passing through the center. It is twice the length of the radius.  
+                    <code>d = 2r</code></li>
+                <li><strong>Circumference (C)</strong>: The perimeter or boundary of the circle.
+                    <code>C = 2πr</code></li>
+                <li><strong>Area (A)</strong>: The region enclosed by the circle.
+                    <code>A = πr²</code></li>
+            </ul>
+        </div>
+
+        <h2 class="section-header">Important Formulas</h2>
+
+        <div class="math-box">
+            <p><strong>Circumference of a Circle:</strong></p>
+            <code>C = 2πr</code> or <code>C = πd</code>
+        </div>
+
+        <div class="math-box">
+            <p><strong>Area of a Circle:</strong></p>
+            <code>A = πr²</code>
+        </div>
+
+        <div class="math-box">
+            <p><strong>Sector of a Circle:</strong></p>
+            <code>A_sector = (θ/360°) × πr²</code> (for degrees)
+            <br> or
+            <br>
+            <code>A_sector = (θ/2π) × πr²</code> (for radians)
+        </div>
+
+        <div class="math-box">
+            <p><strong>Arc Length:</strong></p>
+            <code>L_arc = (θ/360°) × 2πr</code> (for degrees)
+            <br> or
+            <br>
+            <code>L_arc = θr</code> (for radians)
+        </div>
+
+        <div class="math-box">
+            <p><strong>Segment of a Circle:</strong></p>
+            <code>A_segment = A_sector - A_triangle</code>
+            <br> where
+            <br>
+            <code>A_triangle = (1/2)r²sin(θ)</code>
+        </div>
+
+        <div class="math-box">
+            <p><strong>Chord of a Circle:</strong></p>
+            <code>Length of chord = 2r sin(θ/2)</code>
+        </div>
+
+        <div class="math-box">
+            <p><strong>Tangent to a Circle:</strong></p>
+            <code>Length of tangent = √(d² - r²)</code>
+        </div>
+
+        <div class="math-box">
+            <p><strong>Equation of a Circle:</strong></p>
+            <code>(x - h)² + (y - k)² = r²</code> (for center at (h, k))
+            <br> or for the center at origin:
+            <code>x² + y² = r²</code>
+        </div>
+
+        <h2 class="section-header">Applications of Circles</h2>
+        <ul>
+            <li><strong>Engineering</strong>: Wheels, gears, and circular motion.</li>
+            <li><strong>Astronomy</strong>: Planetary orbits and circular paths.</li>
+            <li><strong>Architecture</strong>: Dome structures, arches, and rotundas.</li>
+            <li><strong>Trigonometry</strong>: Circular functions such as sine and cosine are defined using a unit circle.</li>
+            <li><strong>Art and Design</strong>: Circles are used in patterns, logos, and graphics.</li>
+        </ul>
+
+        <footer>
+            &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+        </footer>
+    </section>
+</body>
+</html>

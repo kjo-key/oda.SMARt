@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODA Dressing Code</title>
+  <style>
+    * {
+      font-family: "Georgia", serif;
+      font-weight: bold; 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+
+    .app-container {
+      flex: 1;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+      overflow: auto;
+      max-height: 90vh;
+      margin: auto;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .student-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .student-image {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      width: 45%;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .student-image:hover {
+      transform: translateY(-10px);
+    }
+
+    .student-image img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      object-fit: cover;
+      border: 3px solid black;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+    }
+
+    .dress-code-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      text-align: left;
+      padding: 0 15px;
+      margin-bottom: 20px;
+    }
+
+    .dress-code-text h3 {
+      font-size: 20px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .tie-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tie-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .tie-button:active {
+      background-color: #003f7f;
+    }
+
+    @media (max-width: 600px) {
+      .student-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .student-image {
+        width: 80%;
+      }
+    }
+
+    footer {
+      background: #1e3c72;
+      color: #ffffff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      border-top: 3px solid #007bff;
+    }
+
+    .footer-container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .footer-links {
+      margin-top: 8px;
+    }
+
+    .footer-links a {
+      color: #ffdd57;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <h1>ODA Dressing Code</h1>
+    
+    <div class="student-container">
+      <div class="student-image">
+        <img src="male.png" alt="Male Student">
+        <p>Male Student</p>
+      </div>
+      
+      <div class="student-image">
+        <img src="female.png" alt="Female Student">
+        <p>Female Student</p>
+      </div>
+    </div>
+
+    <button class="tie-button" onclick="openUnit('tie.html')">Tie</button>
+
+    <div class="dress-code-text">
+      <h3>For Male Students</h3>
+      <ul>
+        <li>Shirt: Collared, button-up in neutral colors like white or blue.</li>
+        <li>Trousers: Black, grey, or navy blue, well-fitted.</li>
+        <li>Tie: May be required, matching school colors.</li>
+        <li>Jacket/Blazer: For formal occasions.</li>
+        <li>Shoes: Polished black or brown leather.</li>
+      </ul>
+    </div>
+
+    <div class="dress-code-text">
+      <h3>For Female Students</h3>
+      <ul>
+        <li>Shirt/Blouse: Collared, button-up in neutral colors.</li>
+        <li>Skirt/Trousers: Knee-length or trousers in black, grey, or navy.</li>
+        <li>Dress: Optional in some schools.</li>
+        <li>Blazer/Jacket: For formal occasions.</li>
+        <li>Shoes: Polished black or brown leather.</li>
+      </ul>
+    </div>
+
+    <h2>Uniform Packages</h2>
+    <div class="student-container">
+      <div class="student-image">
+        <img src="mpack.png" alt="Male Uniform Package">
+        <p>Male Uniform Package</p>
+      </div>
+      
+      <div class="student-image">
+        <img src="fpack.png" alt="Female Uniform Package">
+        <p>Female Uniform Package</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Smart Student's Package. All rights reserved | Designed by <strong>Yoseph Feyisa</strong></p>
+      <div class="footer-links">
+        <a href="mailto:feyisayoseph@gmail.com">Email</a>
+        <a href="https://t.me/Godiskey1" target="_blank">Telegram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openUnit(filename) {
+      window.location.href = filename;
+    }
+  </script>
+
+</body>
+</html>

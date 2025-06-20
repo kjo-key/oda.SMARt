@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Theory Concepts</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #495057;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: #0056b3;
+    margin-top: 15px;
+}
+
+p, ul {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Set Theory Concepts</h1>
+    </header>
+
+    <section class="content">
+        <h2>1. Definition of a Set</h2>
+        <p>A <strong>set</strong> is a collection of distinct objects, considered as an object in its own right. These objects are called <strong>elements</strong> or <strong>members</strong> of the set.</p>
+        <p>Example: A = {1, 2, 3, 4, 5, 6, 7, 8, 9}</p>
+
+        <h2>2. Types of Sets</h2>
+        <ul>
+            <li><strong>Finite Set:</strong> A set that has a definite number of elements. Example: A = {1, 2, 3}</li>
+            <li><strong>Infinite Set:</strong> A set that has an infinite number of elements. Example: B = {1, 2, 3, 4, 5, ...}</li>
+            <li><strong>Equal Set:</strong> Two sets that contain exactly the same elements. Example: A = {1, 2, 3} and B = {1, 2, 3} are equal sets.</li>
+            <li><strong>Null Set:</strong> A set with no elements. Example: C = {} or C = ∅</li>
+            <li><strong>Singleton Set:</strong> A set with only one element. Example: D = {5}</li>
+            <li><strong>Universal Set:</strong> The set that contains all elements under consideration for a particular discussion. It is often denoted by U.</li>
+            <li><strong>Subset:</strong> A set A is a subset of set B (denoted A ⊆ B) if every element of A is also an element of B.</li>
+        </ul>
+
+        <h2>3. Set Operations</h2>
+
+        <h3>Union (A ∪ B)</h3>
+        <p>The union of two sets A and B is the set of elements that are in A, in B, or in both.</p>
+        <p><strong>Formula:</strong> <br> 
+        A ∪ B = {x | x ∈ A or x ∈ B}<br>
+        If |A| and |B| are the number of elements in sets A and B, and |A ∩ B| is the number of elements in the intersection, then: <br>
+        |A ∪ B| = |A| + |B| - |A ∩ B|
+        </p>
+
+        <h3>Intersection (A ∩ B)</h3>
+        <p>The intersection of two sets A and B is the set of elements that are common to both A and B.</p>
+        <p><strong>Formula:</strong> <br> 
+        A ∩ B = {x | x ∈ A and x ∈ B}
+        </p>
+
+        <h3>Difference (A - B)</h3>
+        <p>The difference of two sets A and B (also called the complement of B in A) is the set of elements that are in A but not in B.</p>
+        <p><strong>Formula:</strong> <br>
+        A - B = {x | x ∈ A and x ∉ B}
+        </p>
+
+        <h3>Complement (A')</h3>
+        <p>The complement of a set A (denoted A') consists of all elements in the universal set U that are not in A.</p>
+        <p><strong>Formula:</strong> <br>
+        A' = {x | x ∉ A}
+        </p>
+
+        <h3>Symmetric Difference (A Δ B)</h3>
+        <p>The symmetric difference of two sets A and B is the set of elements that are in either A or B, but not in both.</p>
+        <p><strong>Formula:</strong> <br>
+        A Δ B = (A - B) ∪ (B - A)
+        </p>
+
+        <h2>4. Venn Diagrams</h2>
+        <p>Venn diagrams are graphical representations of sets and their relationships. They show all possible logical relations between a finite collection of sets. The universal set is usually represented by a rectangle, while subsets are shown as circles within it.</p>
+
+        <h2>5. Cardinality of a Set</h2>
+        <p>The <strong>cardinality</strong> of a set A, denoted |A|, is the number of elements in A. If a set is finite, its cardinality is simply the count of elements. For infinite sets, the cardinality represents the type or size of infinity.</p>
+        <ul>
+            <li><strong>Finite Set:</strong> |A| = the number of elements in A</li>
+            <li><strong>Infinite Set:</strong> Cardinality is often described by infinite numbers such as ℵ₀ for countably infinite sets.</li>
+        </ul>
+
+        <h2>6. Power Set</h2>
+        <p>The <strong>power set</strong> of a set A, denoted P(A), is the set of all subsets of A. The power set of a set with n elements has 2ⁿ subsets.</p>
+        <p><strong>Formula:</strong> <br>
+        P(A) = {B | B ⊆ A}
+        </p>
+
+        <h2>7. Cartesian Product (A × B)</h2>
+        <p>The <strong>Cartesian product</strong> of two sets A and B, denoted A × B, is the set of ordered pairs where the first element is from A and the second is from B.</p>
+        <p><strong>Formula:</strong> <br>
+        A × B = {(a, b) | a ∈ A and b ∈ B}
+        </p>
+
+        <h2>8. Laws of Set Theory</h2>
+        <ul>
+            <li><strong>Commutative Laws:</strong>
+                <ul>
+                    <li> A ∪ B = B ∪ A</li>
+                    <li> A ∩ B = B ∩ A</li>
+                </ul>
+            </li>
+            <li><strong>Associative Laws:</strong>
+                <ul>
+                    <li> (A ∪ B) ∪ C = A ∪ (B ∪ C)</li>
+                    <li> (A ∩ B) ∩ C = A ∩ (B ∩ C)</li>
+                </ul>
+            </li>
+            <li><strong>Distributive Laws:</strong>
+                <ul>
+                    <li> A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</li>
+                    <li> A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>9. Set Identities</h2>
+        <ul>
+            <li><strong>De Morgan’s Laws:</strong>
+                <ul>
+                    <li> (A ∪ B)' = A' ∩ B'</li>
+                    <li> (A ∩ B)' = A' ∪ B'</li>
+                </ul>
+            </li>
+            <li><strong>Double Complement Law:</strong> (A')' = A</li>
+            <li><strong>Absorption Laws:</strong>
+                <ul>
+                    <li> A ∪ (A ∩ B) = A</li>
+                    <li> A ∩ (A ∪ B) = A</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>10. Multiset</h2>
+        <p>A <strong>multiset</strong> allows for multiple occurrences of the same element. Unlike sets, where elements are distinct, multisets can have repeated elements.</p>
+        <p>Example of a multiset: {1, 1, 2, 3}</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Yoseph Feyisa Wegi | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

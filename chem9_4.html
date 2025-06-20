@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Classification of Elements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #003366, #66ccff);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(145deg, #222, #555);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin: 20px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0px 0px 15px #f39c12;
+            }
+            100% {
+                box-shadow: 0px 0px 25px #f1c40f;
+            }
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            color: #f1c40f;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        section {
+            padding: 40px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            color: #f1c40f;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #f39c12;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 1.3em;
+            color: #ecf0f1;
+            border-left: 4px solid #f39c12;
+            padding-left: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        strong {
+            color: #f39c12;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(145deg, #222, #555);
+            color: #bbb;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Button Style */
+        .button {
+            background: linear-gradient(145deg, #f39c12, #f1c40f);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(145deg, #f1c40f, #f39c12);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Periodic Classification of Elements</h1>
+    </header>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>The Periodic Classification of Elements refers to the organization of elements based on their atomic number, electron configuration, and recurring chemical properties. The periodic table is divided into periods (horizontal rows) and groups (vertical columns), with elements in the same group having similar chemical properties due to their similar electron configurations.</p>
+    </section>
+
+    <section>
+        <h2>1. History of the Periodic Table</h2>
+        <p>The periodic table was first organized by <strong>Dmitri Mendeleev</strong> in 1869 based on atomic mass, later refined by <strong>Moseley</strong> in 1913, who reordered it by atomic number. Elements in the same column (group) share similar chemical properties because they have the same number of electrons in their outer shell (valence electrons).</p>
+    </section>
+
+    <section>
+        <h2>2. Periods and Groups</h2>
+        <ul>
+            <li><strong>Periods:</strong> Horizontal rows (1 to 7) on the periodic table. The number of periods is determined by the number of electron shells an element has.</li>
+            <li><strong>Groups:</strong> Vertical columns (1 to 18). Elements in the same group have the same number of valence electrons and therefore similar properties.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Atomic Radius</h2>
+        <p><strong>Definition:</strong> The atomic radius is the distance from the nucleus to the outermost electron.</p>
+        <p><strong>Trend:</strong></p>
+        <ul>
+            <li><strong>Across a period:</strong> The atomic radius decreases because the increase in nuclear charge pulls electrons closer.</li>
+            <li><strong>Down a group:</strong> The atomic radius increases because additional electron shells are added, and the distance between the nucleus and outermost electrons increases.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Ionization Energy</h2>
+        <p><strong>Definition:</strong> The energy required to remove an electron from an atom in the gas phase.</p>
+        <p><strong>Trend:</strong></p>
+        <ul>
+            <li><strong>Across a period:</strong> Ionization energy increases because the atoms become smaller, and the electrons are held more tightly by the nucleus.</li>
+            <li><strong>Down a group:</strong> Ionization energy decreases because the outermost electrons are farther from the nucleus and are easier to remove.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Electron Affinity</h2>
+        <p><strong>Definition:</strong> The energy change that occurs when an electron is added to an atom.</p>
+        <p><strong>Trend:</strong></p>
+        <ul>
+            <li><strong>Across a period:</strong> Electron affinity becomes more negative, meaning atoms are more likely to gain electrons.</li>
+            <li><strong>Down a group:</strong> Electron affinity becomes less negative as the electron is added farther from the nucleus.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Electronegativity</h2>
+        <p><strong>Definition:</strong> The tendency of an atom to attract electrons in a chemical bond.</p>
+        <p><strong>Trend:</strong></p>
+        <ul>
+            <li><strong>Across a period:</strong> Electronegativity increases as the nuclear charge increases.</li>
+            <li><strong>Down a group:</strong> Electronegativity decreases because the atomic size increases, and the attraction for bonding electrons decreases.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

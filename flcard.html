@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea {
+            width: 95%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            margin-top: 10px;
+        }
+        .flashcards {
+            margin-top: 20px;
+        }
+        .card {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+            text-align: center;
+        }
+        .delete-btn {
+            background: red;
+            margin-top: 5px;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Flashcard Creator</h2>
+        <input type="text" id="question" placeholder="Enter question...">
+        <textarea id="answer" placeholder="Enter answer..."></textarea>
+        <label for="color">Choose card color:</label>
+        <input type="color" id="color" value="#007bff">
+        <button onclick="addFlashcard()">Add Flashcard</button>
+
+        <div class="flashcards" id="flashcards"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadFlashcards);
+
+        function addFlashcard() {
+            let question = document.getElementById("question").value.trim();
+            let answer = document.getElementById("answer").value.trim();
+            let color = document.getElementById("color").value;
+
+            if (question === "" || answer === "") {
+                alert("Please fill both fields!");
+                return;
+            }
+
+            let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+            flashcards.push({ question, answer, color });
+            localStorage.setItem("flashcards", JSON.stringify(flashcards));
+
+            document.getElementById("question").value = "";
+            document.getElementById("answer").value = "";
+            loadFlashcards();
+        }
+
+        function loadFlashcards() {
+            let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+            let flashcardContainer = document.getElementById("flashcards");
+            flashcardContainer.innerHTML = "";
+
+            flashcards.forEach((flashcard, index) => {
+                let card = document.createElement("div");
+                card.className = "card";
+                card.textContent = flashcard.question;
+                card.style.backgroundColor = flashcard.color;
+
+                card.onclick = function () {
+                    if (card.textContent === flashcard.question) {
+                        card.textContent = flashcard.answer;
+                    } else {
+                        card.textContent = flashcard.question;
+                    }
+                };
+
+                let deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.className = "delete-btn";
+                deleteBtn.onclick = function (event) {
+                    event.stopPropagation();
+                    deleteFlashcard(index);
+                };
+
+                card.appendChild(document.createElement("br"));
+                card.appendChild(deleteBtn);
+                flashcardContainer.appendChild(card);
+            });
+        }
+
+        function deleteFlashcard(index) {
+            let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+            flashcards.splice(index, 1);
+            localStorage.setItem("flashcards", JSON.stringify(flashcards));
+            loadFlashcards();
+        }
+    </script>
+
+</body>
+</html>

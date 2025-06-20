@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Concepts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d7f;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 5px solid #004d7f;
+            margin-top: 10px;
+        }
+
+        .important {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .code-example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .math-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 2px solid #004d7f;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d7f;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d7f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Trigonometry Concepts
+    </header>
+
+    <section>
+        <h1>Basic Concepts in Trigonometry</h1>
+        <p>Trigonometry is the branch of mathematics that deals with the relationships between the sides and angles of triangles. It is particularly important in the study of right-angled triangles, and it has wide applications in fields like physics, engineering, astronomy, and more.</p>
+
+        <h2>Right-Angled Triangle</h2>
+        <p>In a right-angled triangle, the right angle is 90°. The sides of the triangle have special names:</p>
+        <ul>
+            <li><strong>Hypotenuse</strong>: The side opposite the right angle (the longest side).</li>
+            <li><strong>Opposite</strong>: The side opposite the angle you're considering.</li>
+            <li><strong>Adjacent</strong>: The side next to the angle you're considering, other than the hypotenuse.</li>
+        </ul>
+
+        <h2>Trigonometric Ratios (Functions)</h2>
+        <p>There are six fundamental trigonometric functions based on the relationships between the sides of a right-angled triangle:</p>
+        <ul>
+            <li><code>sin(θ) = Opposite / Hypotenuse</code></li>
+            <li><code>cos(θ) = Adjacent / Hypotenuse</code></li>
+            <li><code>tan(θ) = Opposite / Adjacent</code></li>
+            <li><code>csc(θ) = 1 / sin(θ) = Hypotenuse / Opposite</code></li>
+            <li><code>sec(θ) = 1 / cos(θ) = Hypotenuse / Adjacent</code></li>
+            <li><code>cot(θ) = 1 / tan(θ) = Adjacent / Opposite</code></li>
+        </ul>
+
+        <div class="example">
+            <h2>Example of Trigonometric Functions</h2>
+            <p>In a right-angled triangle where the opposite side is 3, the adjacent side is 4, and the hypotenuse is 5, we can calculate the trigonometric functions:</p>
+            <ul>
+                <li><code>sin(θ) = 3 / 5 = 0.6</code></li>
+                <li><code>cos(θ) = 4 / 5 = 0.8</code></li>
+                <li><code>tan(θ) = 3 / 4 = 0.75</code></li>
+            </ul>
+        </div>
+
+        <h2>Unit Circle and Trigonometric Functions</h2>
+        <p>The unit circle is a circle with radius 1 centered at the origin of the coordinate plane. The angle θ is measured from the positive x-axis, and the coordinates of any point on the unit circle are given by:</p>
+        <code>(cos(θ), sin(θ))</code>
+
+        <h2>Important Trigonometric Identities</h2>
+        <div class="math-box">
+            <p class="formula">sin²(θ) + cos²(θ) = 1</p>
+            <p class="formula">1 + tan²(θ) = sec²(θ)</p>
+            <p class="formula">1 + cot²(θ) = csc²(θ)</p>
+        </div>
+
+        <h2>Sum and Difference Formulas</h2>
+        <div class="example">
+            <h3>For sine:</h3>
+            <code>sin(A + B) = sin(A)cos(B) + cos(A)sin(B)</code>
+        </div>
+
+        <div class="example">
+            <h3>For cosine:</h3>
+            <code>cos(A + B) = cos(A)cos(B) - sin(A)sin(B)</code>
+        </div>
+
+        <h2>Applications of Trigonometry</h2>
+        <p>Trigonometry has numerous applications in different fields:</p>
+        <ul>
+            <li><strong>Astronomy</strong>: Trigonometric functions are used to calculate distances to stars and other celestial bodies using parallax and other methods.</li>
+            <li><strong>Physics</strong>: Trigonometry is essential in understanding waves, oscillations, and forces.</li>
+            <li><strong>Engineering</strong>: Trigonometry is applied in various engineering fields, including civil, electrical, and mechanical engineering, to model and design structures, circuits, and systems.</li>
+            <li><strong>Geography</strong>: Trigonometry helps in mapping and navigation.</li>
+        </ul>
+    </section>
+
+    <footer>
+        &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>14 Button Web App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .container {
+      background: #fefefe;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      transition: 0.3s;
+    }
+
+    button {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      height: 300px;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 10px 25px rgba(0, 123, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 123, 255, 0.5);
+      background: linear-gradient(135deg, #0056b3, #009dff);
+    }
+
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 650px) {
+      .button {
+        height: 200px;
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button onclick="window.open('textbooks9.html', '_blank')">Grade 9</button>
+    <button onclick="window.open('textbooks10.html', '_blank')">Grade 10</button>
+    <button onclick="window.open('textbookssocial11.html', '_blank')">Grade 11</button>
+  </div>
+</body>
+</html>

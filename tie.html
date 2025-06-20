@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tie-Tying Guide</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container with Glassmorphism Effect */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button Container */
+        .knot-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Button Styling */
+        .knot-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            width: 200px;
+            height: 240px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            text-align: center;
+        }
+
+        .knot-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-8px);
+        }
+
+        /* Image Styling */
+        .knot-btn img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.3s;
+        }
+
+        .knot-btn:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Text below each button */
+        .knot-name {
+            display: block;
+            font-size: 18px;
+            margin-top: 12px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 30px;
+            }
+            .knot-btn {
+                width: 180px;
+                height: 220px;
+            }
+            .knot-btn img {
+                width: 120px;
+                height: 120px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <script>
+        function openTiePage(tieName) {
+            window.location.href = tieName + ".html"; // Redirect to the corresponding tie guide page
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>How to Tie a Tie</h1>
+
+        <div class="knot-btns">
+            <div class="knot-btn" onclick="openTiePage('4in')">
+                <img src="4in.jpeg" alt="Four in Hand">
+                <span class="knot-name">Four in Hand Knot</span>
+            </div>
+            <div class="knot-btn" onclick="openTiePage('hwin')">
+                <img src="hwin.jpeg" alt="Half Windsor">
+                <span class="knot-name">Half Windsor Knot</span>
+            </div>
+            <div class="knot-btn" onclick="openTiePage('win')">
+                <img src="win.jpeg" alt="Windsor">
+                <span class="knot-name">Windsor Knot</span>
+            </div>
+            <div class="knot-btn" onclick="openTiePage('kel')">
+                <img src="kel.jpeg" alt="Kelvin">
+                <span class="knot-name">Kelvin Knot</span>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

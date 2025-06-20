@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate Geometry</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d7f;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 5px solid #004d7f;
+            margin-top: 10px;
+        }
+
+        .important {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .code-example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .math-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 2px solid #004d7f;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d7f;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d7f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Coordinate Geometry
+</header>
+
+<section>
+    <h1>Coordinate Geometry Overview</h1>
+    <p>Coordinate geometry, also known as analytic geometry, is the study of geometry using a coordinate system. It involves using algebraic methods to solve geometric problems. The central idea is to represent geometric shapes, points, and objects in a coordinate plane (usually Cartesian coordinates) and to apply algebraic techniques to analyze and solve geometric problems.</p>
+    
+    <p>In coordinate geometry, every point in the plane is represented by an ordered pair of numbers <code>(x, y)</code>, where <code>x</code> is the horizontal coordinate and <code>y</code> is the vertical coordinate.</p>
+
+    <h2 class="section-header">Key Concepts:</h2>
+    
+    <ul>
+        <li><strong>Coordinate Plane:</strong> The coordinate plane consists of two perpendicular axes: the <code>x</code>-axis (horizontal) and the <code>y</code>-axis (vertical). The point where the two axes intersect is the <strong>origin</strong>, denoted by <code>(0, 0)</code>.</li>
+        <li>The plane is divided into four quadrants:
+            <ul>
+                <li>Quadrant I: <code>x > 0</code> and <code>y > 0</code></li>
+                <li>Quadrant II: <code>x < 0</code> and <code>y > 0</code></li>
+                <li>Quadrant III: <code>x < 0</code> and <code>y < 0</code></li>
+                <li>Quadrant IV: <code>x > 0</code> and <code>y < 0</code></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2 class="section-header">Important Formulas:</h2>
+    
+    <div class="math-box">
+        <p class="formula">1. Distance Formula: <br>
+        <code>d = √((x₂ - x₁)² + (y₂ - y₁)²)</code></p>
+        
+        <p class="formula">2. Midpoint Formula: <br>
+        <code>M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</code></p>
+        
+        <p class="formula">3. Slope Formula: <br>
+        <code>m = (y₂ - y₁) / (x₂ - x₁)</code></p>
+
+        <p class="formula">4. Equation of a Line (Point-Slope Form): <br>
+        <code>y - y₁ = m(x - x₁)</code></p>
+
+        <p class="formula">5. Equation of a Line (Slope-Intercept Form): <br>
+        <code>y = mx + b</code></p>
+
+        <p class="formula">6. Equation of a Line (General Form): <br>
+        <code>Ax + By + C = 0</code></p>
+
+        <p class="formula">7. Circle Equation: <br>
+        <code>(x - h)² + (y - k)² = r²</code></p>
+    </div>
+
+    <h2 class="section-header">Example Problems:</h2>
+    
+    <div class="example">
+        <p><strong>1. Distance Between Two Points:</strong></p>
+        <p>Find the distance between points A(2, 3) and B(5, 7).</p>
+        <p>Using the distance formula: <br>
+        <code>d = √((5 - 2)² + (7 - 3)²) = √(3² + 4²) = √(9 + 16) = √25 = 5</code></p>
+        <p>Therefore, the distance between A and B is 5 units.</p>
+    </div>
+
+    <div class="example">
+        <p><strong>2. Midpoint of Two Points:</strong></p>
+        <p>Find the midpoint of points A(2, 3) and B(5, 7).</p>
+        <p>Using the midpoint formula: <br>
+        <code>M = ((2 + 5)/2, (3 + 7)/2) = (7/2, 10/2) = (3.5, 5)</code></p>
+        <p>Therefore, the midpoint of A and B is (3.5, 5).</p>
+    </div>
+
+    <div class="example">
+        <p><strong>3. Equation of a Line:</strong></p>
+        <p>Find the equation of the line passing through the points A(1, 2) and B(3, 6).</p>
+        <p>First, find the slope using the slope formula: <br>
+        <code>m = (6 - 2) / (3 - 1) = 4 / 2 = 2</code></p>
+        <p>Now, using the point-slope form, the equation of the line is: <br>
+        <code>y - 2 = 2(x - 1)</code> <br> 
+        Simplifying: <br>
+        <code>y - 2 = 2x - 2 → y = 2x</code></p>
+        <p>Therefore, the equation of the line is <code>y = 2x</code>.</p>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+</footer>
+
+</body>
+</html>

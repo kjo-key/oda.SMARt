@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Number System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Number System</h1>
+    </header>
+
+    <div class="content">
+        <h2>1. Types of Number Systems</h2>
+
+        <h3>1.1 Natural Numbers (ℕ)</h3>
+        <p>The set of natural numbers includes all the positive integers starting from 1 and going on infinitely. These numbers are used for counting objects.</p>
+        <p><strong>Notation:</strong> ℕ = {1, 2, 3, 4, 5, …}</p>
+
+        <h3>1.2 Whole Numbers (𝑊)</h3>
+        <p>The set of whole numbers includes all natural numbers along with 0. This set is used for counting as well as denoting the absence of any object.</p>
+        <p><strong>Notation:</strong> 𝑊 = {0, 1, 2, 3, 4, …}</p>
+
+        <h3>1.3 Integers (ℤ)</h3>
+        <p>The set of integers includes all the positive whole numbers, their negative counterparts, and zero. Integers can be both positive and negative.</p>
+        <p><strong>Notation:</strong> ℤ = {…, -3, -2, -1, 0, 1, 2, 3, …}</p>
+
+        <h3>1.4 Rational Numbers (ℚ)</h3>
+        <p>A rational number is any number that can be expressed as the fraction <em>p/q</em>, where <em>p</em> and <em>q</em> are integers and <em>q ≠ 0</em>. Rational numbers include integers, fractions, and repeating decimals.</p>
+        <p><strong>Notation:</strong> ℚ = {p/q | p, q ∈ ℤ, q ≠ 0}</p>
+        <p><strong>Examples:</strong> ½, -3/4, 0.75 (which is ¾), 1, -2</p>
+
+        <h3>1.5 Irrational Numbers (ℝ \ ℚ)</h3>
+        <p>An irrational number cannot be expressed as a fraction of integers. These numbers have non-repeating, non-terminating decimal expansions.</p>
+        <p><strong>Examples:</strong> √2, π (pi), e (Euler's constant)</p>
+
+        <h3>1.6 Real Numbers (ℝ)</h3>
+        <p>The real number system includes both rational and irrational numbers. All the numbers you encounter in everyday life (such as 2, -3.5, 0.75, √2, π) are real numbers.</p>
+        <p><strong>Notation:</strong> ℝ = ℚ ∪ (ℝ \ ℚ)</p>
+
+        <h3>1.7 Imaginary Numbers (ℑ)</h3>
+        <p>Imaginary numbers are numbers that, when squared, give a negative result. The most common imaginary number is <em>i</em>, where <em>i = √-1</em>.</p>
+        <p><strong>Notation:</strong> ℑ = {a + bi | a, b ∈ ℝ} where <em>i = √-1</em></p>
+        <p><strong>Examples:</strong> 3i, -5i, √-2</p>
+
+        <h3>1.8 Complex Numbers (ℂ)</h3>
+        <p>A complex number is a number that has a real part and an imaginary part. Complex numbers are written as <em>a + bi</em>, where <em>a</em> and <em>b</em> are real numbers, and <em>i</em> is the imaginary unit.</p>
+        <p><strong>Notation:</strong> ℂ = {a + bi | a, b ∈ ℝ, i = √-1}</p>
+        <p><strong>Examples:</strong> 3 + 4i, -2 + i, 1 + √3i</p>
+
+        <h2>2. Operations on Numbers</h2>
+
+        <h3>2.1 Addition</h3>
+        <p>Addition of numbers follows the basic arithmetic principle where you combine values.</p>
+        <p><strong>Formula for addition:</strong></p>
+        <ul>
+            <li>For natural numbers: <em>a + b = c</em>, where <em>a</em>, <em>b</em>, and <em>c</em> are natural numbers.</li>
+            <li>For complex numbers: <em>(a + bi) + (c + di) = (a + c) + (b + d)i</em>.</li>
+        </ul>
+
+        <h3>2.2 Subtraction</h3>
+        <p>Subtraction involves taking one number away from another.</p>
+        <p><strong>Formula for subtraction:</strong></p>
+        <ul>
+            <li>For integers: <em>a - b = c</em></li>
+            <li>For complex numbers: <em>(a + bi) - (c + di) = (a - c) + (b - d)i</em></li>
+        </ul>
+
+        <h3>2.3 Multiplication</h3>
+        <p>Multiplication of numbers follows the basic arithmetic principle of scaling one number by another.</p>
+        <p><strong>Formula for multiplication:</strong></p>
+        <ul>
+            <li>For real numbers: <em>a × b = c</em></li>
+            <li>For complex numbers: <em>(a + bi) × (c + di) = ac + adi + bci + bdi²</em></li>
+            <li>Using <em>i² = -1</em>, the result simplifies to: <em>(a + bi) × (c + di) = (ac - bd) + (ad + bc)i</em></li>
+        </ul>
+
+        <h3>2.4 Division</h3>
+        <p>Division is the inverse operation of multiplication.</p>
+        <p><strong>Formula for division:</strong></p>
+        <ul>
+            <li>For real numbers: <em>a ÷ b = c</em>, where <em>b ≠ 0</em>.</li>
+            <li>For complex numbers: <em>(a + bi) ÷ (c + di) = ((a + bi) × (c - di)) ÷ (c² + d²)</em>.</li>
+            <li>This is known as multiplying by the conjugate.</li>
+        </ul>
+
+        <h2>3. Properties of Real Numbers</h2>
+
+        <h3>3.1 Commutative Property</h3>
+        <p>The order of addition or multiplication does not change the result.</p>
+        <ul>
+            <li><strong>Addition:</strong> <em>a + b = b + a</em></li>
+            <li><strong>Multiplication:</strong> <em>a × b = b × a</em></li>
+        </ul>
+
+        <h3>3.2 Associative Property</h3>
+        <p>The grouping of numbers does not change the result of addition or multiplication.</p>
+        <ul>
+            <li><strong>Addition:</strong> <em>(a + b) + c = a + (b + c)</em></li>
+            <li><strong>Multiplication:</strong> <em>(a × b) × c = a × (b × c)</em></li>
+        </ul>
+
+        <h3>3.3 Distributive Property</h3>
+        <p>Multiplication distributes over addition and subtraction.</p>
+        <ul>
+            <li><strong>Multiplication over addition:</strong> <em>a × (b + c) = a × b + a × c</em></li>
+            <li><strong>Multiplication over subtraction:</strong> <em>a × (b - c) = a × b - a × c</em></li>
+        </ul>
+
+        <h3>3.4 Identity Property</h3>
+        <p>There exists an identity element for addition and multiplication.</p>
+        <ul>
+            <li><strong>Addition:</strong> <em>a + 0 = a</em></li>
+            <li><strong>Multiplication:</strong> <em>a × 1 = a</em></li>
+        </ul>
+
+        <h3>3.5 Inverse Property</h3>
+        <p>Every number has an additive and multiplicative inverse.</p>
+        <ul>
+            <li><strong>Additive inverse:</strong> <em>a + (-a) = 0</em></li>
+            <li><strong>Multiplicative inverse:</strong> <em>a × (1/a) = 1</em></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

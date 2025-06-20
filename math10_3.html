@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponential and Logarithmic Functions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d7f;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 5px solid #004d7f;
+            margin-top: 10px;
+        }
+
+        .important {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .code-example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .math-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 2px solid #004d7f;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d7f;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d7f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Exponential and Logarithmic Functions
+</header>
+
+<section>
+    <h1>Exponential Functions</h1>
+    <p><strong>Definition:</strong></p>
+    <p>An <strong>exponential function</strong> is a mathematical function of the form:</p>
+    <div class="math-box">
+        <p><span class="formula">f(x) = a &middot; b<sup>x</sup></span></p>
+    </div>
+    <p>Where:</p>
+    <ul>
+        <li><strong>a</strong> is a constant (the initial value or scaling factor),</li>
+        <li><strong>b</strong> is the base of the exponential function (where b > 0 and b ≠ 1),</li>
+        <li><strong>x</strong> is the exponent or power.</li>
+    </ul>
+    <p>The exponential function describes exponential growth or decay, depending on the base <strong>b</strong>. If <strong>b > 1</strong>, the function represents exponential growth; if <strong>0 < b < 1</strong>, it represents exponential decay.</p>
+
+    <h2>Key Properties of Exponential Functions:</h2>
+    <ul>
+        <li><strong>Domain:</strong> The domain of the exponential function is all real numbers ( -∞ < x < ∞ ).</li>
+        <li><strong>Range:</strong> The range is ( 0, ∞ ) for exponential growth (b > 1) and ( -∞, 0 ) for exponential decay ( 0 < b < 1 ).</li>
+        <li><strong>Y-intercept:</strong> The graph of the exponential function always passes through the point (0, a) since f(0) = a · b<sup>0</sup> = a.</li>
+        <li><strong>Horizontal Asymptote:</strong> The line y = 0 is a horizontal asymptote of the graph.</li>
+    </ul>
+    <p>Example of Exponential Growth: The population of a species growing at a constant rate can be modeled using the exponential function:</p>
+    <div class="example">
+        <p><span class="formula">P(t) = P<sub>0</sub> · e<sup>rt</sup></span></p>
+        <p>Where:</p>
+        <ul>
+            <li><strong>P(t)</strong> is the population at time <strong>t</strong>,</li>
+            <li><strong>P<sub>0</sub></strong> is the initial population,</li>
+            <li><strong>r</strong> is the growth rate,</li>
+            <li><strong>e</strong> is the base of the natural logarithm (approximately 2.71828).</li>
+        </ul>
+    </div>
+
+    <h1>Logarithmic Functions</h1>
+    <p><strong>Definition:</strong></p>
+    <p>A <strong>logarithmic function</strong> is the inverse of an exponential function. It is defined as:</p>
+    <div class="math-box">
+        <p><span class="formula">f(x) = log<sub>b</sub>(x)</span></p>
+    </div>
+    <p>Where:</p>
+    <ul>
+        <li><strong>b</strong> is the base of the logarithm (where <strong>b > 0</strong> and <strong>b ≠ 1</strong>),</li>
+        <li><strong>x</strong> is the argument of the logarithm, and</li>
+        <li><strong>f(x)</strong> is the logarithm of <strong>x</strong> to the base <strong>b</strong>.</li>
+    </ul>
+
+    <h2>Properties of Logarithmic Functions:</h2>
+    <ul>
+        <li><strong>Domain:</strong> The domain is ( 0, ∞ ) for all logarithmic functions.</li>
+        <li><strong>Range:</strong> The range is ( -∞, ∞ ) for all logarithmic functions.</li>
+        <li><strong>Intercept:</strong> The logarithmic function f(x) = log<sub>b</sub>(x) passes through (1, 0) because log<sub>b</sub>(1) = 0.</li>
+        <li><strong>Asymptote:</strong> The vertical line x = 0 is a vertical asymptote of the graph.</li>
+    </ul>
+    <p>Logarithmic Identity and Properties:</p>
+    <ul>
+        <li><strong>Change of Base Formula:</strong> <span class="formula">log<sub>b</sub>(x) = log<sub>k</sub>(x) / log<sub>k</sub>(b)</span></li>
+        <li><strong>Product Rule:</strong> <span class="formula">log<sub>b</sub>(xy) = log<sub>b</sub>(x) + log<sub>b</sub>(y)</span></li>
+        <li><strong>Quotient Rule:</strong> <span class="formula">log<sub>b</sub>(x/y) = log<sub>b</sub>(x) - log<sub>b</sub>(y)</span></li>
+        <li><strong>Power Rule:</strong> <span class="formula">log<sub>b</sub>(x<sup>r</sup>) = r log<sub>b</sub>(x)</span></li>
+        <li><strong>Logarithm of 1:</strong> <span class="formula">log<sub>b</sub>(1) = 0</span></li>
+        <li><strong>Logarithm of the Base:</strong> <span class="formula">log<sub>b</sub>(b) = 1</span></li>
+    </ul>
+
+    <h1>Applications of Exponential and Logarithmic Functions</h1>
+    <p><strong>Exponential Growth and Decay:</strong> Population growth, radioactive decay, compound interest, and many physical processes follow exponential models.</p>
+    <div class="important">
+        <p>Formula for exponential decay (e.g., for half-life problems):</p>
+        <p><span class="formula">N(t) = N<sub>0</sub> · e<sup>-kt</sup></span></p>
+        <p>Where N(t) is the quantity at time t, N<sub>0</sub> is the initial quantity, and k is the decay constant.</p>
+    </div>
+    <p><strong>Logarithmic Applications:</strong> Logarithms are widely used in solving problems involving exponential growth and decay.</p>
+
+    <footer>
+        &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynomial Functions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d7f;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 5px solid #004d7f;
+            margin-top: 10px;
+        }
+
+        .important {
+            background-color: #ffecb3;
+            padding: 10px;
+            border-left: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .code-example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .math-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 2px solid #004d7f;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #004d7f;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d7f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Polynomial Functions
+</header>
+
+<section>
+    <h1>Introduction to Polynomial Functions</h1>
+    <p>A <strong>polynomial function</strong> is a mathematical expression consisting of variables raised to non-negative integer exponents, combined with constants, and summed or subtracted. The general form of a polynomial function in one variable is:</p>
+    <div class="math-box">
+        <code>f(x) = a_n x^n + a_{n-1} x^{n-1} + ... + a_2 x^2 + a_1 x + a_0</code>
+    </div>
+    <p>Where:</p>
+    <ul>
+        <li><strong>a_n, a_{n-1}, ... , a_0</strong> are <em>real coefficients</em>.</li>
+        <li><strong>x</strong> is the <em>variable</em>.</li>
+        <li><strong>n</strong> is the <em>degree</em> of the polynomial, which is the highest power of <code>x</code> in the polynomial.</li>
+    </ul>
+
+    <h2>Types of Polynomial Functions</h2>
+    <ul>
+        <li><strong>Linear Polynomial:</strong> Degree 1. <code>f(x) = ax + b</code></li>
+        <li><strong>Quadratic Polynomial:</strong> Degree 2. <code>f(x) = ax^2 + bx + c</code></li>
+        <li><strong>Cubic Polynomial:</strong> Degree 3. <code>f(x) = ax^3 + bx^2 + cx + d</code></li>
+        <li><strong>Quartic Polynomial:</strong> Degree 4. <code>f(x) = ax^4 + bx^3 + cx^2 + dx + e</code></li>
+        <li><strong>General Polynomial:</strong> Any degree n. <code>f(x) = a_n x^n + a_{n-1} x^{n-1} + ... + a_1 x + a_0</code></li>
+    </ul>
+
+    <h2>Key Terms in Polynomial Functions</h2>
+    <ul>
+        <li><strong>Degree of a Polynomial:</strong> The highest exponent of <code>x</code> in the polynomial.</li>
+        <li><strong>Leading Coefficient:</strong> The coefficient of the term with the highest degree.</li>
+        <li><strong>Constant Term:</strong> The term that does not contain the variable <code>x</code>.</li>
+        <li><strong>Roots or Zeros:</strong> The values of <code>x</code> for which <code>f(x) = 0</code>.</li>
+    </ul>
+
+    <h2>Operations on Polynomials</h2>
+    <div class="example">
+        <h3 class="section-header">Addition of Polynomials</h3>
+        <p>Combine like terms (terms with the same degree of <code>x</code>).</p>
+        <div class="code-example">
+            <code>(2x^2 + 3x + 5) + (x^2 - 4x + 7) = 3x^2 - x + 12</code>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3 class="section-header">Subtraction of Polynomials</h3>
+        <p>Subtract corresponding like terms.</p>
+        <div class="code-example">
+            <code>(5x^3 + 3x^2 + 2x + 1) - (2x^3 + x^2 + 4x - 3) = 3x^3 + 2x^2 - 2x + 4</code>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3 class="section-header">Multiplication of Polynomials</h3>
+        <p>Use the distributive property to multiply each term in one polynomial by each term in the other polynomial.</p>
+        <div class="code-example">
+            <code>(x + 2)(x^2 - 3x + 4) = x(x^2 - 3x + 4) + 2(x^2 - 3x + 4) = x^3 - 3x^2 + 4x + 2x^2 - 6x + 8 = x^3 - x^2 - 2x + 8</code>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3 class="section-header">Division of Polynomials</h3>
+        <p>Use long division or synthetic division to divide polynomials.</p>
+        <div class="code-example">
+            <code>x^2 - 3x + 2 ÷ x - 1 = x - 2</code>
+        </div>
+    </div>
+
+    <h2>Factorization of Polynomials</h2>
+    <div class="important">
+        <h3 class="section-header">Common Factor</h3>
+        <p>If a polynomial has a common factor, factor it out.</p>
+        <div class="code-example">
+            <code>3x^2 + 6x = 3x(x + 2)</code>
+        </div>
+    </div>
+
+    <div class="important">
+        <h3 class="section-header">Factoring Quadratics</h3>
+        <p>For quadratics of the form <code>ax^2 + bx + c</code>, find two numbers that multiply to <code>ac</code> and add to <code>b</code>.</p>
+        <div class="code-example">
+            <code>x^2 + 5x + 6 = (x + 2)(x + 3)</code>
+        </div>
+    </div>
+
+    <div class="important">
+        <h3 class="section-header">Difference of Squares</h3>
+        <p><code>a^2 - b^2 = (a + b)(a - b)</code></p>
+        <div class="code-example">
+            <code>x^2 - 9 = (x + 3)(x - 3)</code>
+        </div>
+    </div>
+
+    <div class="important">
+        <h3 class="section-header">Perfect Square Trinomial</h3>
+        <p><code>a^2 + 2ab + b^2 = (a + b)^2</code></p>
+        <div class="code-example">
+            <code>x^2 + 6x + 9 = (x + 3)^2</code>
+        </div>
+    </div>
+
+    <div class="important">
+        <h3 class="section-header">Sum or Difference of Cubes</h3>
+        <p><code>a^3 + b^3 = (a + b)(a^2 - ab + b^2)</code></p>
+        <p><code>a^3 - b^3 = (a - b)(a^2 + ab + b^2)</code></p>
+    </div>
+
+    <h2>End Behavior of Polynomials</h2>
+    <p>The <strong>end behavior</strong> of a polynomial is determined by the degree and leading coefficient. The graph's direction at the ends depends on these factors.</p>
+
+    <h2>Derivatives of Polynomial Functions</h2>
+    <p>The derivative of a polynomial function can be found using the power rule:</p>
+    <div class="math-box">
+        <code>f'(x) = n * a_n * x^{n-1}</code>
+    </div>
+    <p>For example, if <code>f(x) = 4x^3 - 2x^2 + x - 1</code>, then:</p>
+    <div class="math-box">
+        <code>f'(x) = 12x^2 - 4x + 1</code>
+    </div>
+
+    <h2>Applications of Polynomial Functions</h2>
+    <p>Polynomial functions are used in physics, economics, biology, and various fields for modeling growth, rates of change, and many other phenomena.</p>
+</section>
+
+<footer>
+    &copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+</footer>
+
+</body>
+</html>

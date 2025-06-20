@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Test</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); color: #fff; margin: 0; padding: 0; height: 100vh; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+        h1 { font-size: 2.5rem; margin-bottom: 30px; color: #fff; }
+        label { font-size: 1.1rem; color: #fff; }
+        input, select { padding: 10px; font-size: 16px; width: 80%; margin: 10px 0; border-radius: 8px; border: none; outline: none; background-color: #fff; color: #333; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        input:focus, select:focus { background-color: #f1f1f1; box-shadow: 0 0 8px rgba(0, 168, 255, 0.8); }
+        button { background-color: #2a5298; color: white; font-size: 1.2rem; padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.2s; }
+        button:hover { background-color: #1e3c72; transform: scale(1.05); }
+        button:active { transform: scale(0.98); }
+        .result { margin-top: 30px; display: none; padding: 20px; background-color: rgba(0, 0, 0, 0.7); border-radius: 15px; }
+        p { font-size: 1.1rem; line-height: 1.5; }
+        #test-section { display: block; margin-top: 30px; }
+        #definition, #hint, #synonym { margin: 10px 0; }
+        #user-answer { margin-top: 15px; padding: 12px; font-size: 18px; width: 80%; border-radius: 8px; border: none; outline: none; background-color: #fff; color: #333; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        #user-answer:focus { background-color: #f1f1f1; box-shadow: 0 0 8px rgba(0, 168, 255, 0.8); }
+        .answers-section { margin-top: 20px; display: none; text-align: left; }
+        .answer { background-color: #2a5298; padding: 8px; margin: 5px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ODA Spelling Bee Test</h1>
+        <label for="name">Enter Your Name: </label>
+        <input type="text" id="name" required><br><br>
+        <p style="color: red; font-family: serif; font-weight: bold;">Note:No spaces</p>
+        <label for="difficulty">Select Difficulty: </label>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br><br>
+        <button onclick="startTest()">Start Test</button>
+        <div id="test-section" style="display: none;">
+            <p id="definition"></p>
+            <p id="hint"></p>
+            <p id="synonym"></p>
+            <input type="text" id="user-answer" placeholder="Spell the word" required>
+            <button onclick="checkAnswer()">Submit Answer</button>
+        </div>
+        <div id="result" class="result">
+            <h2>Test Results</h2>
+            <p>Your score: <span id="score"></span>/30</p>
+            <button onclick="nextTest()">Next 10 Questions</button>
+            <button onclick="saveHighScore()">Save High Score</button>
+            <button onclick="seeAnswers()">See Answers</button>
+        </div>
+        <div id="highscore-section" style="display: none;">
+            <h2>High Scores</h2>
+            <p><strong>Highest Score: </strong><span id="highscore-name"></span> - <span id="highscore-score"></span></p>
+        </div>
+        <div id="answers-section" class="answers-section">
+            <h2>Answers</h2>
+            <div id="answers-list"></div>
+        </div>
+    </div>
+
+    <script>
+        let userName = "", difficulty = "easy", currentQuestion = 0, correctAnswers = 0;
+        let userAnswers = [];  // To store the answers
+        const questions = {
+            easy: [
+                    { word: 'Abandon', definition: 'To leave behind or give up on', synonym: 'Forsake', hint: 'A' },
+    { word: 'Breeze', definition: 'A light and gentle wind', synonym: 'Zephyr', hint: 'B' },
+    { word: 'Courage', definition: 'The ability to face fear or danger', synonym: 'Bravery', hint: 'C' },
+    { word: 'Delight', definition: 'A feeling of great pleasure', synonym: 'Joy', hint: 'D' },
+    { word: 'Empathy', definition: 'The ability to understand and share the feelings of another', synonym: 'Compassion', hint: 'E' },
+    { word: 'Fortune', definition: 'Good luck or wealth', synonym: 'Prosperity', hint: 'F' },
+    { word: 'Glimpse', definition: 'A brief or quick view', synonym: 'Peek', hint: 'G' },
+    { word: 'Harmony', definition: 'A state of peaceful agreement or balance', synonym: 'Accord', hint: 'H' },
+    { word: 'Impact', definition: 'A strong effect or influence', synonym: 'Influence', hint: 'I' },
+    { word: 'Journey', definition: 'The act of traveling from one place to another', synonym: 'Expedition', hint: 'J' },
+    { word: 'Admire', definition: 'To regard with respect or approval', synonym: 'Appreciate', hint: 'A' },
+    { word: 'Keen', definition: 'Having a sharp edge or a strong desire', synonym: 'Eager', hint: 'K' },
+    { word: 'Laughter', definition: 'The sound of someone laughing', synonym: 'Giggle', hint: 'L' },
+    { word: 'Marvel', definition: 'To be filled with wonder or astonishment', synonym: 'Astonish', hint: 'M' },
+    { word: 'Noble', definition: 'Having high moral qualities or a dignified rank', synonym: 'Honorable', hint: 'N' },
+    { word: 'Optimum', definition: 'The best or most effective condition', synonym: 'Ideal', hint: 'O' },
+    { word: 'Pioneer', definition: 'A person who is among the first to explore or develop a new area', synonym: 'Trailblazer', hint: 'P' },
+    { word: 'Quiet', definition: 'Making little or no noise', synonym: 'Silent', hint: 'Q' },
+    { word: 'Radiant', definition: 'Sending out light or heat; glowing', synonym: 'Bright', hint: 'R' },
+    { word: 'Serene', definition: 'Calm, peaceful, and untroubled', synonym: 'Tranquil', hint: 'S' },
+    { word: 'Tolerate', definition: 'To allow the existence of something, even if one does not agree with it', synonym: 'Endure', hint: 'T' },
+    { word: 'Unique', definition: 'Being the only one of its kind', synonym: 'Uncommon', hint: 'U' },
+    { word: 'Vivid', definition: 'Producing powerful feelings or strong, clear images', synonym: 'Clear', hint: 'V' },
+    { word: 'Whisper', definition: 'To speak very softly using one’s breath without vocal cords', synonym: 'Murmur', hint: 'W' },
+    { word: 'Xenial', definition: 'Relating to hospitality or the relationship between guest and host', synonym: 'Hospitable', hint: 'X' },
+    { word: 'Yearn', definition: 'To have a strong and earnest desire', synonym: 'Long', hint: 'Y' },
+    { word: 'Zealous', definition: 'Having or showing passion or enthusiasm for something', synonym: 'Passionate', hint: 'Z' },
+    { word: 'Abstract', definition: 'Existing in thought or as an idea but not having a physical or concrete existence', synonym: 'Conceptual', hint: 'A' },
+    { word: 'Blossom', definition: 'A flower or the state of flowering', synonym: 'Bloom', hint: 'B' },
+    { word: 'Clarity', definition: 'The quality of being clear and easy to understand', synonym: 'Transparency', hint: 'C' },
+            ],
+            medium: [
+                 { word: 'Absurd', definition: 'Wildly unreasonable or illogical', synonym: 'Ridiculous', hint: 'A' },
+    { word: 'Beneficial', definition: 'Having a good or helpful effect', synonym: 'Advantageous', hint: 'B' },
+    { word: 'Cease', definition: 'To bring or come to an end', synonym: 'Stop', hint: 'C' },
+    { word: 'Deteriorate', definition: 'To become worse or of lower quality', synonym: 'Worsen', hint: 'D' },
+    { word: 'Elusive', definition: 'Difficult to find, catch, or achieve', synonym: 'Evasive', hint: 'E' },
+    { word: 'Fathom', definition: 'To understand or comprehend', synonym: 'Understand', hint: 'F' },
+    { word: 'Grim', definition: 'Very serious, dark, or unpleasant', synonym: 'Dismal', hint: 'G' },
+    { word: 'Harsh', definition: 'Severe or unpleasant', synonym: 'Severe', hint: 'H' },
+    { word: 'Imply', definition: 'To suggest or express indirectly', synonym: 'Suggest', hint: 'I' },
+    { word: 'Jovial', definition: 'Cheerful and friendly', synonym: 'Happy', hint: 'J' },
+    { word: 'Keen', definition: 'Eager or enthusiastic', synonym: 'Excited', hint: 'K' },
+    { word: 'Lament', definition: 'To express sorrow or regret', synonym: 'Mourn', hint: 'L' },
+    { word: 'Mundane', definition: 'Ordinary and dull', synonym: 'Boring', hint: 'M' },
+    { word: 'Nurture', definition: 'To care for and encourage the growth of', synonym: 'Foster', hint: 'N' },
+    { word: 'Obscure', definition: 'Not well known or unclear', synonym: 'Vague', hint: 'O' },
+    { word: 'Plausible', definition: 'Appearing reasonable or likely', synonym: 'Believable', hint: 'P' },
+    { word: 'Quaint', definition: 'Charming in an old-fashioned way', synonym: 'Picturesque', hint: 'Q' },
+    { word: 'Resilient', definition: 'Able to recover quickly from difficulties', synonym: 'Tough', hint: 'R' },
+    { word: 'Skeptical', definition: 'Not easily convinced; doubtful', synonym: 'Doubtful', hint: 'S' },
+    { word: 'Trivial', definition: 'Of little value or importance', synonym: 'Insignificant', hint: 'T' },
+    { word: 'Ubiquitous', definition: 'Present, appearing, or found everywhere', synonym: 'Omnipresent', hint: 'U' },
+    { word: 'Vivid', definition: 'Clear and powerful in appearance or memory', synonym: 'Bright', hint: 'V' },
+    { word: 'Warrant', definition: 'To justify or deserve', synonym: 'Justify', hint: 'W' },
+    { word: 'Xenophobia', definition: 'Fear or dislike of people from other countries', synonym: 'Racism', hint: 'X' },
+    { word: 'Yield', definition: 'To produce or provide', synonym: 'Generate', hint: 'Y' },
+    { word: 'Zealot', definition: 'A person who is fanatical about a cause', synonym: 'Extremist', hint: 'Z' },
+    { word: 'Alleviate', definition: 'To make a situation less severe', synonym: 'Ease', hint: 'A' },
+    { word: 'Brash', definition: 'Self-assertive in a rude or overbearing way', synonym: 'Bold', hint: 'B' },
+    { word: 'Concur', definition: 'To agree or have the same opinion', synonym: 'Agree', hint: 'C' },
+    { word: 'Devious', definition: 'Showing a skillful use of underhanded tactics', synonym: 'Dishonest', hint: 'D' },
+    { word: 'Elicit', definition: 'To draw out or provoke a response', synonym: 'Extract', hint: 'E' },
+    { word: 'Frivolous', definition: 'Not having any serious purpose or value', synonym: 'Trivial', hint: 'F' }
+            ],
+            hard: [
+                { word: 'Abrogate', definition: 'To repeal or do away with (a law, right, or formal agreement)', synonym: 'Annul', hint: 'A' },
+    { word: 'Belligerent', definition: 'Hostile and aggressive', synonym: 'Aggressive', hint: 'B' },
+    { word: 'Cacophony', definition: 'A harsh, discordant mixture of sounds', synonym: 'Racket', hint: 'C' },
+    { word: 'Defenestration', definition: 'The act of throwing someone out of a window', synonym: 'Ejection', hint: 'D' },
+    { word: 'Ephemeral', definition: 'Lasting for a very short time', synonym: 'Short-lived', hint: 'E' },
+    { word: 'Felicity', definition: 'Great happiness', synonym: 'Joy', hint: 'F' },
+    { word: 'Garrulous', definition: 'Excessively talkative, especially on trivial matters', synonym: 'Loquacious', hint: 'G' },
+    { word: 'Hapless', definition: 'Unfortunate or unlucky', synonym: 'Unlucky', hint: 'H' },
+    { word: 'Implacable', definition: 'Unable to be appeased or placated', synonym: 'Relentless', hint: 'I' },
+    { word: 'Juxtapose', definition: 'To place side by side for comparison', synonym: 'Compare', hint: 'J' },
+    { word: 'Kaleidoscope', definition: 'A constantly changing pattern or sequence of elements', synonym: 'Variety', hint: 'K' },
+    { word: 'Lugubrious', definition: 'Looking or sounding sad and dismal', synonym: 'Mournful', hint: 'L' },
+    { word: 'Mellifluous', definition: 'Sweet or musical; pleasant to hear', synonym: 'Harmonious', hint: 'M' },
+    { word: 'Nefarious', definition: 'Wicked or criminal', synonym: 'Evil', hint: 'N' },
+    { word: 'Obfuscate', definition: 'To deliberately make something unclear or difficult to understand', synonym: 'Confuse', hint: 'O' },
+    { word: 'Pernicious', definition: 'Having a harmful effect, especially in a gradual or subtle way', synonym: 'Harmful', hint: 'P' },
+    { word: 'Quixotic', definition: 'Exceedingly idealistic; unrealistic and impractical', synonym: 'Unrealistic', hint: 'Q' },
+    { word: 'Recalcitrant', definition: 'Having an obstinately uncooperative attitude', synonym: 'Stubborn', hint: 'R' },
+    { word: 'Sagacious', definition: 'Having or showing keen mental discernment and good judgment', synonym: 'Wise', hint: 'S' },
+    { word: 'Tantamount', definition: 'Equivalent in seriousness to; virtually the same as', synonym: 'Equivalent', hint: 'T' },
+    { word: 'Ubiquitous', definition: 'Present, appearing, or found everywhere', synonym: 'Omnipresent', hint: 'U' },
+    { word: 'Vociferous', definition: 'Expressing opinions in a loud or forceful manner', synonym: 'Noisy', hint: 'V' },
+    { word: 'Wistful', definition: 'Longing or yearning for something that may never be attained', synonym: 'Yearning', hint: 'W' },
+    { word: 'Xenophobic', definition: 'Having or showing a dislike of people from other countries', synonym: 'Prejudiced', hint: 'X' },
+    { word: 'Yen', definition: 'A strong desire or craving', synonym: 'Longing', hint: 'Y' },
+    { word: 'Zealous', definition: 'Having great energy or enthusiasm in pursuit of a cause or objective', synonym: 'Enthusiastic', hint: 'Z' },
+    { word: 'Altruistic', definition: 'Showing a selfless concern for the well-being of others', synonym: 'Selfless', hint: 'A' },
+    { word: 'Benevolent', definition: 'Well meaning and kindly', synonym: 'Kind-hearted', hint: 'B' },
+    { word: 'Concatenate', definition: 'To link things together in a series or chain', synonym: 'Link', hint: 'C' },
+    { word: 'Disparate', definition: 'Essentially different in kind; not allowing comparison', synonym: 'Distinct', hint: 'D' },
+    { word: 'Ebullient', definition: 'Cheerful and full of energy', synonym: 'Exuberant', hint: 'E' },
+    { word: 'Flabbergasted', definition: 'Extremely surprised or shocked', synonym: 'Astonished', hint: 'F' }
+
+            ]
+        };
+
+        let highScoreName = localStorage.getItem('highScoreName') || "None";
+        let highScore = localStorage.getItem('highScore') || 0;
+
+        function startTest() {
+            userName = document.getElementById('name').value;
+            difficulty = document.getElementById('difficulty').value;
+            if (!userName) { alert("Please enter your name!"); return; }
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('test-section').style.display = 'block';
+            currentQuestion = correctAnswers = 0;
+            userAnswers = [];
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestion < 30) {
+                const { definition, hint, synonym } = questions[difficulty][currentQuestion];
+                document.getElementById('definition').textContent = `Definition: ${definition}`;
+                document.getElementById('hint').textContent = `Hint: The first letter is "${hint}"`;
+                document.getElementById('synonym').textContent = `Synonym: ${synonym}`;
+            } else showResults();
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('user-answer').value.toLowerCase();
+            const correctWord = questions[difficulty][currentQuestion].word.toLowerCase();
+            userAnswers.push({ word: questions[difficulty][currentQuestion].word, userAnswer, correct: userAnswer === correctWord });
+            if (userAnswer === correctWord) correctAnswers++;
+            currentQuestion++;
+            document.getElementById('user-answer').value = "";
+            loadQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('test-section').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').textContent = correctAnswers;
+        }
+
+        function nextTest() {
+            correctAnswers = 0;
+            currentQuestion = 0;
+            document.getElementById('result').style.display = 'none';
+            document.querySelector('button').style.display = 'block';
+        }
+
+        function saveHighScore() {
+            if (correctAnswers > highScore) {
+                highScore = correctAnswers;
+                highScoreName = userName;
+                localStorage.setItem('highScore', highScore);
+                localStorage.setItem('highScoreName', highScoreName);
+            }
+            document.getElementById('highscore-name').textContent = highScoreName;
+            document.getElementById('highscore-score').textContent = highScore;
+            document.getElementById('highscore-section').style.display = 'block';
+        }
+
+        function seeAnswers() {
+            let answersHtml = '';
+            userAnswers.forEach(answer => {
+                answersHtml += `
+                    <div class="answer">
+                        <strong>Word:</strong> ${answer.word} 
+                        <br><strong>Your Answer:</strong> ${answer.userAnswer} 
+                        <br><strong>Correct Answer:</strong> ${answer.correct ? "Correct" : "Incorrect"}
+                    </div>
+                `;
+            });
+            document.getElementById('answers-list').innerHTML = answersHtml;
+            document.getElementById('answers-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

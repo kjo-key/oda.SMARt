@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Programming</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #ffffff;
+      color: #333333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #6453f8;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #6200ee;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .navbar.dark-mode {
+      background-color: #333333;
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .navbar .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .navbar .nav-links a:hover {
+      color: #bb86fc;
+    }
+    .navbar .mode-toggle {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .container {
+      padding: 6rem 2rem 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section {
+      margin-bottom: 3rem;
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #6200ee;
+    }
+    .section p {
+      line-height: 1.6;
+    }
+    .section pre {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    body.dark-mode .section pre {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      background-color: #6200ee;
+      color: #ffffff;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    body.dark-mode footer {
+      background-color: #333333;
+    }
+  </style>
+</head>
+<body onload="showSection('html')">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h1 class="logo">Learn Web development</h1>
+    <ul class="nav-links">
+      <li><a onclick="showSection('html')" aria-label="HTML Section">HTML</a></li>
+      <li><a onclick="showSection('css')" aria-label="CSS Section">CSS</a></li>
+      <li><a onclick="showSection('javascript')" aria-label="JavaScript Section">JavaScript</a></li>
+    </ul>
+    <button class="mode-toggle" onclick="toggleMode()" aria-label="Toggle Dark Mode">🌙</button>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section id="html" class="section">
+       <h1>Learn HTML - Complete Guide for beginners</h1>
+
+  <h2>1. What is HTML?</h2>
+  <p>HTML stands for <strong>HyperText Markup Language</strong>. It is the standard language for creating web pages. HTML uses <strong>tags</strong> to structure content, such as headings, paragraphs, images, and links. It is not a programming language; it is a <strong>markup language</strong> used to define the structure of web content.</p>
+
+  <h2>2. Basic Structure of an HTML Document</h2>
+  <p>Every HTML document follows a basic structure. Here’s an example:</p>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h3>Explanation:</h3>
+  <ul>
+    <li><code>&lt;!DOCTYPE html&gt;</code>: Declares the document type and version of HTML (HTML5 in this case).</li>
+    <li><code>&lt;html&gt;</code>: The root element of the HTML document.</li>
+    <li><code>&lt;head&gt;</code>: Contains meta-information about the document, such as the title and character set.</li>
+    <li><code>&lt;title&gt;</code>: Sets the title of the webpage (shown in the browser tab).</li>
+    <li><code>&lt;body&gt;</code>: Contains the visible content of the webpage.</li>
+  </ul>
+
+  <h2>3. HTML Elements and Tags</h2>
+  <p><strong>Elements</strong>: The building blocks of HTML. They define the structure and content of a webpage.</p>
+  <p><strong>Tags</strong>: Used to define elements. Tags are enclosed in angle brackets (<code>&lt; &gt;</code>).</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+  <ul>
+    <li><code>&lt;p&gt;</code> is the opening tag.</li>
+    <li><code>&lt;/p&gt;</code> is the closing tag.</li>
+    <li>The content between the tags is the element’s content.</li>
+  </ul>
+
+  <h2>4. Common HTML Tags</h2>
+
+  <h3>Headings (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>)</h3>
+  <p>Headings are used to define titles and subtitles. <code>&lt;h1&gt;</code> is the largest, and <code>&lt;h6&gt;</code> is the smallest.</p>
+  <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Smaller Subheading&lt;/h3&gt;</code></pre>
+
+  <h3>Paragraphs (<code>&lt;p&gt;</code>)</h3>
+  <p>Used to define paragraphs of text.</p>
+  <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;</code></pre>
+
+  <h3>Links (<code>&lt;a&gt;</code>)</h3>
+  <p>Used to create hyperlinks. The <code>href</code> attribute specifies the link’s destination.</p>
+  <pre><code>&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
+
+  <h3>Images (<code>&lt;img&gt;</code>)</h3>
+  <p>Used to embed images. The <code>src</code> attribute specifies the image path, and <code>alt</code> provides alternative text.</p>
+  <pre><code>&lt;img src="image.jpg" alt="Description of the image"&gt;</code></pre>
+
+  <h3>Lists</h3>
+  <p><strong>Unordered List (<code>&lt;ul&gt;</code>):</strong></p>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+  <p><strong>Ordered List (<code>&lt;ol&gt;</code>):</strong></p>
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;First Item&lt;/li&gt;
+  &lt;li&gt;Second Item&lt;/li&gt;
+  &lt;li&gt;Third Item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  <h3>Tables (<code>&lt;table&gt;</code>)</h3>
+  <p>Used to create tables.</p>
+  <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Jane&lt;/td&gt;
+    &lt;td&gt;30&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+  <h3>Forms (<code>&lt;form&gt;</code>)</h3>
+  <p>Used to collect user input.</p>
+  <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  &lt;br&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  &lt;br&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+  <h2>5. Attributes</h2>
+  <p>Attributes provide additional information about HTML elements. They are placed inside the opening tag.</p>
+  <h3>Example:</h3>
+  <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;Visit Example&lt;/a&gt;</code></pre>
+  <ul>
+    <li><code>href</code>: Specifies the link’s destination.</li>
+    <li><code>target="_blank"</code>: Opens the link in a new tab.</li>
+  </ul>
+
+  <h2>6. Semantic HTML</h2>
+  <p>Semantic HTML uses meaningful tags to describe the content’s purpose. Examples include:</p>
+  <ul>
+    <li><code>&lt;header&gt;</code>: Defines the header of a page or section.</li>
+    <li><code>&lt;nav&gt;</code>: Defines navigation links.</li>
+    <li><code>&lt;main&gt;</code>: Defines the main content of a page.</li>
+    <li><code>&lt;footer&gt;</code>: Defines the footer of a page or section.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;header&gt;
+  &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;p&gt;This is the main content.&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2024 My Website&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+  <h2>7. Practice Exercise</h2>
+  <p>Create a simple webpage with the following:</p>
+  <ol>
+    <li>A heading (<code>&lt;h1&gt;</code>).</li>
+    <li>A paragraph (<code>&lt;p&gt;</code>).</li>
+    <li>An image (<code>&lt;img&gt;</code>).</li>
+    <li>A link (<code>&lt;a&gt;</code>).</li>
+    <li>A list (<code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>).</li>
+  </ol>
+
+  <h2>8. Next Steps</h2>
+  <ul>
+    <li>Learn <strong>CSS</strong> to style your HTML pages.</li>
+    <li>Learn <strong>JavaScript</strong> to add interactivity.</li>
+    <li>Practice by building small projects (e.g., a personal portfolio, a blog page).</li>
+  </ul>
+        <h1>Advanced HTML Guide</h1>
+
+  <h2>1. HTML5 Semantic Elements</h2>
+  <p>Semantic elements describe the meaning of the content they contain. They improve accessibility, SEO, and make your code easier to read.</p>
+
+  <h3>Key Semantic Elements:</h3>
+  <ul>
+    <li><code>&lt;header&gt;</code>: Represents the header of a page or section.</li>
+    <li><code>&lt;nav&gt;</code>: Defines navigation links.</li>
+    <li><code>&lt;main&gt;</code>: Contains the main content of the page.</li>
+    <li><code>&lt;section&gt;</code>: Defines a section of related content.</li>
+    <li><code>&lt;article&gt;</code>: Represents independent, self-contained content (e.g., blog post).</li>
+    <li><code>&lt;aside&gt;</code>: Contains content related to the main content (e.g., sidebar).</li>
+    <li><code>&lt;footer&gt;</code>: Represents the footer of a page or section.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;header&gt;
+  &lt;h1&gt;My Website&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Blog Post Title&lt;/h2&gt;
+    &lt;p&gt;This is a blog post.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;
+    &lt;h3&gt;Related Links&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#link1"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#link2"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2024 My Website&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+  <h2>2. Forms and Input Types</h2>
+  <p>HTML5 introduced new input types and attributes for better user experience and validation.</p>
+
+  <h3>Common Input Types:</h3>
+  <ul>
+    <li><code>text</code>: Single-line text input.</li>
+    <li><code>email</code>: Email address input.</li>
+    <li><code>password</code>: Password input (hidden characters).</li>
+    <li><code>number</code>: Numeric input.</li>
+    <li><code>date</code>: Date picker.</li>
+    <li><code>file</code>: File upload.</li>
+    <li><code>checkbox</code>: Checkbox input.</li>
+    <li><code>radio</code>: Radio button input.</li>
+    <li><code>submit</code>: Submit button.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+  &lt;br&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;br&gt;
+  &lt;label for="password"&gt;Password:&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" required&gt;
+  &lt;br&gt;
+  &lt;label for="age"&gt;Age:&lt;/label&gt;
+  &lt;input type="number" id="age" name="age" min="18" max="100"&gt;
+  &lt;br&gt;
+  &lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+  &lt;input type="date" id="dob" name="dob"&gt;
+  &lt;br&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+  <h2>3. Multimedia (Audio and Video)</h2>
+  <p>HTML5 provides native support for embedding audio and video.</p>
+
+  <h3>Audio:</h3>
+  <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+
+  <h3>Video:</h3>
+  <pre><code>&lt;video controls width="600"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Your browser does not support the video element.
+&lt;/video&gt;</code></pre>
+
+  <h2>4. Embedding External Content (iframes)</h2>
+  <p>Use <code>&lt;iframe&gt;</code> to embed external content like maps, videos, or other web pages.</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;iframe
+  src="https://www.google.com/maps/embed?pb=..."
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+
+  <h2>5. Accessibility (ARIA Roles and Attributes)</h2>
+  <p>ARIA (Accessible Rich Internet Applications) helps make web content more accessible to people with disabilities.</p>
+
+  <h3>Common ARIA Attributes:</h3>
+  <ul>
+    <li><code>role</code>: Defines the purpose of an element (e.g., <code>role="navigation"</code>).</li>
+    <li><code>aria-label</code>: Provides a label for an element.</li>
+    <li><code>aria-labelledby</code>: Associates an element with a label.</li>
+    <li><code>aria-describedby</code>: Provides a description for an element.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;nav role="navigation" aria-label="Main Navigation"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+  <h2>6. Meta Tags for SEO and Social Media</h2>
+  <p>Meta tags provide metadata about your webpage, which is used by search engines and social media platforms.</p>
+
+  <h3>Common Meta Tags:</h3>
+  <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content="A description of your webpage"&gt;
+  &lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;
+  &lt;meta name="author" content="Your Name"&gt;
+  &lt;!-- Open Graph Meta Tags for Social Media --&gt;
+  &lt;meta property="og:title" content="Your Webpage Title"&gt;
+  &lt;meta property="og:description" content="A description of your webpage"&gt;
+  &lt;meta property="og:image" content="image.jpg"&gt;
+  &lt;meta property="og:url" content="https://www.example.com"&gt;
+&lt;/head&gt;</code></pre>
+
+  <h2>7. HTML Entities and Special Characters</h2>
+  <p>Use HTML entities to display special characters.</p>
+
+  <h3>Common Entities:</h3>
+  <ul>
+    <li><code>&amp;lt;</code>: <code>&lt;</code></li>
+    <li><code>&amp;gt;</code>: <code>&gt;</code></li>
+    <li><code>&amp;amp;</code>: <code>&amp;</code></li>
+    <li><code>&amp;copy;</code>: <code>&copy;</code></li>
+    <li><code>&amp;nbsp;</code>: Non-breaking space</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;p&gt;This is a &amp;lt;div&amp;gt; element.&lt;/p&gt;
+&lt;p&gt;Copyright &amp;copy; 2024 My Website.&lt;/p&gt;</code></pre>
+
+  <h2>8. Data Attributes</h2>
+  <p>Data attributes (<code>data-*</code>) allow you to store custom data in HTML elements.</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;div data-user-id="123" data-role="admin"&gt;User Info&lt;/div&gt;</code></pre>
+
+  <h3>Accessing Data Attributes in JavaScript:</h3>
+  <pre><code>&lt;script&gt;
+  const userDiv = document.querySelector('div');
+  console.log(userDiv.dataset.userId); // Output: 123
+&lt;/script&gt;</code></pre>
+
+  <h2>9. HTML Validation</h2>
+  <p>Always validate your HTML to ensure it follows standards and is error-free.</p>
+
+  <h3>Use the W3C Validator:</h3>
+  <ul>
+    <li>Visit <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>.</li>
+    <li>Upload your HTML file or paste your code.</li>
+  </ul>
+
+  <h2>10. Best Practices</h2>
+  <ol>
+    <li><strong>Use Semantic HTML</strong>: Improves accessibility and SEO.</li>
+    <li><strong>Validate Your HTML</strong>: Ensures your code is error-free.</li>
+    <li><strong>Optimize for Performance</strong>: Minimize the use of unnecessary elements.</li>
+    <li><strong>Write Accessible Code</strong>: Use ARIA roles and attributes.</li>
+    <li><strong>Keep It Simple</strong>: Avoid overcomplicating your HTML structure.</li>
+  </ol>
+
+  <h2>11. Practice Exercise</h2>
+  <p>Create a webpage with:</p>
+  <ol>
+    <li>A semantic layout (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>).</li>
+    <li>A form with advanced input types.</li>
+    <li>Embedded multimedia (audio or video).</li>
+    <li>An iframe for external content.</li>
+    <li>ARIA attributes for accessibility.</li>
+  </ol>
+
+  <h2>12. Next Steps</h2>
+  <ul>
+    <li>Learn <strong>CSS</strong> for styling.</li>
+    <li>Learn <strong>JavaScript</strong> for interactivity.</li>
+    <li>Explore frameworks like <strong>Bootstrap</strong> or <strong>Tailwind CSS</strong>.</li>
+    <li>Build projects to practice your skills.</li>
+  </ul>
+
+    </section>
+
+    <section id="css" class="section">
+      <h1>Complete CSS Guide</h1>
+
+  <h2>1. What is CSS?</h2>
+  <p>CSS stands for <strong>Cascading Style Sheets</strong>. It is used to style HTML elements, such as colors, fonts, spacing, and layout. CSS works by selecting HTML elements and applying styles to them.</p>
+
+  <h2>2. CSS Syntax</h2>
+  <p>CSS consists of <strong>selectors</strong> and <strong>declarations</strong>.</p>
+
+  <h3>Syntax:</h3>
+  <pre><code>selector {
+  property: value;
+}</code></pre>
+
+  <h3>Example:</h3>
+  <pre><code>h1 {
+  color: blue;
+  font-size: 24px;
+}</code></pre>
+
+  <h2>3. Selectors</h2>
+  <p>Selectors are used to target HTML elements for styling.</p>
+
+  <h3>Common Selectors:</h3>
+  <ul>
+    <li><strong>Element Selector</strong>: Targets all instances of an element.
+      <pre><code>p {
+  color: red;
+}</code></pre>
+    </li>
+    <li><strong>Class Selector</strong>: Targets elements with a specific class.
+      <pre><code>.text-center {
+  text-align: center;
+}</code></pre>
+    </li>
+    <li><strong>ID Selector</strong>: Targets a single element with a specific ID.
+      <pre><code>#header {
+  background-color: yellow;
+}</code></pre>
+    </li>
+    <li><strong>Attribute Selector</strong>: Targets elements with a specific attribute.
+      <pre><code>input[type="text"] {
+  border: 1px solid #ccc;
+}</code></pre>
+    </li>
+  </ul>
+
+  <h2>4. Box Model</h2>
+  <p>Every element in CSS is a box, consisting of:</p>
+  <ul>
+    <li><strong>Content</strong>: The actual content (text, image, etc.).</li>
+    <li><strong>Padding</strong>: Space between the content and the border.</li>
+    <li><strong>Border</strong>: A line around the padding and content.</li>
+    <li><strong>Margin</strong>: Space outside the border.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>.box {
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 10px;
+}</code></pre>
+
+  <div class="example">
+    <h3>Box Model Example:</h3>
+    <div style="width: 200px; padding: 20px; border: 2px solid black; margin: 10px;">
+      This is a box.
+    </div>
+  </div>
+
+  <h2>5. Display and Positioning</h2>
+  <h3>Display Properties:</h3>
+  <ul>
+    <li><code>block</code>: Takes the full width and starts on a new line.</li>
+    <li><code>inline</code>: Takes only the necessary width and stays in the same line.</li>
+    <li><code>inline-block</code>: Combines features of both block and inline.</li>
+    <li><code>none</code>: Hides the element.</li>
+  </ul>
+
+  <h3>Positioning:</h3>
+  <ul>
+    <li><code>static</code>: Default positioning.</li>
+    <li><code>relative</code>: Positioned relative to its normal position.</li>
+    <li><code>absolute</code>: Positioned relative to the nearest positioned ancestor.</li>
+    <li><code>fixed</code>: Positioned relative to the viewport.</li>
+    <li><code>sticky</code>: Toggles between <code>relative</code> and <code>fixed</code>.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>.box {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}</code></pre>
+
+  <div class="example">
+    <h3>Positioning Example:</h3>
+    <div style="position: relative; top: 20px; left: 30px; width: 100px; height: 100px; background-color: #6200ee; color: white;">
+      Relative Box
+    </div>
+  </div>
+
+  <h2>6. Flexbox</h2>
+  <p>Flexbox is a layout model for arranging items in a container.</p>
+
+  <h3>Key Properties:</h3>
+  <ul>
+    <li><code>display: flex</code>: Enables flexbox.</li>
+    <li><code>flex-direction</code>: Defines the direction of items (row, column).</li>
+    <li><code>justify-content</code>: Aligns items along the main axis.</li>
+    <li><code>align-items</code>: Aligns items along the cross axis.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+
+  <div class="example">
+    <h3>Flexbox Example:</h3>
+    <div class="flex-container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </div>
+
+  <h2>7. Grid Layout</h2>
+  <p>CSS Grid is a 2D layout system for creating complex layouts.</p>
+
+  <h3>Key Properties:</h3>
+  <ul>
+    <li><code>display: grid</code>: Enables grid layout.</li>
+    <li><code>grid-template-columns</code>: Defines the columns.</li>
+    <li><code>grid-template-rows</code>: Defines the rows.</li>
+    <li><code>gap</code>: Adds space between grid items.</li>
+  </ul>
+
+  <h3>Example:</h3>
+  <pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}</code></pre>
+
+  <div class="example">
+    <h3>Grid Layout Example:</h3>
+    <div class="grid-container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+  </div>
+
+  <h2>8. Responsive Design (Media Queries)</h2>
+  <p>Media queries allow you to apply styles based on screen size.</p>
+
+  <h3>Example:</h3>
+  <pre><code>@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}</code></pre>
+
+  <div class="example">
+    <h3>Media Query Example:</h3>
+    <p>Resize the browser window to see the effect.</p>
+    <div class="flex-container" style="flex-direction: row;">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </div>
+
+  <h2>9. Transitions and Animations</h2>
+  <h3>Transitions:</h3>
+  <p>Smoothly change property values over time.</p>
+  <pre><code>.button {
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: blue;
+}</code></pre>
+
+  <h3>Animations:</h3>
+  <p>Create complex animations using keyframes.</p>
+  <pre><code>@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}
+.box {
+  animation: slide 2s infinite;
+}</code></pre>
+
+  <div class="example">
+    <h3>Transition Example:</h3>
+    <button class="button">Hover Me</button>
+  </div>
+
+  <div class="example">
+    <h3>Animation Example:</h3>
+    <div class="box" style="animation: slide 2s infinite;">Slide</div>
+  </div>
+
+  <h2>10. Variables (Custom Properties)</h2>
+  <p>CSS variables allow you to store reusable values.</p>
+
+  <h3>Example:</h3>
+  <pre><code>:root {
+  --primary-color: blue;
+}
+.button {
+  background-color: var(--primary-color);
+}</code></pre>
+
+  <div class="example">
+    <h3>CSS Variables Example:</h3>
+    <button class="button" style="background-color: var(--primary-color, #6200ee);">Button</button>
+  </div>
+
+  <h2>11. Best Practices</h2>
+  <ol>
+    <li><strong>Use Semantic HTML</strong>: Improves accessibility and SEO.</li>
+    <li><strong>Keep Styles Modular</strong>: Use classes and reusable components.</li>
+    <li><strong>Avoid Inline Styles</strong>: Use external stylesheets.</li>
+    <li><strong>Optimize for Performance</strong>: Minimize the use of unnecessary styles.</li>
+    <li><strong>Use CSS Preprocessors</strong>: Like SASS or LESS for advanced features.</li>
+  </ol>
+
+  <h2>12. Practice Exercise</h2>
+  <p>Create a webpage with:</p>
+  <ol>
+    <li>A flexbox layout for the header.</li>
+    <li>A grid layout for the main content.</li>
+    <li>Responsive design using media queries.</li>
+    <li>Transitions and animations for interactive elements.</li>
+  </ol>
+
+  <h2>13. Next Steps</h2>
+  <ul>
+    <li>Learn <strong>CSS Frameworks</strong> like Bootstrap or Tailwind CSS.</li>
+    <li>Explore <strong>CSS Preprocessors</strong> like SASS or LESS.</li>
+    <li>Build projects to practice your skills.</li>
+  </ul>
+    </section>
+
+    <section id="javascript" class="section">
+        <h1>JavaScript Beginner's Guide</h1>
+
+  <h2>What is JavaScript?</h2>
+  <p>
+    JavaScript is a <strong>programming language</strong> used to make web pages interactive. It runs in your browser and allows you to manipulate HTML, CSS, and data dynamically. It’s also used on the server-side (with Node.js) and in mobile app development.
+  </p>
+
+  <h2>Setting Up JavaScript</h2>
+  <p>
+    You don’t need any special tools to start coding in JavaScript. All you need is:
+  </p>
+  <ol>
+    <li>A <strong>browser</strong> (like Chrome, Firefox, or Edge).</li>
+    <li>A <strong>text editor</strong> (like VS Code, Sublime Text, or Notepad).</li>
+  </ol>
+  <p>
+    You can write JavaScript directly in your browser’s console or in an HTML file.
+  </p>
+
+  <h2>Writing Your First JavaScript Code</h2>
+  <p>
+    Let’s start with a simple example. Open your browser’s developer tools (press <code>F12</code> or <code>Ctrl+Shift+I</code>), go to the <strong>Console</strong> tab, and type:
+  </p>
+  <pre><code>console.log("Hello, World!");</code></pre>
+  <p>
+    Press <code>Enter</code>, and you’ll see <code>Hello, World!</code> printed in the console. Congratulations! You’ve just written your first JavaScript program.
+  </p>
+
+  <h2>JavaScript Basics</h2>
+
+  <h3>1. Variables</h3>
+  <p>
+    Variables are used to store data. In JavaScript, you can declare variables using:
+  </p>
+  <ul>
+    <li><code>let</code>: For variables that can change.</li>
+    <li><code>const</code>: For variables that cannot change (constants).</li>
+    <li><code>var</code>: Older way (avoid in modern JavaScript).</li>
+  </ul>
+  <p>Example:</p>
+  <pre><code>let name = "Alice";
+const age = 25;
+var city = "New York"; // Avoid using var
+console.log(name, age, city);</code></pre>
+
+  <h3>2. Data Types</h3>
+  <p>
+    JavaScript has several data types:
+  </p>
+  <ul>
+    <li><strong>Primitive Types</strong>: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>.</li>
+    <li><strong>Objects</strong>: <code>object</code>, <code>array</code>, <code>function</code>.</li>
+  </ul>
+  <p>Example:</p>
+  <pre><code>let name = "Alice"; // string
+let age = 25; // number
+let isStudent = true; // boolean
+let car = null; // null
+let job; // undefined</code></pre>
+
+  <h3>3. Operators</h3>
+  <p>
+    - Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code> (exponentiation).<br>
+    - Comparison: <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.<br>
+    - Logical: <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.
+  </p>
+  <p>Example:</p>
+  <pre><code>let a = 10;
+let b = 5;
+console.log(a + b); // 15
+console.log(a &gt; b); // true
+console.log(a === 10 &amp;&amp; b === 5); // true</code></pre>
+
+  <h3>4. Conditionals</h3>
+  <p>
+    Use <code>if</code>, <code>else if</code>, and <code>else</code> to make decisions.
+  </p>
+  <p>Example:</p>
+  <pre><code>let age = 18;
+if (age &gt;= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}</code></pre>
+
+  <h3>5. Loops</h3>
+  <p>
+    Loops are used to repeat code. Common loops are <code>for</code>, <code>while</code>, and <code>do...while</code>.
+  </p>
+  <p>Example:</p>
+  <pre><code>for (let i = 0; i &lt; 5; i++) {
+  console.log(i); // Prints 0, 1, 2, 3, 4
+}
+
+let i = 0;
+while (i &lt; 5) {
+  console.log(i); // Prints 0, 1, 2, 3, 4
+  i++;
+}</code></pre>
+
+  <h3>6. Functions</h3>
+  <p>
+    Functions are reusable blocks of code. You can define them using the <code>function</code> keyword or arrow functions (<code>=&gt;</code>).
+  </p>
+  <p>Example:</p>
+  <pre><code>function greet(name) {
+  console.log("Hello, " + name);
+}
+greet("Alice"); // Hello, Alice
+
+// Arrow function
+const greetArrow = (name) =&gt; {
+  console.log("Hello, " + name);
+};
+greetArrow("Bob"); // Hello, Bob</code></pre>
+
+  <h3>7. Arrays</h3>
+  <p>
+    Arrays are used to store multiple values in a single variable.
+  </p>
+  <p>Example:</p>
+  <pre><code>let fruits = ["Apple", "Banana", "Cherry"];
+console.log(fruits[0]); // Apple
+fruits.push("Orange"); // Add to the end
+console.log(fruits); // ["Apple", "Banana", "Cherry", "Orange"]</code></pre>
+
+  <h3>8. Objects</h3>
+  <p>
+    Objects are collections of key-value pairs.
+  </p>
+  <p>Example:</p>
+  <pre><code>let person = {
+  name: "Alice",
+  age: 25,
+  isStudent: true,
+};
+console.log(person.name); // Alice
+person.city = "New York"; // Add a new property
+console.log(person); // { name: "Alice", age: 25, isStudent: true, city: "New York" }</code></pre>
+
+  <h2>Intermediate Concepts</h2>
+
+  <h3>1. DOM Manipulation</h3>
+  <p>
+    The <strong>Document Object Model (DOM)</strong> is how JavaScript interacts with HTML and CSS. You can use JavaScript to change the content, style, and structure of a webpage.
+  </p>
+  <p>Example:</p>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1 id="title"&gt;Hello, World!&lt;/h1&gt;
+    &lt;button onclick="changeText()"&gt;Click Me&lt;/button&gt;
+    &lt;script&gt;
+      function changeText() {
+        document.getElementById("title").innerText = "Text Changed!";
+      }
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h3>2. Events</h3>
+  <p>
+    JavaScript can respond to user actions like clicks, mouse movements, and keyboard input.
+  </p>
+  <p>Example:</p>
+  <pre><code>document.getElementById("myButton").addEventListener("click", function () {
+  alert("Button clicked!");
+});</code></pre>
+
+  <h3>3. Asynchronous JavaScript</h3>
+  <p>
+    JavaScript can perform tasks asynchronously using <code>setTimeout</code>, <code>Promises</code>, and <code>async/await</code>.
+  </p>
+  <p>Example:</p>
+  <pre><code>// setTimeout
+setTimeout(() =&gt; {
+  console.log("This runs after 2 seconds.");
+}, 2000);
+
+// Promise
+let promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; resolve("Done!"), 2000);
+});
+promise.then((result) =&gt; console.log(result)); // Done!
+
+// async/await
+async function fetchData() {
+  let response = await fetch("https://api.example.com/data");
+  let data = await response.json();
+  console.log(data);
+}</code></pre>
+
+  <h2>Advanced Concepts</h2>
+
+  <h3>1. Closures</h3>
+  <p>
+    A closure is a function that remembers its outer variables.
+  </p>
+  <p>Example:</p>
+  <pre><code>function outer() {
+  let message = "Hello";
+  function inner() {
+    console.log(message);
+  }
+  return inner;
+}
+let myFunction = outer();
+myFunction(); // Hello</code></pre>
+
+  <h3>2. Prototypes and Inheritance</h3>
+  <p>
+    JavaScript uses prototypes for inheritance.
+  </p>
+  <p>Example:</p>
+  <pre><code>function Person(name) {
+  this.name = name;
+}
+Person.prototype.greet = function () {
+  console.log("Hello, " + this.name);
+};
+let alice = new Person("Alice");
+alice.greet(); // Hello, Alice</code></pre>
+
+  <h3>3. Modules</h3>
+  <p>
+    JavaScript modules allow you to split your code into separate files.
+  </p>
+  <p>Example:</p>
+  <pre><code>// math.js
+export function add(a, b) {
+  return a + b;
+}
+
+// main.js
+import { add } from "./math.js";
+console.log(add(2, 3)); // 5</code></pre>
+
+  <h2>Practice Projects</h2>
+  <p>
+    To solidify your knowledge, try building these projects:
+  </p>
+  <ol>
+    <li>A <strong>to-do list</strong> app.</li>
+    <li>A <strong>calculator</strong>.</li>
+    <li>A <strong>weather app</strong> using an API.</li>
+    <li>A <strong>simple game</strong> like Tic-Tac-Toe.</li>
+  </ol>
+
+  <h2>Resources</h2>
+  <ul>
+    <li><strong>MDN Web Docs</strong>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a></li>
+    <li><strong>JavaScript.info</strong>: <a href="https://javascript.info">https://javascript.info</a></li>
+    <li><strong>FreeCodeCamp</strong>: <a href="https://www.freecodecamp.org">https://www.freecodecamp.org</a></li>
+  </ul>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Smart Study web development Hub | Designed by Yoseph Feyisa Wegi</p>
+  </footer>
+
+  <!-- JavaScript for Dark/Light Mode and Section Toggle -->
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const modeToggle = document.querySelector('.mode-toggle');
+      if (body.classList.contains('dark-mode')) {
+        modeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        modeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Check for saved theme preference
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.mode-toggle').textContent = '☀️';
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals of Programming, Programming Languages, and Algorithms</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: white;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        h2 {
+            font-size: 2.5em;
+        }
+
+        h3 {
+            font-size: 2em;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #333;
+            color: #00ff00;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .section {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #00ff00;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Fundamentals of Programming, Programming Languages, and Algorithms</h1>
+
+        <div class="section">
+            <h2>1. Fundamentals of Programming</h2>
+            <p><strong>Programming</strong> is the process of writing instructions for a computer to execute. These instructions are written in a programming language, which tells the computer what tasks to perform. Below are the core concepts you should understand about programming:</p>
+            
+            <ul>
+                <li><strong>Variables</strong>: A variable is a container used to store data. The data can be of various types such as integers, floats, characters, or more complex structures like arrays or objects.</li>
+                <li><strong>Data Types</strong>: Programming languages allow you to define different types of data, such as Integer, Float, String, Boolean, and Array/Lists.</li>
+                <li><strong>Operators</strong>: Operators are symbols that perform operations on variables and values. Common operators include arithmetic operators, comparison operators, and logical operators.</li>
+                <li><strong>Control Structures</strong>: These are used to control the flow of the program, such as if-else statements, loops (for, while), and functions.</li>
+                <li><strong>Functions</strong>: Functions allow you to group related code into a single unit, making the code reusable and easier to manage.</li>
+                <li><strong>Error Handling</strong>: Managing errors in a program using mechanisms like try-catch blocks.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. Programming Languages</h2>
+            <p><strong>Programming languages</strong> are the tools through which programmers communicate with computers. Different languages are designed for different purposes and offer various levels of abstraction. Some key programming languages include:</p>
+            
+            <ul>
+                <li><strong>Low-level languages</strong>: Closer to machine code and harder to read and write, such as Assembly Language.</li>
+                <li><strong>High-level languages</strong>: Easier to read and write, and abstract away machine-specific details, such as Python, Java, C++, JavaScript, Ruby, Swift, and PHP.</li>
+                <li><strong>Compilers and Interpreters</strong>: Compilers translate the entire source code into machine code before execution. Interpreters translate and execute code line by line.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. Algorithms</h2>
+            <p>An <strong>algorithm</strong> is a step-by-step procedure or formula for solving a problem. It’s an essential part of programming because it defines how to solve a particular task. Here are the most important concepts regarding algorithms:</p>
+            
+            <ul>
+                <li><strong>Efficiency of Algorithms</strong>: Measured using Big O notation (time complexity), such as O(1), O(n), O(log n), O(n^2).</li>
+                <li><strong>Basic Algorithmic Techniques</strong>: Sorting algorithms (e.g., Bubble Sort, Merge Sort, Quick Sort) and searching algorithms (e.g., Linear Search, Binary Search).</li>
+                <li><strong>Divide and Conquer</strong>: A technique to divide a problem into smaller subproblems, solve them independently, and combine the results.</li>
+                <li><strong>Dynamic Programming</strong>: Solving problems by breaking them into simpler subproblems and storing the results to avoid redundant calculations.</li>
+                <li><strong>Greedy Algorithms</strong>: Making the locally optimal choice at each step with the hope of finding a global optimum.</li>
+                <li><strong>Backtracking</strong>: Exploring all possibilities and undoing steps when a solution doesn't work.</li>
+                <li><strong>Graph Algorithms</strong>: Algorithms like Breadth-First Search (BFS) and Depth-First Search (DFS) for exploring graphs.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Example Algorithms in Python</h2>
+            <p>Here are some simple algorithm examples in Python:</p>
+
+            <h3>Bubble Sort</h3>
+            <pre><code>
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Sorted array is:", bubble_sort(arr))
+            </code></pre>
+
+            <h3>Binary Search</h3>
+            <pre><code>
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+arr = [2, 3, 4, 10, 40]
+target = 10
+result = binary_search(arr, target)
+if result != -1:
+    print("Element is present at index", result)
+else:
+    print("Element is not present in array")
+            </code></pre>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Yoseph Feyisa Wegi | All Rights Reserved.
+    </footer>
+</body>
+</html>

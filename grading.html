@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Grading system</title>
+    <style>
+        * {
+          background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            font-weight: bold;
+            font-family: "Georgia";
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 80px;
+            text-align: center;
+        }
+        button{
+            background-color: black;
+            color: #00abfffe;
+            border: 1.5px solid #00abfffe;
+            height: 56px;
+            width: 270px;
+            border-radius: 18px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Marks Grading system</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>First Semester Plan</th>
+                <th>First Semester Mark</th>
+                <th>Second Semester Plan</th>
+                <th>Second Semester Mark</th>
+                <th>Average Plan</th>
+                <th>Average Mark</th>
+            </tr>
+        </thead>
+        <tbody id="marksTable"></tbody>
+        <tfoot>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td id="totalPlan1">0</td>
+                <td id="totalMark1">0</td>
+                <td id="totalPlan2">0</td>
+                <td id="totalMark2">0</td>
+                <td id="totalAvgPlan">0</td>
+                <td id="totalAvgMark">0</td>
+            </tr>
+            <tr>
+                <td><strong>Average</strong></td>
+                <td id="avgPlan1">0</td>
+                <td id="avgMark1">0</td>
+                <td id="avgPlan2">0</td>
+                <td id="avgMark2">0</td>
+                <td id="avgAvgPlan">0</td>
+                <td id="avgAvgMark">0</td>
+            </tr>
+        </tfoot>
+    </table>
+    <button onclick="saveData()">Save Marks</button>
+
+    <script>
+        const subjects = [
+            "Mathematics", "Physics", "Chemistry", "Biology", "English",
+            "Afaan Oromoo", "Amharic", "History", "Geography", "Citizenship",
+            "Economics", "Area Study", "IT", "HPE"
+        ];
+
+        const marksTable = document.getElementById("marksTable");
+
+        // Load subjects into table
+        subjects.forEach((subject, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${subject}</td>
+                <td><input type="number" id="plan1_${index}" onchange="updateValues()"></td>
+                <td><input type="number" id="mark1_${index}" onchange="updateValues()"></td>
+                <td><input type="number" id="plan2_${index}" onchange="updateValues()"></td>
+                <td><input type="number" id="mark2_${index}" onchange="updateValues()"></td>
+                <td><input type="number" id="avgPlan_${index}" readonly></td>
+                <td><input type="number" id="avgMark_${index}" readonly></td>
+            `;
+            marksTable.appendChild(row);
+        });
+
+        // Load saved data from localStorage
+        function loadData() {
+            const savedData = JSON.parse(localStorage.getItem("marksData"));
+            if (savedData) {
+                subjects.forEach((_, index) => {
+                    document.getElementById(`plan1_${index}`).value = savedData[`plan1_${index}`] || '';
+                    document.getElementById(`mark1_${index}`).value = savedData[`mark1_${index}`] || '';
+                    document.getElementById(`plan2_${index}`).value = savedData[`plan2_${index}`] || '';
+                    document.getElementById(`mark2_${index}`).value = savedData[`mark2_${index}`] || '';
+                });
+                updateValues();
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            let marksData = {};
+            subjects.forEach((_, index) => {
+                marksData[`plan1_${index}`] = document.getElementById(`plan1_${index}`).value;
+                marksData[`mark1_${index}`] = document.getElementById(`mark1_${index}`).value;
+                marksData[`plan2_${index}`] = document.getElementById(`plan2_${index}`).value;
+                marksData[`mark2_${index}`] = document.getElementById(`mark2_${index}`).value;
+            });
+            localStorage.setItem("marksData", JSON.stringify(marksData));
+            alert("Marks saved successfully!");
+        }
+
+        // Calculate totals and averages correctly
+        function updateValues() {
+            let totalPlan1 = 0, totalMark1 = 0, totalPlan2 = 0, totalMark2 = 0;
+            let totalAvgPlan = 0, totalAvgMark = 0;
+            let countPlan1 = 0, countMark1 = 0, countPlan2 = 0, countMark2 = 0, countAvg = 0;
+
+            subjects.forEach((_, index) => {
+                let plan1 = parseFloat(document.getElementById(`plan1_${index}`).value) || 0;
+                let mark1 = parseFloat(document.getElementById(`mark1_${index}`).value) || 0;
+                let plan2 = parseFloat(document.getElementById(`plan2_${index}`).value) || 0;
+                let mark2 = parseFloat(document.getElementById(`mark2_${index}`).value) || 0;
+
+                let avgPlan = (plan1 && plan2) ? (plan1 + plan2) / 2 : (plan1 || plan2);
+                let avgMark = (mark1 && mark2) ? (mark1 + mark2) / 2 : (mark1 || mark2);
+
+                document.getElementById(`avgPlan_${index}`).value = avgPlan.toFixed(2);
+                document.getElementById(`avgMark_${index}`).value = avgMark.toFixed(2);
+
+                if (plan1) { totalPlan1 += plan1; countPlan1++; }
+                if (mark1) { totalMark1 += mark1; countMark1++; }
+                if (plan2) { totalPlan2 += plan2; countPlan2++; }
+                if (mark2) { totalMark2 += mark2; countMark2++; }
+                if (avgPlan) { totalAvgPlan += avgPlan; countAvg++; }
+                if (avgMark) { totalAvgMark += avgMark; countAvg++; }
+            });
+
+            document.getElementById("totalPlan1").innerText = totalPlan1;
+            document.getElementById("totalMark1").innerText = totalMark1;
+            document.getElementById("totalPlan2").innerText = totalPlan2;
+            document.getElementById("totalMark2").innerText = totalMark2;
+            document.getElementById("totalAvgPlan").innerText = totalAvgPlan.toFixed(2);
+            document.getElementById("totalAvgMark").innerText = totalAvgMark.toFixed(2);
+
+            document.getElementById("avgPlan1").innerText = countPlan1 ? (totalPlan1 / countPlan1).toFixed(2) : 0;
+            document.getElementById("avgMark1").innerText = countMark1 ? (totalMark1 / countMark1).toFixed(2) : 0;
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

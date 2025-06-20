@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion in a Straight Line</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #33ccff, #ff66cc);
+            text-align: center;
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0 10%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #33ccff;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 10px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        ul li strong {
+            color: #ff66cc;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin: 0 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Motion in a Straight Line</h1>
+</header>
+
+<div class="content">
+    <h2>Key Concepts of Motion in a Straight Line:</h2>
+    <ul>
+        <li><strong>Position (x):</strong> The location of an object along a straight path, typically represented by the symbol <em>x</em>.</li>
+        <li><strong>Displacement (s):</strong> The shortest distance between the initial and final positions of the object in a straight line, along with the direction.</li>
+        <li><strong>Distance (d):</strong> The total path length covered by an object, irrespective of direction.</li>
+        <li><strong>Velocity (v):</strong> The rate of change of displacement with respect to time. It is a vector quantity.</li>
+        <li><strong>Speed (s):</strong> The rate of change of distance with respect to time. It is a scalar quantity.</li>
+        <li><strong>Acceleration (a):</strong> The rate of change of velocity with respect to time. It is a vector quantity.</li>
+    </ul>
+
+    <h2>Equations of Motion for Uniformly Accelerated Motion:</h2>
+    <ul>
+        <li><strong>First Equation of Motion:</strong> <br>
+            <code>v = u + at</code> <br>
+            Where:
+            <ul>
+                <li><strong>v</strong> is the final velocity</li>
+                <li><strong>u</strong> is the initial velocity</li>
+                <li><strong>a</strong> is the acceleration</li>
+                <li><strong>t</strong> is the time</li>
+            </ul>
+        </li>
+        <li><strong>Second Equation of Motion:</strong> <br>
+            <code>s = ut + ½at²</code> <br>
+            Where:
+            <ul>
+                <li><strong>s</strong> is the displacement</li>
+                <li><strong>u</strong> is the initial velocity</li>
+                <li><strong>a</strong> is the acceleration</li>
+                <li><strong>t</strong> is the time</li>
+            </ul>
+        </li>
+        <li><strong>Third Equation of Motion:</strong> <br>
+            <code>v² = u² + 2as</code> <br>
+            Where:
+            <ul>
+                <li><strong>v</strong> is the final velocity</li>
+                <li><strong>u</strong> is the initial velocity</li>
+                <li><strong>a</strong> is the acceleration</li>
+                <li><strong>s</strong> is the displacement</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Example Problems:</h2>
+    <h3>Problem 1:</h3>
+    <p>A car starts from rest and accelerates at a rate of <code>2 m/s²</code> for <code>5 seconds</code>. Find the final velocity and the displacement of the car.</p>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li><strong>u = 0 m/s</strong> (starts from rest)</li>
+        <li><strong>a = 2 m/s²</strong></li>
+        <li><strong>t = 5 seconds</strong></li>
+    </ul>
+    <p>Using the first equation of motion: <code>v = u + at = 0 + 2 × 5 = 10 m/s</code></p>
+    <p>Using the second equation of motion: <code>s = ut + ½at² = 0 + ½ × 2 × 5² = 25 m</code></p>
+    <p>Therefore, the final velocity is <strong>10 m/s</strong> and the displacement is <strong>25 m</strong>.</p>
+
+    <h3>Problem 2:</h3>
+    <p>A ball is dropped from a height of <code>20 meters</code>. Find the time it takes for the ball to reach the ground (assuming acceleration due to gravity <code>g = 9.8 m/s²</code>).</p>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li><strong>u = 0 m/s</strong> (dropped from rest)</li>
+        <li><strong>s = 20 m</strong></li>
+        <li><strong>g = 9.8 m/s²</strong></li>
+    </ul>
+    <p>Using the second equation of motion: <code>s = ut + ½gt²</code> <br>
+    <code>20 = 0 + ½ × 9.8 × t²</code> <br>
+    <code>20 = 4.9t²</code> <br>
+    <code>t² = 20 / 4.9 ≈ 4.08</code> <br>
+    <code>t ≈ √4.08 ≈ 2.02 seconds</code></p>
+    <p>Therefore, it takes approximately <strong>2.02 seconds</strong> for the ball to hit the ground.</p>
+</div>
+
+<footer>
+    <p>© 2025 Yoseph Feyisa Wegi | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

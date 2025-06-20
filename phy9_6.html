@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Oscillation and Sound Waves</title>
+    <style>
+        { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #33ccff, #ff66cc);
+            text-align: center;
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0 10%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #33ccff;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 10px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        ul li strong {
+            color: #ff66cc;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin: 0 5%;
+            }
+        }
+        font-size: 1em;
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mechanical Oscillation and Sound Waves</h1>
+    </header>
+
+    <div class="content">
+        <h2>1. Mechanical Oscillation</h2>
+        <p>Mechanical oscillation refers to the repetitive back-and-forth motion of an object or system around an equilibrium position. It can occur in systems such as springs, pendulums, and masses. Oscillation is fundamental in understanding wave phenomena and is described by periodic motion.</p>
+
+        <h3>Key Concepts of Mechanical Oscillation:</h3>
+        <ul>
+            <li><strong>Amplitude (A):</strong> The maximum displacement from the equilibrium position.</li>
+            <li><strong>Period (T):</strong> The time taken to complete one full oscillation (back and forth motion).</li>
+            <li><strong>Frequency (f):</strong> The number of oscillations per unit time. Frequency is the reciprocal of the period.
+                <br><code>f = 1 / T</code></li>
+            <li><strong>Angular Frequency (ω):</strong> The rate at which the oscillating object goes through its motion, measured in radians per second.
+                <br><code>ω = 2πf</code></li>
+            <li><strong>Displacement (x):</strong> The distance of the object from the equilibrium position at any point in time.</li>
+            <li><strong>Simple Harmonic Motion (SHM):</strong> A type of mechanical oscillation where the restoring force is directly proportional to the displacement from the equilibrium position.
+                <br><code>F = -kx</code></li>
+        </ul>
+
+        <h3>Formulas Related to Mechanical Oscillation:</h3>
+        <ul>
+            <li><strong>Equation of Motion for SHM:</strong>
+                <br><code>x(t) = A cos(ωt + φ)</code></li>
+            <li><strong>Velocity in SHM:</strong>
+                <br><code>v(t) = -Aω sin(ωt + φ)</code>
+                <br>The maximum velocity occurs when the object is at the equilibrium position (x = 0) and is given by: <code>v_max = Aω</code></li>
+            <li><strong>Acceleration in SHM:</strong>
+                <br><code>a(t) = -Aω² cos(ωt + φ)</code>
+                <br>The maximum acceleration occurs when the object is at the maximum displacement and is given by: <code>a_max = Aω²</code></li>
+            <li><strong>Period of SHM (Spring-Mass System):</strong>
+                <br><code>T = 2π√(m / k)</code></li>
+            <li><strong>Frequency of SHM (Spring-Mass System):</strong>
+                <br><code>f = 1 / T = (1 / 2π) √(k / m)</code></li>
+            <li><strong>Pendulum Motion (Simple Pendulum):</strong>
+                <br><code>T = 2π√(L / g)</code></li>
+        </ul>
+
+        <h2>2. Sound Waves</h2>
+        <p>Sound waves are mechanical waves that propagate through a medium (such as air, water, or solid materials) due to the vibration of particles. Sound waves are longitudinal waves, meaning that the displacement of the medium is parallel to the direction of wave propagation.</p>
+
+        <h3>Key Concepts of Sound Waves:</h3>
+        <ul>
+            <li><strong>Frequency (f):</strong> The number of vibrations or cycles per second, measured in hertz (Hz). It is related to the pitch of the sound.
+                <br><code>f = 1 / T</code></li>
+            <li><strong>Wavelength (λ):</strong> The distance between two consecutive compressions or rarefactions in a sound wave. It is related to the speed of sound and frequency.
+                <br><code>λ = v / f</code></li>
+            <li><strong>Amplitude (A):</strong> The maximum displacement of particles in the medium from their equilibrium position. The amplitude is related to the intensity or loudness of the sound.</li>
+            <li><strong>Speed of Sound (v):</strong> The speed at which the sound wave propagates through the medium. The speed of sound depends on the medium's properties (density and elasticity).
+                <br><code>v = √(B / ρ)</code></li>
+        </ul>
+
+        <h3>Formulas Related to Sound Waves:</h3>
+        <ul>
+            <li><strong>Wave Equation:</strong>
+                <br><code>y(x, t) = A sin(kx - ωt + φ)</code></li>
+            <li><strong>Intensity of Sound (I):</strong>
+                <br><code>I ∝ A²</code>
+                <br>In terms of pressure amplitude:
+                <br><code>I = P² / (ρv)</code></li>
+            <li><strong>Decibels (dB):</strong>
+                <br><code>L = 10 log₁₀ (I / I₀)</code></li>
+            <li><strong>Doppler Effect:</strong>
+                <br><code>f' = f (v ± vₒ) / (v ± vₛ)</code></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Polygons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Regular Polygons</h1>
+</header>
+
+<div class="content">
+    <h2>Introduction</h2>
+    <p>A <strong>regular polygon</strong> is a polygon in which all sides and all angles are equal. These polygons have symmetrical properties and are an important topic in geometry. Regular polygons are classified based on the number of sides they have.</p>
+
+    <h2>Properties of Regular Polygons</h2>
+    <p>For a regular polygon:</p>
+    <ul>
+        <li>All sides are of equal length.</li>
+        <li>All interior angles are equal.</li>
+        <li>The center of the polygon is equidistant from all vertices.</li>
+        <li>The number of vertices is the same as the number of sides.</li>
+    </ul>
+
+    <h2>Types of Regular Polygons</h2>
+    <p>Some examples of regular polygons include:</p>
+    <ul>
+        <li>Equilateral Triangle (3 sides)</li>
+        <li>Square (4 sides)</li>
+        <li>Regular Pentagon (5 sides)</li>
+        <li>Regular Hexagon (6 sides)</li>
+        <li>Regular Heptagon (7 sides)</li>
+        <li>Regular Octagon (8 sides)</li>
+        <li>And so on.</li>
+    </ul>
+
+    <h2>Formulas</h2>
+
+    <h3>1. Formula for Interior Angles</h3>
+    <p>The formula for the interior angle of a regular polygon with <em>n</em> sides is:</p>
+    <p><strong>Interior Angle = (n - 2) × 180° / n</strong></p>
+    <p>Where:</p>
+    <ul>
+        <li><em>n</em> is the number of sides of the polygon.</li>
+    </ul>
+    <p>Example: For a regular hexagon (<em>n = 6</em>):</p>
+    <p><strong>Interior Angle = (6 - 2) × 180° / 6 = 120°</strong></p>
+
+    <h3>2. Formula for Exterior Angles</h3>
+    <p>The exterior angle of a regular polygon can be calculated using the formula:</p>
+    <p><strong>Exterior Angle = 360° / n</strong></p>
+    <p>Where:</p>
+    <ul>
+        <li><em>n</em> is the number of sides of the polygon.</li>
+    </ul>
+    <p>Example: For a regular hexagon (<em>n = 6</em>):</p>
+    <p><strong>Exterior Angle = 360° / 6 = 60°</strong></p>
+
+    <h3>3. Sum of Interior Angles</h3>
+    <p>The sum of all interior angles of a polygon with <em>n</em> sides is given by:</p>
+    <p><strong>Sum of Interior Angles = (n - 2) × 180°</strong></p>
+    <p>Example: For a regular hexagon (<em>n = 6</em>):</p>
+    <p><strong>Sum of Interior Angles = (6 - 2) × 180° = 720°</strong></p>
+
+    <h3>4. Perimeter of a Regular Polygon</h3>
+    <p>The perimeter <em>P</em> of a regular polygon with side length <em>s</em> and number of sides <em>n</em> is given by:</p>
+    <p><strong>P = n × s</strong></p>
+    <p>Example: For a regular octagon (<em>n = 8</em>) with each side measuring 5 units:</p>
+    <p><strong>P = 8 × 5 = 40 units</strong></p>
+
+    <h3>5. Area of a Regular Polygon</h3>
+    <p>The area <em>A</em> of a regular polygon can be calculated using the following formula:</p>
+    <p><strong>A = (n × s²) / (4 × tan(π / n))</strong></p>
+    <p>Where:</p>
+    <ul>
+        <li><em>n</em> is the number of sides.</li>
+        <li><em>s</em> is the length of each side.</li>
+    </ul>
+    <p>Example: For a regular pentagon (<em>n = 5</em>) with side length <em>s = 6</em>:</p>
+    <p><strong>A = (5 × 6²) / (4 × tan(π / 5)) ≈ 61.937 square units</strong></p>
+
+    <h3>6. Circumradius and Inradius</h3>
+    <p>The circumradius <em>R</em> and inradius <em>r</em> of a regular polygon are given by the following formulas:</p>
+    <p><strong>R = s / (2 × sin(π / n))</strong></p>
+    <p><strong>r = s / (2 × tan(π / n))</strong></p>
+
+    <h2>Conclusion</h2>
+    <p>Regular polygons are essential in geometry due to their symmetry and the numerous formulas that can be derived from their properties. Understanding the relationships between the number of sides, angles, and other parameters like perimeter and area is key for solving problems in both basic and advanced geometry.</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniformly Accelerated Motion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        main {
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #2e3b4e;
+        }
+        p, ul, li {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .formula {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .formula code {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .content-section h3 {
+            font-size: 1.6em;
+            color: #0056b3;
+        }
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .content-section li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #2e3b4e;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        .highlight {
+            background-color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .callout {
+            padding: 10px;
+            background-color: #d1ecf1;
+            border-radius: 5px;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Uniformly Accelerated Motion</h1>
+    </header>
+
+    <h1>Uniformly Accelerated Motion (UAM)</h1>
+    <p><strong>Uniformly Accelerated Motion (UAM)</strong> refers to the motion of an object where its acceleration remains constant over time. This means the velocity of the object changes at a uniform rate.</p>
+
+    <h2>Key Variables in UAM</h2>
+    <ul>
+        <li><strong>Displacement (s)</strong>: The change in position of an object.</li>
+        <li><strong>Initial Velocity (u)</strong>: The velocity of the object at the start.</li>
+        <li><strong>Final Velocity (v)</strong>: The velocity of the object after time t.</li>
+        <li><strong>Acceleration (a)</strong>: The rate of change of velocity.</li>
+        <li><strong>Time (t)</strong>: The duration for which motion occurs.</li>
+    </ul>
+
+    <h2>Equations of Uniformly Accelerated Motion</h2>
+    
+    <h3>1st Equation: Velocity-Time Relation</h3>
+    <div class="formula">v = u + at</div>
+    
+    <h3>2nd Equation: Displacement-Time Relation</h3>
+    <div class="formula">s = ut + (1/2) a t²</div>
+    
+    <h3>3rd Equation: Velocity-Displacement Relation</h3>
+    <div class="formula">v² = u² + 2as</div>
+    
+    <h3>4th Equation: Average Velocity</h3>
+    <div class="formula">v_avg = (u + v) / 2</div>
+
+    <h2>Graphical Representation</h2>
+    <ul>
+        <li><strong>Velocity-Time Graph</strong>: A straight line with a slope equal to acceleration.</li>
+        <li><strong>Displacement-Time Graph</strong>: A parabolic curve for uniformly accelerated motion.</li>
+    </ul>
+
+    <h2>Special Cases in UAM</h2>
+    
+    <h3>1. Free Fall Motion</h3>
+    <p>Acceleration due to gravity: g = 9.8 m/s² (downward)</p>
+    <div class="formula">v = u + gt</div>
+    <div class="formula">s = ut + (1/2) gt²</div>
+    <div class="formula">v² = u² + 2gs</div>
+
+    <h3>2. Motion on an Inclined Plane</h3>
+    <p>Acceleration along the plane: <strong>a = g sin(θ)</strong></p>
+
+    <h2>Derivations of Equations</h2>
+
+    <h3>1st Equation: v = u + at</h3>
+    <p>From acceleration definition:</p>
+    <div class="formula">a = (v - u) / t</div>
+    <p>Rearranging gives:</p>
+    <div class="formula">v = u + at</div>
+
+    <h3>2nd Equation: s = ut + (1/2) at²</h3>
+    <p>Velocity is the rate of change of displacement:</p>
+    <div class="formula">ds = v dt</div>
+    <p>Substituting v = u + at:</p>
+    <div class="formula">ds = (u + at) dt</div>
+    <p>Integrating:</p>
+    <div class="formula">s = ut + (1/2) at²</div>
+
+    <h3>3rd Equation: v² = u² + 2as</h3>
+    <p>Using v = u + at and solving for t, substituting into displacement formula:</p>
+    <div class="formula">v² = u² + 2as</div>
+
+    <h2>Applications of Uniformly Accelerated Motion</h2>
+    <ul>
+        <li><strong>Projectile Motion</strong> – Objects launched at an angle follow UAM in the vertical direction.</li>
+        <li><strong>Car Braking Systems</strong> – Deceleration calculations use UAM equations.</li>
+        <li><strong>Roller Coasters</strong> – The motion of carts follows UAM principles.</li>
+    </ul>
+
+    <p>This webpage covers the <strong>concepts, formulas, derivations, and applications</strong> of UAM.</p>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

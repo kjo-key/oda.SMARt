@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics and Physical Quantities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #33ccff, #ff66cc);
+            text-align: center;
+            padding: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0 10%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #33ccff;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 10px 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        ul li strong {
+            color: #ff66cc;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin: 0 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Physics and Physical Quantities</h1>
+    </header>
+    
+    <div class="content">
+        <h2>Physical Quantities: An Overview</h2>
+        <p>Physical quantities are the properties of matter and energy that can be measured. They can be classified into two broad categories: <strong>Scalar quantities</strong> and <strong>Vector quantities</strong>.</p>
+        
+        <h2>1. Scalar Quantities</h2>
+        <p>Scalar quantities are those that are fully described by a magnitude (numerical value) alone. They do not have a direction associated with them.</p>
+        
+        <ul>
+            <li><strong>Mass (m):</strong> The amount of matter in an object, measured in kilograms (kg).</li>
+            <li><strong>Time (t):</strong> A measure of the duration of events, measured in seconds (s).</li>
+            <li><strong>Temperature (T):</strong> A measure of the heat content of a body, measured in Kelvin (K) or Celsius (°C).</li>
+            <li><strong>Energy (E):</strong> The capacity to do work, measured in joules (J).</li>
+            <li><strong>Speed (v):</strong> The rate of motion, measured in meters per second (m/s).</li>
+        </ul>
+
+        <h3>Formula Example for Speed:</h3>
+        <pre>
+        v = d / t
+        Where:
+        v = speed (m/s),
+        d = distance (m),
+        t = time (s).
+        </pre>
+
+        <h2>2. Vector Quantities</h2>
+        <p>Vector quantities are those that require both a magnitude and a direction to be fully described.</p>
+        
+        <ul>
+            <li><strong>Displacement (s):</strong> A vector that describes the change in position of an object, measured in meters (m).</li>
+            <li><strong>Velocity (v):</strong> The rate of change of displacement, measured in meters per second (m/s).</li>
+            <li><strong>Force (F):</strong> An interaction that causes an object to change its motion, measured in newtons (N).</li>
+            <li><strong>Acceleration (a):</strong> The rate of change of velocity, measured in meters per second squared (m/s²).</li>
+            <li><strong>Momentum (p):</strong> The product of an object's mass and velocity, measured in kilogram meters per second (kg·m/s).</li>
+        </ul>
+
+        <h3>Formula Example for Velocity:</h3>
+        <pre>
+        v = Δs / Δt
+        Where:
+        v = velocity (m/s),
+        Δs = change in position (m),
+        Δt = change in time (s).
+        </pre>
+
+        <h2>Fundamental Physical Quantities</h2>
+        
+        <h3>1. Length (L)</h3>
+        <p>Length is a fundamental physical quantity representing the distance between two points. It is typically measured in meters (m).</p>
+        <pre>
+        L = |x2 - x1|
+        </pre>
+
+        <h3>2. Mass (m)</h3>
+        <p>Mass is the measure of the amount of matter in an object, typically measured in kilograms (kg). Mass is a scalar quantity and remains constant regardless of location.</p>
+
+        <h3>3. Time (t)</h3>
+        <p>Time is the duration of events and is measured in seconds (s). It is a scalar quantity and is a basic dimension in physics.</p>
+
+        <h2>Derived Physical Quantities</h2>
+
+        <h3>1. Force (F)</h3>
+        <p>Force is an interaction that changes the motion of an object. The unit of force is the <strong>newton (N)</strong>, where 1 N = 1 kg·m/s².</p>
+        <pre>
+        F = m * a
+        Where:
+        F = force (N),
+        m = mass (kg),
+        a = acceleration (m/s²).
+        </pre>
+
+        <h3>2. Work (W)</h3>
+        <p>Work is the transfer of energy when a force is applied to an object causing displacement. The unit of work is the <strong>joule (J)</strong>.</p>
+        <pre>
+        W = F * d * cos(θ)
+        Where:
+        W = work (J),
+        F = force (N),
+        d = displacement (m),
+        θ = angle between the force and displacement direction.
+        </pre>
+
+        <h3>3. Energy (E)</h3>
+        <p>Energy is the capacity to do work. It is measured in joules (J).</p>
+        <ul>
+            <li><strong>Kinetic Energy (KE):</strong> The energy of motion.
+                <pre>KE = ½ * m * v²</pre>
+            </li>
+            <li><strong>Potential Energy (PE):</strong> The energy stored due to an object’s position or configuration.
+                <pre>PE = m * g * h</pre>
+            </li>
+        </ul>
+
+        <h3>4. Power (P)</h3>
+        <p>Power is the rate at which work is done or energy is transferred. The unit of power is the <strong>watt (W)</strong>.</p>
+        <pre>
+        P = W / t
+        Where:
+        P = power (W),
+        W = work (J),
+        t = time (s).
+        </pre>
+
+        <h3>5. Momentum (p)</h3>
+        <p>Momentum is the product of an object’s mass and velocity. The unit of momentum is <strong>kilogram meter per second (kg·m/s)</strong>.</p>
+        <pre>
+        p = m * v
+        Where:
+        p = momentum (kg·m/s),
+        m = mass (kg),
+        v = velocity (m/s).
+        </pre>
+
+        <h3>6. Acceleration (a)</h3>
+        <p>Acceleration is the rate of change of velocity. The unit of acceleration is <strong>meters per second squared (m/s²)</strong>.</p>
+        <pre>
+        a = Δv / Δt
+        Where:
+        a = acceleration (m/s²),
+        Δv = change in velocity (m/s),
+        Δt = change in time (s).
+        </pre>
+
+        <h3>7. Pressure (P)</h3>
+        <p>Pressure is the force applied per unit area. The unit of pressure is the <strong>pascal (Pa)</strong), where 1 Pa = 1 N/m².</p>
+        <pre>
+        P = F / A
+        Where:
+        P = pressure (Pa),
+        F = force (N),
+        A = area (m²).
+        </pre>
+
+        <h2>SI Units and Dimensional Formula</h2>
+        <p>The SI system (International System of Units) is used globally for measuring physical quantities. Each physical quantity has a corresponding unit and a <strong>dimensional formula</strong> that shows how the fundamental quantities (mass, length, and time) combine to form the unit.</p>
+
+        <h3>Examples:</h3>
+        <ul>
+            <li><strong>Force (F):</strong> SI unit = newton (N), dimensional formula = [M L T<sup>-2</sup>].</li>
+            <li><strong>Energy (E):</strong> SI unit = joule (J), dimensional formula = [M L<sup>2</sup> T<sup>-2</sup>].</li>
+            <li><strong>Power (P):</strong> SI unit = watt (W), dimensional formula = [M L<sup>2</sup> T<sup>-3</sup>].</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

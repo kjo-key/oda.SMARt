@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors in Two Dimensions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Vectors in Two Dimensions</h1>
+    </header>
+
+    <div class="content">
+        <h2>1. Definition of a Vector</h2>
+        <p>A vector is a mathematical entity that has both **magnitude** and **direction**.</p>
+
+        <h2>2. Representation of Vectors</h2>
+        <p>Vectors in two-dimensional space can be written in different ways:</p>
+
+        <h3>Column Form:</h3>
+        <p>A = [ x , y ]</p>
+
+        <h3>Unit Vector Notation:</h3>
+        <p>A = x<i>i</i> + y<i>j</i></p>
+
+        <h2>3. Magnitude of a Vector</h2>
+        <p>The length or magnitude of a vector **A = (x, y)** is calculated as:</p>
+        <p>|A| = √(x² + y²)</p>
+
+        <h2>4. Direction (Angle) of a Vector</h2>
+        <p>The direction of a vector with respect to the x-axis is given by:</p>
+        <p>θ = tan⁻¹(y / x)</p>
+
+        <h2>5. Vector Addition</h2>
+        <p>If A = (x₁, y₁) and B = (x₂, y₂), then:</p>
+        <p>A + B = (x₁ + x₂, y₁ + y₂)</p>
+
+        <h2>6. Vector Subtraction</h2>
+        <p>A - B = (x₁ - x₂, y₁ - y₂)</p>
+
+        <h2>7. Scalar Multiplication</h2>
+        <p>If k is a scalar and A = (x, y), then:</p>
+        <p>kA = (kx, ky)</p>
+
+        <h2>8. Dot Product of Two Vectors</h2>
+        <p>The dot product of two vectors A and B is calculated as:</p>
+        <p>A • B = x₁x₂ + y₁y₂</p>
+        <p>or equivalently,</p>
+        <p>A • B = |A| |B| cosθ</p>
+
+        <h2>9. Cross Product in 2D</h2>
+        <p>In two dimensions, the cross product is given by:</p>
+        <p>A × B = (x₁y₂ - y₁x₂)</p>
+
+        <h2>10. Unit Vector</h2>
+        <p>A unit vector in the direction of A is given by:</p>
+        <p>Unit vector Â = A / |A|</p>
+
+        <h2>11. Projection of a Vector</h2>
+        <p>The projection of vector A onto vector B is given by:</p>
+        <p>Proj<sub>B</sub> A = (A • B) / |B|² * B</p>
+
+        <h2>12. Vector Rotation</h2>
+        <p>A vector can be rotated by an angle θ using:</p>
+        <p>A' = (x cosθ - y sinθ, x sinθ + y cosθ)</p>
+
+        <h2>13. Vector Components</h2>
+        <p>A vector A at an angle θ can be broken into components:</p>
+        <p>Ax = |A| cosθ</p>
+        <p>Ay = |A| sinθ</p>
+
+        <h2>14. Position Vector</h2>
+        <p>The position vector of a point (x, y) from the origin is:</p>
+        <p>R = xi + yj</p>
+
+        <h2>15. Velocity and Acceleration Vectors</h2>
+        <p>For a moving object with position vector R(t):</p>
+        <p>Velocity: V = dR/dt</p>
+        <p>Acceleration: A = d²R/dt²</p>
+
+        <h2>16. Work Done by a Force</h2>
+        <p>Work W done by a force F moving an object along displacement d:</p>
+        <p>W = F • d = |F| |d| cosθ</p>
+
+        <h2>17. Torque</h2>
+        <p>Torque τ produced by a force F at a position vector r:</p>
+        <p>τ = r × F</p>
+
+        <h2>18. Vector Equation of a Line</h2>
+        <p>The equation of a line passing through A with direction B:</p>
+        <p>r = A + tB</p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yoseph Feyisa Wegi | All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
