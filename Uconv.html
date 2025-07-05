@@ -1,0 +1,330 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Unit Converter</title>  
+    <style>  
+        * {  
+            font-family: 'Arial', sans-serif;  
+            font-weight: bold;  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+        body {  
+            background: linear-gradient(135deg, #1e3c72, #2a5298);  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh;  
+            padding: 20px;  
+        }  
+        .container {  
+            background: rgba(255, 255, 255, 0.15);  
+            padding: 20px;  
+            border-radius: 12px;  
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
+            text-align: center;  
+            width: 100%;  
+            max-width: 350px;  
+            backdrop-filter: blur(10px);  
+            display: flex;  
+            flex-direction: column;  
+            gap: 10px;  
+        }  
+        h1 {  
+            font-size: 22px;  
+            text-transform: uppercase;  
+            color: white;  
+            margin-bottom: 10px;  
+        }  
+        input, select, button {  
+            width: 100%;  
+            padding: 10px;  
+            border: none;  
+            border-radius: 6px;  
+            font-size: 16px;  
+            text-align: center;  
+        }  
+        input, select {  
+            background: rgba(255, 255, 255, 0.8);  
+            color: #333;  
+        }  
+        button {  
+            background: #ffcc00;  
+            color: #222;  
+            cursor: pointer;  
+            transition: 0.3s;  
+            font-size: 16px;  
+        }  
+        button:hover {  
+            background: #ffdb4d;  
+        }  
+        #output {  
+            font-size: 18px;  
+            background: rgba(255, 255, 255, 0.2);  
+            padding: 8px;  
+            border-radius: 5px;  
+            color: white;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Unit Converter</h1>  
+        <input type="number" id="inputValue" placeholder="Enter value">  
+        <select id="unitType">  
+            <!-- Weight Conversions -->
+            <option value="gToKg">Gram to Kilogram</option>
+            <option value="kgToG">Kilogram to Gram</option>
+            <option value="lbToKg">Pound to Kilogram</option>
+            <option value="kgToLb">Kilogram to Pound</option>
+            <option value="ozToG">Ounce to Gram</option>
+            <option value="gToOz">Gram to Ounce</option>
+            <option value="tToKg">Ton to Kilogram</option>
+            <option value="kgToT">Kilogram to Ton</option>
+            <option value="stToLb">Stone to Pound</option>
+            <option value="lbToSt">Pound to Stone</option>
+
+            <!-- Volume Conversions -->
+            <option value="mlToL">Milliliter to Liter</option>
+            <option value="lToMl">Liter to Milliliter</option>
+            <option value="galToL">Gallon to Liter</option>
+            <option value="lToGal">Liter to Gallon</option>
+            <option value="flOzToMl">Fluid Ounce to Milliliter</option>
+            <option value="mlToFlOz">Milliliter to Fluid Ounce</option>
+            <option value="m3ToL">Cubic Meter to Liter</option>
+            <option value="lToM3">Liter to Cubic Meter</option>
+            <option value="ptToL">Pint to Liter</option>
+            <option value="lToPt">Liter to Pint</option>
+
+            <!-- Area Conversions -->
+            <option value="m2ToCm2">Square Meter to Square Centimeter</option>
+            <option value="cm2ToM2">Square Centimeter to Square Meter</option>
+            <option value="m2ToKm2">Square Meter to Square Kilometer</option>
+            <option value="km2ToM2">Square Kilometer to Square Meter</option>
+            <option value="acreToM2">Acre to Square Meter</option>
+            <option value="m2ToAcre">Square Meter to Acre</option>
+            <option value="ft2ToIn2">Square Foot to Square Inch</option>
+            <option value="in2ToFt2">Square Inch to Square Foot</option>
+            <option value="yd2ToM2">Square Yard to Square Meter</option>
+            <option value="m2ToYd2">Square Meter to Square Yard</option>
+
+            <!-- Speed Conversions -->
+            <option value="kmhToMph">Kilometers per Hour to Miles per Hour</option>
+            <option value="mphToKmh">Miles per Hour to Kilometers per Hour</option>
+            <option value="mpsToKmh">Meters per Second to Kilometers per Hour</option>
+            <option value="kmhToMps">Kilometers per Hour to Meters per Second</option>
+            <option value="ftpsToMps">Feet per Second to Meters per Second</option>
+            <option value="mpsToFtps">Meters per Second to Feet per Second</option>
+            <option value="knotsToMph">Knots to Miles per Hour</option>
+            <option value="mphToKnots">Miles per Hour to Knots</option>
+            <option value="mpsToFtps">Meters per Second to Feet per Second</option>
+            <option value="ftpsToMps">Feet per Second to Meters per Second</option>
+
+            <!-- Energy Conversions -->
+            <option value="jToCal">Joules to Calories</option>
+            <option value="calToJ">Calories to Joules</option>
+            <option value="kjToJ">Kilojoules to Joules</option>
+            <option value="jToKj">Joules to Kilojoules</option>
+            <option value="wToHp">Watt to Horsepower</option>
+            <option value="hpToW">Horsepower to Watt</option>
+            <option value="kwToW">Kilowatt to Watt</option>
+            <option value="wToKw">Watt to Kilowatt</option>
+            <option value="btuToJ">British Thermal Unit (BTU) to Joules</option>
+            <option value="jToBtu">Joules to British Thermal Unit (BTU)</option>
+
+            <!-- Time Conversions -->
+            <option value="msToSec">Millisecond to Second</option>
+            <option value="secToMs">Second to Millisecond</option>
+            <option value="minToHr">Minute to Hour</option>
+            <option value="hrToMin">Hour to Minute</option>
+            <option value="dayToHr">Day to Hour</option>
+            <option value="hrToDay">Hour to Day</option>
+            <option value="weekToDays">Week to Days</option>
+            <option value="daysToWeek">Days to Week</option>
+            <option value="monthToDay">Month to Day</option>
+            <option value="dayToMonth">Day to Month</option>
+
+            <!-- Pressure Conversions -->
+            <option value="paToBar">Pascal to Bar</option>
+            <option value="barToPa">Bar to Pascal</option>
+            <option value="paToPsi">Pascal to PSI</option>
+            <option value="psiToPa">PSI to Pascal</option>
+            <option value="barToPsi">Bar to PSI</option>
+            <option value="psiToBar">PSI to Bar</option>
+            <option value="kpaToPa">Kilopascal to Pascal</option>
+            <option value="paToKpa">Pascal to Kilopascal</option>
+            <option value="atmToPa">Atmosphere to Pascal</option>
+            <option value="paToAtm">Pascal to Atmosphere</option>
+
+            <!-- Temperature Conversions -->
+            <option value="rToK">Rankine to Kelvin</option>
+            <option value="kToR">Kelvin to Rankine</option>
+            <option value="fToR">Fahrenheit to Rankine</option>
+            <option value="rToF">Rankine to Fahrenheit</option>
+            <option value="cToR">Celsius to Rankine</option>
+            <option value="rToC">Rankine to Celsius</option>
+            <option value="fToC">Fahrenheit to Celsius</option>
+            <option value="cToF">Celsius to Fahrenheit</option>
+            <option value="cToK">Celsius to Kelvin</option>
+            <option value="kToC">Kelvin to Celsius</option>
+
+            <!-- Digital Storage Conversions -->
+            <option value="bitToByte">Bit to Byte</option>
+            <option value="byteToBit">Byte to Bit</option>
+            <option value="kbToMb">Kilobyte to Megabyte</option>
+            <option value="mbToKb">Megabyte to Kilobyte</option>
+            <option value="gbToMb">Gigabyte to Megabyte</option>
+            <option value="mbToGb">Megabyte to Gigabyte</option>
+            <option value="tbToGb">Terabyte to Gigabyte</option>
+            <option value="gbToTb">Gigabyte to Terabyte</option>
+            <option value="kbToGb">Kilobyte to Gigabyte</option>
+            <option value="gbToKb">Gigabyte to Kilobyte</option>
+
+            <!-- Length Conversions -->
+            <option value="inToMm">Inch to Millimeter</option>
+            <option value="mmToIn">Millimeter to Inch</option>
+            <option value="ydToM">Yard to Meter</option>
+            <option value="mToYd">Meter to Yard</option>
+            <option value="kmToMi">Kilometer to Mile</option>
+            <option value="miToKm">Mile to Kilometer</option>
+            <option value="ftToM">Foot to Meter</option>
+            <option value="mToFt">Meter to Foot</option>
+            <option value="umToNm">Micrometer to Nanometer</option>
+            <option value="nmToUm">Nanometer to Micrometer</option>
+        </select>  
+        <button onclick="convert()">Convert</button>  
+        <h2 id="output"></h2>  
+    </div>  
+    <script>  
+        function convert() {  
+            let value = parseFloat(document.getElementById('inputValue').value);  
+            let unitType = document.getElementById('unitType').value;  
+            let result;  
+
+            if (isNaN(value)) {  
+                document.getElementById('output').innerText = "Enter a valid number!";  
+                return;  
+            }  
+
+            switch (unitType) {  
+                case "gToKg": result = value / 1000; break;  
+                case "kgToG": result = value * 1000; break;  
+                case "lbToKg": result = value * 0.453592; break;  
+                case "kgToLb": result = value / 0.453592; break;  
+                case "ozToG": result = value * 28.3495; break;  
+                case "gToOz": result = value / 28.3495; break;  
+                case "tToKg": result = value * 1000; break;  
+                case "kgToT": result = value / 1000; break;  
+                case "stToLb": result = value * 14; break;  
+                case "lbToSt": result = value / 14; break;  
+
+                case "mlToL": result = value / 1000; break;  
+                case "lToMl": result = value * 1000; break;  
+                case "galToL": result = value * 3.78541; break;  
+                case "lToGal": result = value / 3.78541; break;  
+                case "flOzToMl": result = value * 29.5735; break;  
+                case "mlToFlOz": result = value / 29.5735; break;  
+                case "m3ToL": result = value * 1000; break;  
+                case "lToM3": result = value / 1000; break;  
+                case "ptToL": result = value * 0.473176; break;  
+                case "lToPt": result = value / 0.473176; break;  
+
+                case "m2ToCm2": result = value * 10000; break;  
+                case "cm2ToM2": result = value / 10000; break;  
+                case "m2ToKm2": result = value / 1e6; break;  
+                case "km2ToM2": result = value * 1e6; break;  
+                case "acreToM2": result = value * 4046.86; break;  
+                case "m2ToAcre": result = value / 4046.86; break;  
+                case "ft2ToIn2": result = value * 144; break;  
+                case "in2ToFt2": result = value / 144; break;  
+                case "yd2ToM2": result = value * 0.836127; break;  
+                case "m2ToYd2": result = value / 0.836127; break;  
+
+                case "kmhToMph": result = value * 0.621371; break;  
+                case "mphToKmh": result = value / 0.621371; break;  
+                case "mpsToKmh": result = value * 3.6; break;  
+                case "kmhToMps": result = value / 3.6; break;  
+                case "ftpsToMps": result = value * 0.3048; break;
+                case "mpsToFtps": result = value / 0.3048; break;
+                case "knotsToMph": result = value * 1.15078; break;
+                case "mphToKnots": result = value / 1.15078; break;
+                case "mpsToFtps": result = value * 3.28084; break;
+                case "ftpsToMps": result = value / 3.28084; break;
+
+                case "jToCal": result = value * 0.239006; break;
+                case "calToJ": result = value / 0.239006; break;
+                case "kjToJ": result = value * 1000; break;
+                case "jToKj": result = value / 1000; break;
+                case "wToHp": result = value / 745.7; break;
+                case "hpToW": result = value * 745.7; break;
+                case "kwToW": result = value * 1000; break;
+                case "wToKw": result = value / 1000; break;
+                case "btuToJ": result = value * 1055.06; break;
+                case "jToBtu": result = value / 1055.06; break;
+
+                case "msToSec": result = value / 1000; break;
+                case "secToMs": result = value * 1000; break;
+                case "minToHr": result = value / 60; break;
+                case "hrToMin": result = value * 60; break;
+                case "dayToHr": result = value * 24; break;
+                case "hrToDay": result = value / 24; break;
+                case "weekToDays": result = value * 7; break;
+                case "daysToWeek": result = value / 7; break;
+                case "monthToDay": result = value * 30; break;
+                case "dayToMonth": result = value / 30; break;
+
+                case "paToBar": result = value / 100000; break;
+                case "barToPa": result = value * 100000; break;
+                case "paToPsi": result = value * 0.0001450377; break;
+                case "psiToPa": result = value / 0.0001450377; break;
+                case "barToPsi": result = value * 14.5038; break;
+                case "psiToBar": result = value / 14.5038; break;
+                case "kpaToPa": result = value * 1000; break;
+                case "paToKpa": result = value / 1000; break;
+                case "atmToPa": result = value * 101325; break;
+                case "paToAtm": result = value / 101325; break;
+
+                case "rToK": result = value - 459.67; break;
+                case "kToR": result = value + 459.67; break;
+                case "fToR": result = value + 459.67; break;
+                case "rToF": result = value - 459.67; break;
+                case "cToR": result = value * 1.8 + 491.67; break;
+                case "rToC": result = (value - 491.67) / 1.8; break;
+                case "fToC": result = (value - 32) * 5/9; break;
+                case "cToF": result = (value * 9/5) + 32; break;
+                case "cToK": result = value + 273.15; break;
+                case "kToC": result = value - 273.15; break;
+
+                case "bitToByte": result = value / 8; break;
+                case "byteToBit": result = value * 8; break;
+                case "kbToMb": result = value / 1024; break;
+                case "mbToKb": result = value * 1024; break;
+                case "gbToMb": result = value * 1024; break;
+                case "mbToGb": result = value / 1024; break;
+                case "tbToGb": result = value * 1024; break;
+                case "gbToTb": result = value / 1024; break;
+                case "kbToGb": result = value / 1048576; break;
+                case "gbToKb": result = value * 1048576; break;
+
+                case "inToMm": result = value * 25.4; break;
+                case "mmToIn": result = value / 25.4; break;
+                case "ydToM": result = value * 0.9144; break;
+                case "mToYd": result = value / 0.9144; break;
+                case "kmToMi": result = value * 0.621371; break;
+                case "miToKm": result = value / 0.621371; break;
+                case "ftToM": result = value * 0.3048; break;
+                case "mToFt": result = value / 0.3048; break;
+                case "umToNm": result = value * 1000; break;
+                case "nmToUm": result = value / 1000; break;
+
+                default: result = "Invalid Conversion"; break;
+            }
+
+            document.getElementById('output').innerText = result.toFixed(4);
+        }
+    </script>
+</body>
+</html>

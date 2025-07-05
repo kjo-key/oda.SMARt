@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Hub | ODA ICT Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #7c3aed;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background-attachment: fixed;
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            padding-top: 140px;
+        }
+        
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 25% 25%, var(--glass) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            width: 100%;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .header-content {
+            flex: 1;
+            text-align: center;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulse 15s infinite linear;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .warning {
+            background: rgba(239, 68, 68, 0.2);
+            border-left: 4px solid #ef4444;
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem auto;
+            max-width: 800px;
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation Styles */
+        .top-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin-left: 2rem;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .nav-menu a i {
+            font-size: 1rem;
+        }
+        
+        /* Grade Navigation */
+        .grade-nav {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+            gap: 1rem;
+        }
+        
+        .grade-nav button {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .grade-nav button:hover {
+            background: rgba(37, 99, 235, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .grade-nav button.active {
+            background: var(--primary);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            width: 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Subject Container */
+        .subject-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Subject Cards */
+        .subject-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subject-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .subject-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .subject-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .subject-header i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .subject-header.active i {
+            transform: rotate(180deg);
+        }
+        
+        .subject-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Units List */
+        .units-list {
+            display: none;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .unit-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .unit-item:hover {
+            background: rgba(37, 99, 235, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .unit-item h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+        
+        .unit-item p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #0f172a);
+            color: white;
+            padding: 2rem 1rem;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 0.9rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background: linear-gradient(135deg, var(--primary-dark), var(--dark));
+                width: 300px;
+                height: calc(100vh - 80px);
+                padding: 2rem;
+                transition: all 0.5s ease;
+                z-index: 100;
+                border-left: 1px solid var(--glass-border);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+            
+            .nav-menu a {
+                padding: 1rem;
+                justify-content: flex-start;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .subject-container {
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .top-nav {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-menu {
+                top: 180px;
+                height: calc(100vh - 180px);
+            }
+            
+            body {
+                padding-top: 180px;
+            }
+            
+            .grade-nav {
+                flex-wrap: wrap;
+            }
+            
+            .grade-nav button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .subject-header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .subject-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .unit-item h3 {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <h1>Smart Study Hub</h1>
+                <p class="tagline">OROMIA DEVELOPMENT ASSOCIATION special boarding school - Bishoftu branch - ICT Club</p>
+            </div>
+            
+            <nav class="top-nav">
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="intro.html"><i class="fas fa-info-circle"></i> Introduction</a></li>
+                    <li><a href="textbooks.html"><i class="fas fa-book"></i> Textbooks</a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-users"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i> ATTENTION: Only as additional or extra reference for students who want to dig deeper into subjects
+        </div>
+        
+        <!-- Grade Navigation -->
+        <div class="grade-nav">
+            <button class="active" onclick="showGrade('grade9')">Grade 9</button>
+            <button onclick="showGrade('grade10')">Grade 10</button>
+        </div>
+        
+        <!-- Grade 9 Content -->
+        <div class="subject-container" id="grade9">
+            <!-- Physics -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-rocket"></i></span> Physics</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('phy9_1.html')">
+                        <h3>Unit 1: Physics and Human Society</h3>
+                        <p>Explore the relationship between physics and human development</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_2.html')">
+                        <h3>Unit 2: Physical Quantities</h3>
+                        <p>Measurement and analysis of physical properties</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_3.html')">
+                        <h3>Unit 3: Motion in a Straight Line</h3>
+                        <p>Understanding linear motion and its principles</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_4.html')">
+                        <h3>Unit 4: Force, Work, Energy and Power</h3>
+                        <p>Fundamental concepts of mechanics</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_5.html')">
+                        <h3>Unit 5: Simple Machines</h3>
+                        <p>Mechanical devices that change the direction or magnitude of a force</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_6.html')">
+                        <h3>Unit 6: Mechanical Oscillation and Sound Wave</h3>
+                        <p>Vibrations and wave phenomena</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy9_7.html')">
+                        <h3>Unit 7: Temperature and Thermometry</h3>
+                        <p>Heat measurement and thermal properties</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mathematics -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-square-root-alt"></i></span> Mathematics</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('math9_1.html')">
+                        <h3>Unit 1: Further on Sets</h3>
+                        <p>Advanced concepts in set theory</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_2.html')">
+                        <h3>Unit 2: The Number System</h3>
+                        <p>Understanding different number systems</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_3.html')">
+                        <h3>Unit 3: Solving Equations</h3>
+                        <p>Techniques for solving various equations</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_4.html')">
+                        <h3>Unit 4: Solving Inequalities</h3>
+                        <p>Methods for solving mathematical inequalities</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_5.html')">
+                        <h3>Unit 5: Introduction to Trigonometry</h3>
+                        <p>Fundamentals of trigonometric functions</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_6.html')">
+                        <h3>Unit 6: Regular Polygons</h3>
+                        <p>Properties and characteristics of regular polygons</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_7.html')">
+                        <h3>Unit 7: Congruency and Similarity</h3>
+                        <p>Geometric relationships between shapes</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_8.html')">
+                        <h3>Unit 8: Vectors in Two Dimensions</h3>
+                        <p>Introduction to vector mathematics</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math9_9.html')">
+                        <h3>Unit 9: Statistics and Probability</h3>
+                        <p>Data analysis and chance calculations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chemistry -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-flask"></i></span> Chemistry</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('chem9_1.html')">
+                        <h3>Unit 1: Chemistry and Its Importance</h3>
+                        <p>The role of chemistry in daily life</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem9_2.html')">
+                        <h3>Unit 2: Measurements and Scientific Methods</h3>
+                        <p>Laboratory techniques and scientific approach</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem9_3.html')">
+                        <h3>Unit 3: Structure of the Atom</h3>
+                        <p>Atomic theory and subatomic particles</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem9_4.html')">
+                        <h3>Unit 4: Periodic Classification of Elements</h3>
+                        <p>Organization of the periodic table</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem9_5.html')">
+                        <h3>Unit 5: Chemical Bonding</h3>
+                        <p>How atoms combine to form compounds</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Biology -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-dna"></i></span> Biology</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('bio9_1.html')">
+                        <h3>Unit 1: Introduction to Biology</h3>
+                        <p>The study of life and living organisms</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio9_2.html')">
+                        <h3>Unit 2: Characteristics and Classification of Organisms</h3>
+                        <p>Taxonomy and biological classification</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio9_3.html')">
+                        <h3>Unit 3: Cells</h3>
+                        <p>The basic structural and functional units of life</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio9_4.html')">
+                        <h3>Unit 4: Reproduction</h3>
+                        <p>Biological processes of producing new organisms</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio9_5.html')">
+                        <h3>Unit 5: Human Health, Nutrition, and Disease</h3>
+                        <p>Maintaining health and understanding diseases</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio9_6.html')">
+                        <h3>Unit 6: Ecology</h3>
+                        <p>Relationships between organisms and their environment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ICT -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-laptop-code"></i></span> ICT</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('ict_1.html')">
+                        <h3>Unit 1: Organization of Files</h3>
+                        <p>File management and organization techniques</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_2.html')">
+                        <h3>Unit 2: Computer Network</h3>
+                        <p>Basics of networking and connectivity</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_3.html')">
+                        <h3>Unit 3: Application Software</h3>
+                        <p>Various types of software applications</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_4.html')">
+                        <h3>Unit 4: Image Processing and Multimedia</h3>
+                        <p>Digital media creation and manipulation</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_5.html')">
+                        <h3>Unit 5: Information and Computer Security</h3>
+                        <p>Protecting digital information and systems</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_6.html')">
+                        <h3>Unit 6: Fundamentals of Programming</h3>
+                        <p>Introduction to coding and algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grade 10 Content -->
+        <div class="subject-container" id="grade10" style="display: none;">
+            <!-- Physics -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-rocket"></i></span> Physics</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('phy10_1.html')">
+                        <h3>Unit 1: Vector Quantities</h3>
+                        <p>Quantities with both magnitude and direction</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy10_2.html')">
+                        <h3>Unit 2: Uniformly Accelerated Motion</h3>
+                        <p>Motion with constant acceleration</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy10_3.html')">
+                        <h3>Unit 3: Elasticity and Static Equilibrium of Rigid Body</h3>
+                        <p>Properties of materials and balance of forces</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy10_4.html')">
+                        <h3>Unit 4: Static and Current Electricity</h3>
+                        <p>Electric charges and their movement</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy10_5.html')">
+                        <h3>Unit 5: Magnetism</h3>
+                        <p>Magnetic fields and their effects</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('phy10_6.html')">
+                        <h3>Unit 6: Electromagnetic Waves and Geometrical Optics</h3>
+                        <p>Light behavior and electromagnetic radiation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mathematics -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-square-root-alt"></i></span> Mathematics</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('math10_1.html')">
+                        <h3>Unit 1: Relations and Functions</h3>
+                        <p>Mathematical relationships between sets</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_2.html')">
+                        <h3>Unit 2: Polynomial Functions</h3>
+                        <p>Equations with multiple terms</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_3.html')">
+                        <h3>Unit 3: Exponential and Logarithmic Functions</h3>
+                        <p>Growth patterns and their inverses</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_4.html')">
+                        <h3>Unit 4: Trigonometric Functions</h3>
+                        <p>Advanced study of trigonometric relationships</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_5.html')">
+                        <h3>Unit 5: Circles</h3>
+                        <p>Properties and equations of circular shapes</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_6.html')">
+                        <h3>Unit 6: Solid Figures</h3>
+                        <p>Three-dimensional geometric shapes</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('math10_7.html')">
+                        <h3>Unit 7: Coordinate Geometry</h3>
+                        <p>Geometric figures on the coordinate plane</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chemistry -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-flask"></i></span> Chemistry</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('chem10_1.html')">
+                        <h3>Unit 1: Chemical Reactions and Stoichiometry</h3>
+                        <p>Balancing equations and quantitative relationships</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem10_2.html')">
+                        <h3>Unit 2: Solutions</h3>
+                        <p>Homogeneous mixtures and their properties</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem10_3.html')">
+                        <h3>Unit 3: Important Inorganic Compounds</h3>
+                        <p>Key compounds in chemistry</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem10_4.html')">
+                        <h3>Unit 4: Energy Changes and Electrochemistry</h3>
+                        <p>Chemical energy and electrical processes</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem10_5.html')">
+                        <h3>Unit 5: Metals and Nonmetals</h3>
+                        <p>Properties and reactions of elements</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('chem10_6.html')">
+                        <h3>Unit 6: Hydrocarbons and Their Natural Sources</h3>
+                        <p>Organic compounds from natural sources</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Biology -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-dna"></i></span> Biology</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('bio10_1.html')">
+                        <h3>Unit 1: Sub-fields of Biology</h3>
+                        <p>Specialized areas of biological study</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio10_2.html')">
+                        <h3>Unit 2: Plants</h3>
+                        <p>Structure and function of plant life</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio10_3.html')">
+                        <h3>Unit 3: Biochemical Molecules</h3>
+                        <p>Chemical components of living organisms</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio10_4.html')">
+                        <h3>Unit 4: Cell Reproduction</h3>
+                        <p>Processes of cellular division</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio10_5.html')">
+                        <h3>Unit 5: Human Biology</h3>
+                        <p>Structure and function of the human body</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('bio10_6.html')">
+                        <h3>Unit 6: Ecological Interaction</h3>
+                        <p>Relationships between organisms and ecosystems</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ICT -->
+            <div class="subject-card">
+                <div class="subject-header" onclick="toggleSubject(this)">
+                    <h2><span class="subject-icon"><i class="fas fa-laptop-code"></i></span> ICT</h2>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="units-list">
+                    <div class="unit-item" onclick="openUnit('ict_1.html')">
+                        <h3>Unit 1: Organization of Files</h3>
+                        <p>File management and organization techniques</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_2.html')">
+                        <h3>Unit 2: Computer Network</h3>
+                        <p>Basics of networking and connectivity</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_3.html')">
+                        <h3>Unit 3: Application Software</h3>
+                        <p>Various types of software applications</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_4.html')">
+                        <h3>Unit 4: Image Processing and Multimedia</h3>
+                        <p>Digital media creation and manipulation</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_5.html')">
+                        <h3>Unit 5: Information and Computer Security</h3>
+                        <p>Protecting digital information and systems</p>
+                    </div>
+                    <div class="unit-item" onclick="openUnit('ict_6.html')">
+                        <h3>Unit 6: Fundamentals of Programming</h3>
+                        <p>Introduction to coding and algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="intro.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> Introduction</a></li>
+                    <li><a href="aboutus.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="textbooks.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> Textbooks</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Projects</h3>
+                <ul style="list-style: none;">
+                    <li><a href="smart.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> Smart Deep Study</a></li>
+                    <li><a href="flcard.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> Study Flashcards</a></li>
+                    <li><a href="grading.html" style="color: white; text-decoration: none; display: block; padding: 0.5rem 0; transition: all 0.3s ease;"><i class="fas fa-chevron-right"></i> Grading System</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> feyisayoseph@gmail.com</p>
+                <p><i class="fab fa-telegram"></i> @itcluboda</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bishoftu, Ethiopia</p>
+                <div class="social-links">
+                    <a href="mailto:feyisayoseph@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://t.me/Godiskey1" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/jos-key/" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/itcluboda" target="_blank" title="Group Channel"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 ODA ICT Club. All rights reserved | Designed by ICT Club Members</p>
+            <div style="margin-top: 1rem;">
+                <a href="https://policies.google.com/privacy?hl=en-ET&fg=1" style="color: white; text-decoration: none; margin: 0 0.5rem; font-size: 0.8rem;">Privacy Policy</a>
+                <a href="https://policies.google.com/terms?hl=en-ET&fg=1" style="color: white; text-decoration: none; margin: 0 0.5rem; font-size: 0.8rem;">Terms of Service</a>
+                <a href="contact.html" style="color: white; text-decoration: none; margin: 0 0.5rem; font-size: 0.8rem;">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Toggle subject units
+        function toggleSubject(header) {
+            header.classList.toggle('active');
+            const units = header.nextElementSibling;
+            units.style.display = units.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        // Show grade content
+        function showGrade(gradeId) {
+            document.querySelectorAll('.subject-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            
+            document.getElementById(gradeId).style.display = 'block';
+            
+            // Update active button
+            document.querySelectorAll('.grade-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Open unit page
+        function openUnit(filename) {
+            window.location.href = filename;
+        }
+        
+        // Initialize - show first subject units
+        document.querySelectorAll('.subject-header').forEach(header => {
+            header.nextElementSibling.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python | ODA ICT Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #7c3aed;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --code-keyword: #569cd6;
+            --code-string: #ce9178;
+            --code-comment: #6a9955;
+            --note-bg: rgba(251, 191, 36, 0.15);
+            --definition-bg: rgba(124, 58, 237, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background-attachment: fixed;
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            padding-top: 100px;
+        }
+        
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 25% 25%, var(--glass) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+        }
+        
+        /* Navigation Styles */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Main Content Styles */
+        .main-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+        
+        .sidebar-nav {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-menu a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .coming-soon {
+            opacity: 0.7;
+            font-size: 0.8rem;
+            margin-left: auto;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+        }
+        
+        /* Lesson Content */
+        .lesson-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .lesson-container {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .lesson-container.active-lesson {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .lesson-header {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .lesson-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .lesson-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .lesson-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .lesson-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .lesson-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .lesson-section h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--light);
+        }
+        
+        .lesson-section p, .lesson-section li {
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .lesson-section ul, .lesson-section ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .lesson-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .lesson-section li::before {
+            content: '•';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Notes and Definitions */
+        .note {
+            background: var(--note-bg);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .definition {
+            background: var(--definition-bg);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .definition-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Code Styling */
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-left: 4px solid var(--primary);
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .keyword { color: var(--code-keyword); }
+        .string { color: var(--code-string); }
+        .comment { color: var(--code-comment); font-style: italic; }
+        .function { color: #dcdcaa; }
+        .number { color: #b5cea8; }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        th {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--secondary);
+        }
+        
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* YouTube Videos */
+        .youtube-videos {
+            margin-top: 3rem;
+        }
+        
+        .youtube-videos h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .video-grid iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-grid iframe:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 250px;
+            }
+            
+            .lesson-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            header {
+                flex-direction: column;
+                padding: 0.75rem;
+            }
+            
+            .header-content {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                background: linear-gradient(135deg, var(--primary-dark), var(--dark));
+                flex-direction: column;
+                width: 250px;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                z-index: 100;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+                padding: 1rem;
+            }
+            
+            .sidebar-nav {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .lesson-section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-content">
+            <span class="logo">🐍</span>
+            <h1>Learn Python</h1>
+        </div>
+        
+        <nav>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="intro.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="textbooks.html"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="aboutus.html"><i class="fas fa-users"></i> About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3 class="sidebar-title"><i class="fas fa-book-open"></i> Python Lessons</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="#" onclick="showLesson('lesson1')"><i class="fas fa-star"></i> Python Fundamentals</a></li>
+                    <li><a href="#" onclick="showLesson('lesson2')"><i class="fas fa-code-branch"></i> Control Flow</a></li>
+                    <li><a href="#" onclick="showLesson('lesson3')"><i class="fas fa-database"></i> Data Structures</a></li>
+                    <li><a href="#" onclick="showLesson('lesson4')"><i class="fas fa-cubes"></i> Classes & Objects</a></li>
+                    <li><a href="#" onclick="showLesson('lesson5')"><i class="fas fa-rocket"></i> File Handling</a></li>
+                    <li><a href="#" onclick="showLesson('lesson6')"><i class="fas fa-bug"></i> Error Handling</a></li>
+                    <li><a href="#" onclick="showLesson('lesson7')"><i class="fas fa-boxes"></i> Modules & Packages</a></li>
+                    <li><a href="#" onclick="showLesson('lesson8')"><i class="fas fa-code"></i> Sample Codes</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Lesson Content -->
+        <main class="lesson-content">
+            <!-- Lesson 1: Python Fundamentals -->
+            <div id="lesson1" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Python Fundamentals</h1>
+                    <p>Start your Python journey with the basics</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-download"></i> 1. Install Python & Set Up IDE</h2>
+                    
+                    <h3>1.1 Install Python</h3>
+                    <p>Download and install Python from <a href="https://www.python.org/downloads/" target="_blank" style="color: var(--secondary);">python.org</a>.</p>
+                    <p>Ensure you check the box "Add Python to PATH" during installation.</p>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>For Windows users, selecting "Add Python to PATH" allows you to run Python from the command prompt without specifying the full path.</p>
+                    </div>
+                    
+                    <h3>1.2 Install an IDE</h3>
+                    <p>An Integrated Development Environment (IDE) makes coding easier with features like syntax highlighting and debugging.</p>
+                    <ul>
+                        <li><strong>PyCharm</strong> – Best for professional development</li>
+                        <li><strong>VS Code</strong> – Lightweight and highly customizable</li>
+                        <li><strong>Jupyter Notebook</strong> – Best for data science</li>
+                    </ul>
+
+                    <h3>1.3 Verify Installation</h3>
+                    <p>Open a terminal and type:</p>
+                    <pre><code><span class="keyword">python</span> <span class="string">--version</span></code></pre>
+                    <p>You should see something like:</p>
+                    <pre><code><span class="string">Python 3.11.2</span></code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-code"></i> 2. Python Syntax, Variables & Data Types</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Syntax</div>
+                        <p>Syntax refers to the set of rules that define how Python programs are written and interpreted.</p>
+                    </div>
+                    
+                    <h3>2.1 Python Syntax</h3>
+                    <p>Python uses indentation for code blocks instead of curly braces <code>{}</code>:</p>
+                    <pre><code><span class="comment"># Correct indentation</span>
+<span class="keyword">if</span> <span class="number">5</span> > <span class="number">2</span>:
+    <span class="function">print</span>(<span class="string">"5 is greater than 2"</span>)
+
+<span class="comment"># Incorrect indentation (error)</span>
+<span class="keyword">if</span> <span class="number">5</span> > <span class="number">2</span>:
+<span class="function">print</span>(<span class="string">"5 is greater than 2"</span>)  <span class="comment"># Error: IndentationError</span></code></pre>
+
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>Python typically uses 4 spaces for indentation. Be consistent with your indentation throughout your code.</p>
+                    </div>
+                    
+                    <h3>2.2 Variables in Python</h3>
+                    <p>Variables are containers for storing data values.</p>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Variable</div>
+                        <p>A variable is a named location in memory used to store data that can be referenced and manipulated in a program.</p>
+                    </div>
+                    
+                    <p>Rules for Variable Names:</p>
+                    <ul>
+                        <li>Can contain letters, numbers, and underscores (<code>_</code>)</li>
+                        <li>Cannot start with a number</li>
+                        <li>Are case-sensitive (<code>name</code> and <code>Name</code> are different)</li>
+                        <li>Cannot be Python keywords (like <code>if</code>, <code>for</code>, etc.)</li>
+                    </ul>
+                    
+                    <p>Example:</p>
+                    <pre><code><span class="comment"># Variable assignment</span>
+name = <span class="string">"Yoseph"</span>  <span class="comment"># String</span>
+age = <span class="number">16</span>        <span class="comment"># Integer</span>
+height = <span class="number">1.75</span>   <span class="comment"># Float</span>
+is_student = <span class="keyword">True</span>  <span class="comment"># Boolean</span>
+
+<span class="function">print</span>(name, age, height, is_student)</code></pre>
+                    
+                    <h3>2.3 Data Types in Python</h3>
+                    <p>Python has several built-in data types:</p>
+                    <table>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Integer (<code>int</code>)</td>
+                            <td><code>x = 5</code></td>
+                            <td>Whole numbers (positive or negative)</td>
+                        </tr>
+                        <tr>
+                            <td>Float (<code>float</code>)</td>
+                            <td><code>y = 3.14</code></td>
+                            <td>Decimal numbers</td>
+                        </tr>
+                        <tr>
+                            <td>String (<code>str</code>)</td>
+                            <td><code>name = "Yoseph"</code></td>
+                            <td>Sequence of characters</td>
+                        </tr>
+                        <tr>
+                            <td>Boolean (<code>bool</code>)</td>
+                            <td><code>is_active = True</code></td>
+                            <td>True/False values</td>
+                        </tr>
+                        <tr>
+                            <td>List (<code>list</code>)</td>
+                            <td><code>numbers = [1, 2, 3]</code></td>
+                            <td>Ordered, mutable collection</td>
+                        </tr>
+                        <tr>
+                            <td>Tuple (<code>tuple</code>)</td>
+                            <td><code>point = (10, 20)</code></td>
+                            <td>Ordered, immutable collection</td>
+                        </tr>
+                        <tr>
+                            <td>Set (<code>set</code>)</td>
+                            <td><code>unique = {1, 2, 3}</code></td>
+                            <td>Unordered collection of unique items</td>
+                        </tr>
+                        <tr>
+                            <td>Dictionary (<code>dict</code>)</td>
+                            <td><code>student = {"name": "Yoseph"}</code></td>
+                            <td>Key-value pairs</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-terminal"></i> 3. Input & Output Operations</h2>
+                    
+                    <h3>3.1 Output with <code>print()</code></h3>
+                    <p>The <code>print()</code> function displays output to the console:</p>
+                    <pre><code><span class="function">print</span>(<span class="string">"Hello, World!"</span>)
+<span class="function">print</span>(<span class="number">10</span> + <span class="number">5</span>)  <span class="comment"># Output: 15</span></code></pre>
+
+                    <h3>3.2 Formatting Output</h3>
+                    <p>String formatting allows you to include variables in your output:</p>
+                    <pre><code>name = <span class="string">"Yoseph"</span>
+age = <span class="number">16</span>
+<span class="comment"># f-string (Python 3.6+)</span>
+<span class="function">print</span>(<span class="string">f"My name is {name} and I am {age} years old."</span>)</code></pre>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>f-strings are the most modern and preferred way to format strings in Python. They're faster and more readable than other methods.</p>
+                    </div>
+                    
+                    <h3>3.3 Input from the User</h3>
+                    <p>The <code>input()</code> function gets user input:</p>
+                    <pre><code>name = <span class="function">input</span>(<span class="string">"Enter your name: "</span>)
+age = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter your age: "</span>))  <span class="comment"># Convert to integer</span>
+<span class="function">print</span>(<span class="string">f"Hello, {name}! You are {age} years old."</span>)</code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-calculator"></i> 4. Operators in Python</h2>
+                    
+                    <h3>4.1 Arithmetic Operators</h3>
+                    <table>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>Addition</td>
+                            <td><code>5 + 3 = 8</code></td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>Subtraction</td>
+                            <td><code>5 - 3 = 2</code></td>
+                        </tr>
+                        <tr>
+                            <td>*</td>
+                            <td>Multiplication</td>
+                            <td><code>5 * 3 = 15</code></td>
+                        </tr>
+                        <tr>
+                            <td>/</td>
+                            <td>Division</td>
+                            <td><code>5 / 2 = 2.5</code></td>
+                        </tr>
+                        <tr>
+                            <td>//</td>
+                            <td>Floor Division</td>
+                            <td><code>5 // 2 = 2</code></td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>Modulus (Remainder)</td>
+                            <td><code>5 % 2 = 1</code></td>
+                        </tr>
+                        <tr>
+                            <td>**</td>
+                            <td>Exponentiation</td>
+                            <td><code>2 ** 3 = 8</code></td>
+                        </tr>
+                    </table>
+                    
+                    <h3>4.2 Comparison Operators</h3>
+                    <p>Compare values and return <code>True</code> or <code>False</code>:</p>
+                    <pre><code>x = <span class="number">10</span>
+y = <span class="number">20</span>
+<span class="function">print</span>(x > y)   <span class="comment"># False</span>
+<span class="function">print</span>(x == <span class="number">10</span>) <span class="comment"># True</span>
+<span class="function">print</span>(x != y)  <span class="comment"># True</span></code></pre>
+                    
+                    <h3>4.3 Logical Operators</h3>
+                    <p>Combine conditional statements:</p>
+                    <pre><code>x = <span class="number">5</span>
+y = <span class="number">10</span>
+z = <span class="number">15</span>
+
+<span class="function">print</span>(x < y <span class="keyword">and</span> y < z)  <span class="comment"># True</span>
+<span class="function">print</span>(x > y <span class="keyword">or</span> y < z)   <span class="comment"># True</span>
+<span class="function">print</span>(<span class="keyword">not</span>(x > y))       <span class="comment"># True</span></code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/Y8Tko2YC5hA" title="Python Tutorial" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/kqtD5dpn9C8" title="Python Basics" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/rfscVS0vtbw" title="Python for Beginners" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 2: Control Flow & Functions -->
+            <div id="lesson2" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Control Flow & Functions</h1>
+                    <p>Learn to control program execution and create reusable code</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-project-diagram"></i> 1. Conditional Statements</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Control Flow</div>
+                        <p>Control flow refers to the order in which individual statements, instructions, or function calls are executed or evaluated in a program.</p>
+                    </div>
+                    
+                    <h3>1.1 if Statement</h3>
+                    <p>Execute code if a condition is true:</p>
+                    <pre><code>age = <span class="number">16</span>
+<span class="keyword">if</span> age >= <span class="number">18</span>:
+    <span class="function">print</span>(<span class="string">"You are an adult"</span>)</code></pre>
+                    
+                    <h3>1.2 if-else Statement</h3>
+                    <p>Execute one block if true, another if false:</p>
+                    <pre><code>age = <span class="number">16</span>
+<span class="keyword">if</span> age >= <span class="number">18</span>:
+    <span class="function">print</span>(<span class="string">"You are an adult"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"You are a minor"</span>)</code></pre>
+                    
+                    <h3>1.3 if-elif-else Statement</h3>
+                    <p>Check multiple conditions:</p>
+                    <pre><code>grade = <span class="number">85</span>
+<span class="keyword">if</span> grade >= <span class="number">90</span>:
+    <span class="function">print</span>(<span class="string">"A"</span>)
+<span class="keyword">elif</span> grade >= <span class="number">80</span>:
+    <span class="function">print</span>(<span class="string">"B"</span>)
+<span class="keyword">elif</span> grade >= <span class="number">70</span>:
+    <span class="function">print</span>(<span class="string">"C"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"F"</span>)</code></pre>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>Python evaluates conditions in order and executes the block for the first true condition. Once a condition is met, the rest are skipped.</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-redo"></i> 2. Loops</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Loop</div>
+                        <p>A loop is a programming structure that repeats a sequence of instructions until a specific condition is met.</p>
+                    </div>
+                    
+                    <h3>2.1 for Loop</h3>
+                    <p>Iterate over a sequence (list, tuple, string, etc.):</p>
+                    <pre><code>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+<span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:
+    <span class="function">print</span>(fruit)</code></pre>
+                    
+                    <h3>2.2 range() Function</h3>
+                    <p>Generate a sequence of numbers:</p>
+                    <pre><code><span class="comment"># Print numbers 0 to 4</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">5</span>):
+    <span class="function">print</span>(i)</code></pre>
+                    
+                    <h3>2.3 while Loop</h3>
+                    <p>Execute while a condition is true:</p>
+                    <pre><code>count = <span class="number">0</span>
+<span class="keyword">while</span> count < <span class="number">5</span>:
+    <span class="function">print</span>(count)
+    count += <span class="number">1</span>  <span class="comment"># Increment count</span></code></pre>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>Be careful with while loops to avoid infinite loops. Always ensure the loop condition will eventually become false.</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-cogs"></i> 3. Functions</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Function</div>
+                        <p>A function is a block of organized, reusable code that performs a single, related action. Functions provide better modularity and code reuse.</p>
+                    </div>
+                    
+                    <h3>3.1 Defining Functions</h3>
+                    <p>Create a function with <code>def</code>:</p>
+                    <pre><code><span class="keyword">def</span> <span class="function">greet</span>(name):
+    <span class="function">print</span>(<span class="string">f"Hello, {name}!"</span>)
+
+<span class="function">greet</span>(<span class="string">"Yoseph"</span>)  <span class="comment"># Call the function</span></code></pre>
+                    
+                    <h3>3.2 Return Values</h3>
+                    <p>Functions can return data:</p>
+                    <pre><code><span class="keyword">def</span> <span class="function">add</span>(a, b):
+    <span class="keyword">return</span> a + b
+
+result = <span class="function">add</span>(<span class="number">3</span>, <span class="number">4</span>)
+<span class="function">print</span>(result)  <span class="comment"># Output: 7</span></code></pre>
+                    
+                    <h3>3.3 Default Parameters</h3>
+                    <p>Set default values for parameters:</p>
+                    <pre><code><span class="keyword">def</span> <span class="function">greet</span>(name=<span class="string">"Guest"</span>):
+    <span class="function">print</span>(<span class="string">f"Hello, {name}!"</span>)
+
+<span class="function">greet</span>()          <span class="comment"># Hello, Guest!</span>
+<span class="function">greet</span>(<span class="string">"Yoseph"</span>) <span class="comment"># Hello, Yoseph!</span></code></pre>
+                    
+                    <h3>3.4 Variable Scope</h3>
+                    <p>Variables have different scopes:</p>
+                    <pre><code>global_var = <span class="string">"I'm global"</span>
+
+<span class="keyword">def</span> <span class="function">my_function</span>():
+    local_var = <span class="string">"I'm local"</span>
+    <span class="function">print</span>(global_var)  <span class="comment"># Can access global</span>
+    <span class="function">print</span>(local_var)   <span class="comment"># Can access local</span>
+
+<span class="function">my_function</span>()
+<span class="comment"># print(local_var)  # Error: local_var is not defined outside function</span></code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/Zp5MuPOtsSY" title="Python Control Flow" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6iF8Xb7Z3wQ" title="Python Functions" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/7eh4d6sabA0" title="Python Loops" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 3: Data Structures & String Manipulation -->
+            <div id="lesson3" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Data Structures & String Manipulation</h1>
+                    <p>Organize and manipulate your data effectively</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-list-ol"></i> 1. Lists</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: List</div>
+                        <p>A list is an ordered, mutable collection of items. Lists are one of Python's most versatile data types.</p>
+                    </div>
+                    
+                    <h3>1.1 Creating Lists</h3>
+                    <pre><code>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+mixed = [<span class="number">1</span>, <span class="string">"hello"</span>, <span class="keyword">True</span>, <span class="number">3.14</span>]</code></pre>
+                    
+                    <h3>1.2 Accessing List Items</h3>
+                    <pre><code>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+<span class="function">print</span>(fruits[<span class="number">0</span>])  <span class="comment"># apple (first item)</span>
+<span class="function">print</span>(fruits[<span class="number">-1</span>]) <span class="comment"># cherry (last item)</span></code></pre>
+                    
+                    <h3>1.3 Modifying Lists</h3>
+                    <pre><code>fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+fruits[<span class="number">1</span>] = <span class="string">"blueberry"</span>  <span class="comment"># Change item</span>
+fruits.append(<span class="string">"orange"</span>)  <span class="comment"># Add item</span>
+fruits.remove(<span class="string">"apple"</span>)  <span class="comment"># Remove item</span></code></pre>
+                    
+                    <h3>1.4 List Methods</h3>
+                    <table>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>append(x)</code></td>
+                            <td>Adds an item to the end</td>
+                        </tr>
+                        <tr>
+                            <td><code>insert(i, x)</code></td>
+                            <td>Inserts item at index i</td>
+                        </tr>
+                        <tr>
+                            <td><code>remove(x)</code></td>
+                            <td>Removes first occurrence of x</td>
+                        </tr>
+                        <tr>
+                            <td><code>pop([i])</code></td>
+                            <td>Removes and returns item at index i</td>
+                        </tr>
+                        <tr>
+                            <td><code>sort()</code></td>
+                            <td>Sorts the list in place</td>
+                        </tr>
+                        <tr>
+                            <td><code>reverse()</code></td>
+                            <td>Reverses the list in place</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-brackets-curly"></i> 2. Dictionaries</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Dictionary</div>
+                        <p>A dictionary is an unordered collection of key-value pairs. Dictionaries are optimized for retrieving values when the key is known.</p>
+                    </div>
+                    
+                    <h3>2.1 Creating Dictionaries</h3>
+                    <pre><code>student = {
+    <span class="string">"name"</span>: <span class="string">"Yoseph"</span>,
+    <span class="string">"age"</span>: <span class="number">16</span>,
+    <span class="string">"grade"</span>: <span class="string">"10D"</span>
+}</code></pre>
+                    
+                    <h3>2.2 Accessing Dictionary Values</h3>
+                    <pre><code><span class="function">print</span>(student[<span class="string">"name"</span>])  <span class="comment"># Yoseph</span>
+<span class="function">print</span>(student.get(<span class="string">"age"</span>)) <span class="comment"># 16</span></code></pre>
+                    
+                    <h3>2.3 Modifying Dictionaries</h3>
+                    <pre><code>student[<span class="string">"age"</span>] = <span class="number">17</span>  <span class="comment"># Update value</span>
+student[<span class="string">"school"</span>] = <span class="string">"ODA"</span>  <span class="comment"># Add new key-value pair</span>
+<span class="keyword">del</span> student[<span class="string">"grade"</span>]  <span class="comment"># Remove key-value pair</span></code></pre>
+                    
+                    <h3>2.4 Dictionary Methods</h3>
+                    <table>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>keys()</code></td>
+                            <td>Returns all keys</td>
+                        </tr>
+                        <tr>
+                            <td><code>values()</code></td>
+                            <td>Returns all values</td>
+                        </tr>
+                        <tr>
+                            <td><code>items()</code></td>
+                            <td>Returns all key-value pairs</td>
+                        </tr>
+                        <tr>
+                            <td><code>get(key, default)</code></td>
+                            <td>Returns value for key, or default if not found</td>
+                        </tr>
+                        <tr>
+                            <td><code>pop(key)</code></td>
+                            <td>Removes key and returns its value</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-quote-right"></i> 3. String Manipulation</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: String</div>
+                        <p>A string is a sequence of characters. In Python, strings are immutable sequences of Unicode code points.</p>
+                    </div>
+                    
+                    <h3>3.1 String Operations</h3>
+                    <pre><code>text = <span class="string">"Python Programming"</span>
+
+<span class="comment"># Accessing characters</span>
+<span class="function">print</span>(text[<span class="number">0</span>])   <span class="comment"># P</span>
+<span class="function">print</span>(text[<span class="number">7</span>:<span class="number">18</span>]) <span class="comment"># Programming</span>
+
+<span class="comment"># String methods</span>
+<span class="function">print</span>(text.lower())  <span class="comment"># python programming</span>
+<span class="function">print</span>(text.upper())  <span class="comment"># PYTHON PROGRAMMING</span>
+<span class="function">print</span>(text.split())  <span class="comment"># ['Python', 'Programming']</span></code></pre>
+                    
+                    <h3>3.2 Common String Methods</h3>
+                    <table>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>lower()</code></td>
+                            <td>Returns lowercase version</td>
+                        </tr>
+                        <tr>
+                            <td><code>upper()</code></td>
+                            <td>Returns uppercase version</td>
+                        </tr>
+                        <tr>
+                            <td><code>strip()</code></td>
+                            <td>Removes whitespace</td>
+                        </tr>
+                        <tr>
+                            <td><code>split(sep)</code></td>
+                            <td>Splits string by separator</td>
+                        </tr>
+                        <tr>
+                            <td><code>join(iterable)</code></td>
+                            <td>Joins items with string as separator</td>
+                        </tr>
+                        <tr>
+                            <td><code>replace(old, new)</code></td>
+                            <td>Replaces occurrences of old with new</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/ohCDWZgNIU0" title="Python Lists" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/R-HLU9Fl5ug" title="Python Dictionaries" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/W8KRzm-HUcc" title="Python Strings" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 4: Classes & Objects -->
+            <div id="lesson4" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Classes & Objects</h1>
+                    <p>Learn object-oriented programming in Python</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-cube"></i> 1. Classes & Objects</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Class</div>
+                        <p>A class is a blueprint for creating objects. It defines the attributes and methods that the created objects will have.</p>
+                    </div>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Object</div>
+                        <p>An object is an instance of a class. It contains data (attributes) and code (methods) to manipulate that data.</p>
+                    </div>
+                    
+                    <h3>1.1 Creating a Class</h3>
+                    <pre><code><span class="keyword">class</span> <span class="function">Student</span>:
+    <span class="comment"># Class attribute (shared by all instances)</span>
+    school = <span class="string">"ODA"</span>
+    
+    <span class="comment"># Constructor method</span>
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, age):
+        <span class="comment"># Instance attributes</span>
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.age = age
+    
+    <span class="comment"># Instance method</span>
+    <span class="keyword">def</span> <span class="function">greet</span>(<span class="keyword">self</span>):
+        <span class="function">print</span>(<span class="string">f"Hello, my name is {self.name}"</span>)</code></pre>
+                    
+                    <h3>1.2 Creating Objects</h3>
+                    <pre><code><span class="comment"># Create instances of Student</span>
+student1 = <span class="function">Student</span>(<span class="string">"Yoseph"</span>, <span class="number">16</span>)
+student2 = <span class="function">Student</span>(<span class="string">"Fenet"</span>, <span class="number">15</span>)
+
+<span class="comment"># Access attributes and methods</span>
+<span class="function">print</span>(student1.name)  <span class="comment"># Yoseph</span>
+student2.<span class="function">greet</span>()      <span class="comment"># Hello, my name is Fenet</span></code></pre>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>The <code>self</code> parameter refers to the current instance of the class. It must be the first parameter of any instance method.</p>
+                    </div>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-sitemap"></i> 2. Inheritance</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Inheritance</div>
+                        <p>Inheritance allows a class to inherit attributes and methods from another class. The new class is called a child class, and the existing class is the parent class.</p>
+                    </div>
+                    
+                    <h3>2.1 Basic Inheritance</h3>
+                    <pre><code><span class="keyword">class</span> <span class="function">Person</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, age):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.age = age
+    
+    <span class="keyword">def</span> <span class="function">introduce</span>(<span class="keyword">self</span>):
+        <span class="function">print</span>(<span class="string">f"My name is {self.name} and I am {self.age} years old."</span>)
+
+<span class="keyword">class</span> <span class="function">Student</span>(<span class="function">Person</span>):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, age, grade):
+        <span class="keyword">super</span>().<span class="function">__init__</span>(name, age)
+        <span class="keyword">self</span>.grade = grade
+    
+    <span class="keyword">def</span> <span class="function">study</span>(<span class="keyword">self</span>):
+        <span class="function">print</span>(<span class="string">f"{self.name} is studying in grade {self.grade}"</span>)
+
+<span class="comment"># Create Student object</span>
+student = <span class="function">Student</span>(<span class="string">"Yoseph"</span>, <span class="number">16</span>, <span class="string">"10D"</span>)
+student.<span class="function">introduce</span>()  <span class="comment"># Inherited from Person</span>
+student.<span class="function">study</span>()      <span class="comment"># Defined in Student</span></code></pre>
+                    
+                    <h3>2.2 Method Overriding</h3>
+                    <pre><code><span class="keyword">class</span> <span class="function">Teacher</span>(<span class="function">Person</span>):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, age, subject):
+        <span class="keyword">super</span>().<span class="function">__init__</span>(name, age)
+        <span class="keyword">self</span>.subject = subject
+    
+    <span class="comment"># Override introduce method</span>
+    <span class="keyword">def</span> <span class="function">introduce</span>(<span class="keyword">self</span>):
+        <span class="function">print</span>(<span class="string">f"My name is {self.name}, I am {self.age} years old, and I teach {self.subject}."</span>)
+
+teacher = <span class="function">Teacher</span>(<span class="string">"Mr. Smith"</span>, <span class="number">35</span>, <span class="string">"Computer Science"</span>)
+teacher.<span class="function">introduce</span>()</code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/JeznW_7DlB0" title="Python OOP" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/ZDa-Z5JzLYM" title="Python Classes" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/3ohzBxoFHAY" title="Python Objects" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 5: File Handling -->
+            <div id="lesson5" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>File Handling</h1>
+                    <p>Learn to work with files in Python</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-file"></i> 1. Reading and Writing Files</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: File Handling</div>
+                        <p>File handling refers to the process of working with files on a computer's file system, including creating, reading, updating, and deleting files.</p>
+                    </div>
+                    
+                    <h3>1.1 Opening Files</h3>
+                    <p>Use the <code>open()</code> function with a mode:</p>
+                    <ul>
+                        <li><code>'r'</code> - Read (default)</li>
+                        <li><code>'w'</code> - Write (creates new or truncates existing)</li>
+                        <li><code>'a'</code> - Append</li>
+                        <li><code>'x'</code> - Exclusive creation (fails if exists)</li>
+                        <li><code>'b'</code> - Binary mode</li>
+                        <li><code>'t'</code> - Text mode (default)</li>
+                        <li><code>'+'</code> - Updating (read/write)</li>
+                    </ul>
+                    
+                    <h3>1.2 Reading Files</h3>
+                    <pre><code><span class="comment"># Read entire file</span>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'example.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> file:
+    content = file.<span class="function">read</span>()
+    <span class="function">print</span>(content)
+
+<span class="comment"># Read line by line</span>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'example.txt'</span>) <span class="keyword">as</span> file:
+    <span class="keyword">for</span> line <span class="keyword">in</span> file:
+        <span class="function">print</span>(line.strip())  <span class="comment"># strip() removes newline characters</span></code></pre>
+                    
+                    <div class="note">
+                        <div class="note-title"><i class="fas fa-lightbulb"></i> Note</div>
+                        <p>Using <code>with</code> ensures the file is properly closed after its suite finishes, even if an exception is raised.</p>
+                    </div>
+                    
+                    <h3>1.3 Writing to Files</h3>
+                    <pre><code><span class="comment"># Write to a file (overwrites existing content)</span>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> file:
+    file.<span class="function">write</span>(<span class="string">"Hello, World!\n"</span>)
+    file.<span class="function">write</span>(<span class="string">"This is a second line."</span>)
+
+<span class="comment"># Append to a file</span>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'output.txt'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> file:
+    file.<span class="function">write</span>(<span class="string">"\nAppended text."</span>)</code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-file-csv"></i> 2. Working with CSV Files</h2>
+                    
+                    <h3>2.1 Reading CSV Files</h3>
+                    <pre><code><span class="keyword">import</span> csv
+
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'data.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> file:
+    reader = csv.<span class="function">reader</span>(file)
+    <span class="keyword">for</span> row <span class="keyword">in</span> reader:
+        <span class="function">print</span>(row)  <span class="comment"># Each row is a list</span></code></pre>
+                    
+                    <h3>2.2 Writing CSV Files</h3>
+                    <pre><code><span class="keyword">import</span> csv
+
+data = [
+    [<span class="string">"Name"</span>, <span class="string">"Age"</span>, <span class="string">"Grade"</span>],
+    [<span class="string">"Yoseph"</span>, <span class="number">16</span>, <span class="string">"10D"</span>],
+    [<span class="string">"Fenet"</span>, <span class="number">15</span>, <span class="string">"10C"</span>]
+]
+
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'students.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:
+    writer = csv.<span class="function">writer</span>(file)
+    writer.<span class="function">writerows</span>(data)</code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/Uh2ebFW8OYM" title="Python File Handling" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/q5uM4VKywbA" title="Python CSV Files" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/XKHEtdqhLK8" title="Python File Operations" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 6: Error Handling -->
+            <div id="lesson6" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Error Handling</h1>
+                    <p>Learn to handle errors and exceptions in Python</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-bug"></i> 1. Try-Except Blocks</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Exception</div>
+                        <p>An exception is an event that occurs during program execution that disrupts the normal flow of the program's instructions.</p>
+                    </div>
+                    
+                    <h3>1.1 Basic Exception Handling</h3>
+                    <pre><code><span class="keyword">try</span>:
+    result = <span class="number">10</span> / <span class="number">0</span>
+<span class="keyword">except</span> ZeroDivisionError:
+    <span class="function">print</span>(<span class="string">"Cannot divide by zero!"</span>)</code></pre>
+                    
+                    <h3>1.2 Handling Multiple Exceptions</h3>
+                    <pre><code><span class="keyword">try</span>:
+    <span class="comment"># Code that might raise exceptions</span>
+    num = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter a number: "</span>))
+    result = <span class="number">100</span> / num
+<span class="keyword">except</span> ValueError:
+    <span class="function">print</span>(<span class="string">"Invalid input. Please enter a number."</span>)
+<span class="keyword">except</span> ZeroDivisionError:
+    <span class="function">print</span>(<span class="string">"Cannot divide by zero."</span>)
+<span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+    <span class="function">print</span>(<span class="string">f"An unexpected error occurred: {e}"</span>)</code></pre>
+                    
+                    <h3>1.3 Else and Finally</h3>
+                    <pre><code><span class="keyword">try</span>:
+    num = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Enter a number: "</span>))
+    result = <span class="number">100</span> / num
+<span class="keyword">except</span> ValueError:
+    <span class="function">print</span>(<span class="string">"Invalid input."</span>)
+<span class="keyword">except</span> ZeroDivisionError:
+    <span class="function">print</span>(<span class="string">"Cannot divide by zero."</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">f"Result is {result}"</span>)  <span class="comment"># Runs if no exceptions</span>
+<span class="keyword">finally</span>:
+    <span class="function">print</span>(<span class="string">"This always runs, with or without exceptions."</span>)</code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-exclamation-triangle"></i> 2. Raising Exceptions</h2>
+                    
+                    <h3>2.1 Raising Custom Exceptions</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">check_age</span>(age):
+    <span class="keyword">if</span> age < <span class="number">0</span>:
+        <span class="keyword">raise</span> ValueError(<span class="string">"Age cannot be negative"</span>)
+    <span class="keyword">elif</span> age < <span class="number">18</span>:
+        <span class="function">print</span>(<span class="string">"You are a minor"</span>)
+    <span class="keyword">else</span>:
+        <span class="function">print</span>(<span class="string">"You are an adult"</span>)
+
+<span class="keyword">try</span>:
+    <span class="function">check_age</span>(<span class="number">-5</span>)
+<span class="keyword">except</span> ValueError <span class="keyword">as</span> e:
+    <span class="function">print</span>(<span class="string">f"Error: {e}"</span>)</code></pre>
+                    
+                    <h3>2.2 Custom Exception Classes</h3>
+                    <pre><code><span class="keyword">class</span> <span class="function">InvalidEmailError</span>(<span class="function">Exception</span>):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, email):
+        <span class="keyword">self</span>.email = email
+        <span class="keyword">self</span>.message = <span class="string">f"Invalid email format: {email}"</span>
+        <span class="keyword">super</span>().<span class="function">__init__</span>(<span class="keyword">self</span>.message)
+
+<span class="keyword">def</span> <span class="function">validate_email</span>(email):
+    <span class="keyword">if</span> <span class="string">"@"</span> <span class="keyword">not</span> <span class="keyword">in</span> email <span class="keyword">or</span> <span class="string">"."</span> <span class="keyword">not</span> <span class="keyword">in</span> email:
+        <span class="keyword">raise</span> <span class="function">InvalidEmailError</span>(email)
+    <span class="function">print</span>(<span class="string">f"Email {email} is valid"</span>)
+
+<span class="keyword">try</span>:
+    <span class="function">validate_email</span>(<span class="string">"invalid.email"</span>)
+<span class="keyword">except</span> InvalidEmailError <span class="keyword">as</span> e:
+    <span class="function">print</span>(e.message)</code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/NIWwJbo-9_8" title="Python Error Handling" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6SPDvPK38tw" title="Python Exceptions" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/nlCKrKGHSSk" title="Python Try Except" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 7: Modules & Packages -->
+            <div id="lesson7" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Modules & Packages</h1>
+                    <p>Learn to organize and reuse code across multiple files</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-box-open"></i> 1. Modules</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Module</div>
+                        <p>A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py.</p>
+                    </div>
+                    
+                    <h3>1.1 Creating a Module</h3>
+                    <p>Create a file named <code>mymodule.py</code>:</p>
+                    <pre><code><span class="comment"># mymodule.py</span>
+<span class="keyword">def</span> <span class="function">greet</span>(name):
+    <span class="function">print</span>(<span class="string">f"Hello, {name}!"</span>)
+
+PI = <span class="number">3.14159</span></code></pre>
+                    
+                    <h3>1.2 Using a Module</h3>
+                    <pre><code><span class="comment"># Import the entire module</span>
+<span class="keyword">import</span> mymodule
+
+mymodule.<span class="function">greet</span>(<span class="string">"Yoseph"</span>)
+<span class="function">print</span>(mymodule.PI)
+
+<span class="comment"># Import specific items</span>
+<span class="keyword">from</span> mymodule <span class="keyword">import</span> greet, PI
+
+<span class="function">greet</span>(<span class="string">"Fenet"</span>)
+<span class="function">print</span>(PI)
+
+<span class="comment"># Import with alias</span>
+<span class="keyword">import</span> mymodule <span class="keyword">as</span> mm
+
+mm.<span class="function">greet</span>(<span class="string">"Nahom"</span>)</code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-boxes"></i> 2. Packages</h2>
+                    
+                    <div class="definition">
+                        <div class="definition-title"><i class="fas fa-book"></i> Definition: Package</div>
+                        <p>A package is a way of organizing related modules into a single directory hierarchy. Packages are directories containing a special <code>__init__.py</code> file.</p>
+                    </div>
+                    
+                    <h3>2.1 Creating a Package</h3>
+                    <p>Directory structure:</p>
+                    <pre><code>mypackage/
+    __init__.py
+    module1.py
+    module2.py
+    subpackage/
+        __init__.py
+        module3.py</code></pre>
+                    
+                    <h3>2.2 Using a Package</h3>
+                    <pre><code><span class="comment"># Import from package</span>
+<span class="keyword">from</span> mypackage <span class="keyword">import</span> module1
+<span class="keyword">from</span> mypackage.module2 <span class="keyword">import</span> some_function
+<span class="keyword">from</span> mypackage.subpackage <span class="keyword">import</span> module3</code></pre>
+                    
+                    <h3>2.3 Standard Library Modules</h3>
+                    <p>Python comes with many built-in modules:</p>
+                    <pre><code><span class="keyword">import</span> math
+<span class="function">print</span>(math.sqrt(<span class="number">16</span>))  <span class="comment"># 4.0</span>
+
+<span class="keyword">import</span> random
+<span class="function">print</span>(random.<span class="function">randint</span>(<span class="number">1</span>, <span class="number">10</span>))  <span class="comment"># Random number between 1-10</span>
+
+<span class="keyword">import</span> datetime
+today = datetime.date.<span class="function">today</span>()
+<span class="function">print</span>(today)  <span class="comment"># Current date</span></code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/0oTh1CXRaQ0" title="Python Modules" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/1RuMJ53CKds" title="Python Packages" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Qk7RoPwJdQk" title="Python Standard Library" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lesson 8: Sample Codes -->
+            <div id="lesson8" class="lesson-container">
+                <div class="lesson-header">
+                    <h1>Python Code Samples</h1>
+                    <p>Practical examples to reinforce your learning</p>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-code"></i> 1. Basic Examples</h2>
+                    
+                    <h3>1.1 Hello World</h3>
+                    <pre><code><span class="function">print</span>(<span class="string">"Hello, World!"</span>)</code></pre>
+                    
+                    <h3>1.2 Simple Calculator</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">calculator</span>(a, b, operation):
+    <span class="keyword">if</span> operation == <span class="string">"+"</span>:
+        <span class="keyword">return</span> a + b
+    <span class="keyword">elif</span> operation == <span class="string">"-"</span>:
+        <span class="keyword">return</span> a - b
+    <span class="keyword">elif</span> operation == <span class="string">"*"</span>:
+        <span class="keyword">return</span> a * b
+    <span class="keyword">elif</span> operation == <span class="string">"/"</span>:
+        <span class="keyword">return</span> a / b
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> <span class="string">"Invalid operation"</span>
+
+result = <span class="function">calculator</span>(<span class="number">5</span>, <span class="number">3</span>, <span class="string">"+"</span>)
+<span class="function">print</span>(result)  <span class="comment"># Output: 8</span></code></pre>
+                    
+                    <h3>1.3 Factorial</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">factorial</span>(n):
+    <span class="keyword">if</span> n == <span class="number">0</span>:
+        <span class="keyword">return</span> <span class="number">1</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> n * <span class="function">factorial</span>(n - <span class="number">1</span>)
+
+<span class="function">print</span>(<span class="function">factorial</span>(<span class="number">5</span>))  <span class="comment"># Output: 120</span></code></pre>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2><i class="fas fa-cogs"></i> 2. Intermediate Examples</h2>
+                    
+                    <h3>2.1 Palindrome Checker</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">is_palindrome</span>(s):
+    <span class="keyword">return</span> s == s[::-<span class="number">1</span>]
+
+<span class="function">print</span>(<span class="function">is_palindrome</span>(<span class="string">"madam"</span>))  <span class="comment"># True</span>
+<span class="function">print</span>(<span class="function">is_palindrome</span>(<span class="string">"python"</span>)) <span class="comment"># False</span></code></pre>
+                    
+                    <h3>2.2 Prime Number Checker</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">is_prime</span>(n):
+    <span class="keyword">if</span> n <= <span class="number">1</span>:
+        <span class="keyword">return</span> <span class="keyword">False</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">2</span>, <span class="function">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):
+        <span class="keyword">if</span> n % i == <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="keyword">False</span>
+    <span class="keyword">return</span> <span class="keyword">True</span>
+
+<span class="function">print</span>(<span class="function">is_prime</span>(<span class="number">17</span>))  <span class="comment"># True</span>
+<span class="function">print</span>(<span class="function">is_prime</span>(<span class="number">15</span>))  <span class="comment"># False</span></code></pre>
+                    
+                    <h3>2.3 Fibonacci Sequence</h3>
+                    <pre><code><span class="keyword">def</span> <span class="function">fibonacci</span>(n):
+    a, b = <span class="number">0</span>, <span class="number">1</span>
+    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="function">range</span>(n):
+        <span class="function">print</span>(a, end=<span class="string">" "</span>)
+        a, b = b, a + b
+
+<span class="function">fibonacci</span>(<span class="number">10</span>)  <span class="comment"># Output: 0 1 1 2 3 5 8 13 21 34</span></code></pre>
+                </div>
+                
+                <div class="youtube-videos">
+                    <h2><i class="fab fa-youtube"></i> Related YouTube Videos</h2>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/8ext9G7xspg" title="Python Projects" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/4F2m91eKmts" title="Python Examples" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/JJmcL1N2KQs" title="Python Practice" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="intro.html" style="color: white; text-decoration: none;">Introduction</a></li>
+                    <li><a href="textbooks.html" style="color: white; text-decoration: none;">Resources</a></li>
+                    <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> feyisayoseph@gmail.com</p>
+                <p><i class="fab fa-telegram"></i> @itcluboda</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bishoftu, Ethiopia</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 ODA ICT Club. All rights reserved | Designed by ICT Club Members</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Show lesson content
+        function showLesson(lessonId) {
+            // Hide all lessons
+            document.querySelectorAll('.lesson-container').forEach(lesson => {
+                lesson.classList.remove('active-lesson');
+            });
+            
+            // Show selected lesson
+            const activeLesson = document.getElementById(lessonId);
+            if (activeLesson) {
+                activeLesson.classList.add('active-lesson');
+            }
+            
+            // Update active state in sidebar
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the clicked link
+            const activeLink = document.querySelector(`.sidebar-menu a[onclick="showLesson('${lessonId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top of lesson content
+            document.querySelector('.lesson-content').scrollTo(0, 0);
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Set first lesson as active by default
+        document.addEventListener('DOMContentLoaded', () => {
+            showLesson('lesson1');
+            
+            // Highlight current section in sidebar when scrolling
+            const lessonSections = document.querySelectorAll('.lesson-section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                lessonSections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id') || current;
+                    }
+                });
+                
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
